@@ -78,7 +78,7 @@ $(document).ready(function () {
             //$('#tblChannalList').DataTable();
         })
             .catch(function (error) {
-                $('#tblChannalList').html("Network Error NO Data Found!").css("text-align", "center");
+                $('#tblChannalList').html("<b>Network Error NO Data Found!</b>").css("text-align", "center");
                 Swal.fire({ type: "error", title: error.message.toUpperCase() })
             });
         
