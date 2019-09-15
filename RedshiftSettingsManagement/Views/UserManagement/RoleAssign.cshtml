@@ -1,0 +1,194 @@
+﻿
+@{
+    ViewData["Title"] = "RoleAssign";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/site.css" rel="stylesheet" />
+
+<style>
+    .nextRow {
+        padding-top: 40px;
+    }
+
+    .checkbox-button {
+        cursor: pointer;
+    }
+
+    input[type=checkbox] {
+        box-sizing: border-box;
+        padding: 0;
+    }
+
+    input {
+        font-size: 1rem;
+        line-height: 1.5;
+        /*padding: 11px 23px;*/
+        border: 1px solid rgba(0,0,0,.15);
+        border-radius: 0;
+        outline: 0;
+        background-color: transparent;
+    }
+
+    .checkbox-button__input {
+        opacity: 0;
+        position: absolute;
+    }
+
+    .checkbox-button__control {
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        /*margin-right: 12px;*/
+        vertical-align: middle;
+        background-color: inherit;
+        color: #017b5f;
+        border: 2px solid #666;
+    }
+
+    .checkbox-button__input:checked + .checkbox-button__control:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 10px;
+        height: 10px;
+        background-color: black;
+    }
+
+    .checkbox-button__input:checked + .checkbox-button__control {
+        border-color: #808080;
+    }
+
+    .checkbox-button__control {
+        transform: scale(0.75);
+    }
+</style>
+
+<h2 style="padding-top:50px"></h2>
+
+<div class="row" style="padding-top:30px">
+    <div class="col-md-8 col-md-offset-2" style="border:solid">
+        <div class="altblhead">
+
+            <h2>
+
+                Assign New Role
+
+            </h2>
+
+        </div>
+
+        <div class="row" style="padding-top:30px;padding-bottom:30px;">
+            <div class="col-md-1 col-md-offset-1"> <b> Role Name </b> </div>
+            <div class="col-md-9" style="width:initial">
+
+                <input type="text" class="form-control txtboxdesign" id="usr">
+
+            </div>
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-3 col-md-offset-1 nextRow"> <b> Select Category and Sub-Category </b> </div>
+            <div class="col-md-8 nextRow">
+
+            </div>
+            <div class="col-md-2 col-md-offset-1 nextRow">
+                <div style="border:ridge">
+                    <div class="altblhead">
+                        <h4> General Settings </h4>
+                    </div>
+
+                    <div id="dvprocess" class="dvprocess">
+                        <label class="checkbox-button">
+                            <input type="checkbox" class="checkbox-button__input" id="choice1-1" name="choice1">
+                            <span class="checkbox-button__control"></span>
+                            <span class="checkbox-button__label">Process</span>
+                        </label>
+                        <br />
+
+                        <label class="checkbox-button">
+                            <input type="checkbox" class="checkbox-button__input" id="choice1-1" name="choice1">
+                            <span class="checkbox-button__control"></span>
+                            <span class="checkbox-button__label">App Settings</span>
+                        </label>
+                        <br />
+                        <label class="checkbox-button">
+                            <input type="checkbox" class="checkbox-button__input" id="choice1-1" name="choice1">
+                            <span class="checkbox-button__control"></span>
+                            <span class="checkbox-button__label">Ad Settings</span>
+                        </label>
+                        @*<input id="checkbox1" type="checkbox">
+                            <label for="checkbox1"> App Settings </label>*@
+                        <br />
+                        <label class="checkbox-button">
+                            <input type="checkbox" class="checkbox-button__input" id="choice1-1" name="choice1">
+                            <span class="checkbox-button__control"></span>
+                            <span class="checkbox-button__label">Configaration Controls</span>
+                        </label>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-2 col-md-offset-1 nextRow">
+                <div style="border:ridge">
+                    <div class="altblhead">
+                        <h4> Channel Management </h4>
+                    </div>
+                    <div id="dvprocess" class="dvprocess">
+                        <input id="checkbox1" type="checkbox">
+                        <label for="checkbox1"> Channel </label>
+                        <br />
+                        <input id="checkbox1" type="checkbox">
+                        <label for="checkbox1">  Settings </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-md-offset-1 nextRow">
+                <div style="border:ridge">
+                    <div class="altblhead">
+                        <h4> User Management </h4>
+                    </div>
+                    <div id="dvprocess" class="dvprocess">
+                        <input id="checkbox1" type="checkbox">
+                        <label for="checkbox1"> User </label>
+                        <br />
+                        <input id="checkbox1" type="checkbox">
+                        <label for="checkbox1"> Role </label>
+                        <br />
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-md-offset-1 nextRow">
+                <div style="border:ridge">
+                    <div class="altblhead">
+                        <h4> Special Case </h4>
+                    </div>
+                    <div id="dvprocess" class="dvprocess">
+                        <input id="checkbox1" type="checkbox">
+                        <label for="checkbox1"> Ownership Transfer </label>
+                        <br />
+                        <input id="checkbox1" type="checkbox">
+                        <label for="checkbox1"> Activation Interval </label>
+                        <br />
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-md-offset-5 nextRow">
+                <button type="button" class="btn btn-block btn-success allbutton" style="color:white;">Save</button>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,1436 @@
+﻿@font-face {
+    font-family: 'RobiAxiata';
+    src: url('../fonts/robi/Axiata_Book.eot?#iefix') format('embedded-opentype'), url('../fonts/robi/Axiata_Book.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'RobiAxiataMedium';
+    src: url('../fonts/robi/Axiata_Medium.eot?#iefix') format('embedded-opentype'),url('../fonts/robi/Axiata_Medium.otf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/poppins/Poppins-Regular.eot?#iefix') format('embedded-opentype'),url('../fonts/poppins/Poppins-Regular.otf') format('truetype');
+}
+
+
+
+
+/*.navbars {
+    height: 100px;
+    overflow: hidden;
+    background-color: #ed1c24;
+}*/
+
+
+
+.subnav p {
+    color: white;
+}
+
+.txtboxdesign {
+    border-radius: 5px;
+    height: 30px;
+}
+
+.btnCommon {
+    border-radius: 5px;
+    height: 30px;
+}
+
+.hdrRobiAxia {
+    font-family: 'RobiAxiata';
+    font-size: medium;
+}
+
+.pRobiAxiata {
+    font-family: 'RobiAxiata';
+    font-size: small;
+}
+
+.dvRobiMedium {
+    font-family: 'RobiAxiataMedium';
+    font-size: small;
+}
+
+.btnCommon {
+    border-radius: 5px;
+    height: 30px;
+}
+
+.tblcustom {
+
+}
+/*.subnav span:hover {
+            color: red;
+        }*/
+.subnav {
+    /*margin-left: 5%;*/
+    float: left;
+    overflow: hidden;
+    text-align: center;
+}
+
+
+ .button:hover {
+        background-color: white;
+        color: black
+  }
+
+.butsubnav {
+
+}
+
+
+.txtboxdesign {
+    border-radius: 5px;
+    height: 30px;
+}
+
+.allbutton {
+    border-radius: 5px;
+    height: 30px;
+}
+
+.subnav-content button:hover {
+
+    background-color: white;
+    border: solid;
+    border-color: white;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+
+.subnav .subnavbtn {
+
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    /*padding: 14px 16px;*/
+    background-color: inherit;
+    font-family: 'RobiAxiata';
+    margin: 0;
+
+}
+
+/*.navbars a:hover, .subnav:hover .subnavbtn {
+            background-color: green;
+        }*/
+
+/*.subnav-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: #2f3242;
+    width: 100%;
+    height: 60px;
+    z-index: 1;
+}*/
+
+
+
+    .subnav-content a {
+        float: left;
+        color: white;
+        text-decoration: none;
+    }
+
+        .subnav-content a:hover {
+            background-color: #eee;
+            color: black;
+        }
+
+.subnav:hover .subnav-content {
+    display: block;
+}
+
+.btn_login {
+    color: white;
+    background-color: white;
+    /*background: url('../../images/login/button_bg.png') no-repeat;*/
+    background-size: cover;
+    /*width: 410px;
+            height: 42px;
+            border-radius: 27px;
+            font-weight: bold;*/
+}
+
+.menuIcon {
+    padding-top: 15px;
+    padding-bottom: 10px;
+    height: 60px;
+    width: 32px;
+}
+
+down {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #f00;
+    /*transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            color: white;
+            background-color: white;*/
+}
+/*Logout image arror toggle */
+ul {
+    list-style: none;
+}
+
+.menu_button, .sub_menu_item {
+    background-color: indianred;
+    width: 75px;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+.sub_menu {
+    display: none;
+}
+
+.triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 8px solid white;
+}
+
+
+/*Layout Page Menu and Others design change*/
+
+
+
+
+
+/*.container {
+    padding: 1px;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+}*/
+
+
+input:-webkit-autofill {
+    background-color: #FAFFBD !important;
+}
+
+body {
+    overflow-x: hidden;
+    padding: 0px;
+    margin: 0px;
+    background: url(../images/background_bg_ffffff.png) no-repeat center center fixed;
+    background-size: cover;
+    line-height: normal !important;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+
+
+
+
+
+
+    .header {
+        border-bottom: 2px solid red;
+        padding-bottom: 8px;
+        margin-top: 15px;
+        overflow: hidden;
+        font-family: RobiAxiataMedium;
+        font-size: 18px
+    }
+
+.header-text {
+    color: black;
+    /*text-align: center;*/
+    line-height: 2.5;
+    left: 0%;
+    font-size:large;
+}
+.firstcontent {
+    padding: 100px;
+    
+}
+    .firstcontent div {
+        border-style: solid;
+        border-color: #ebeaed;
+    }
+
+.altblhead {
+    height: 40px;
+    background-color: #e8e7ec;
+    padding-left: 15px;
+    padding-top: 7px;
+}
+
+
+.alldiv {
+    border-style: solid;
+    border-color: #ebeaed;
+}
+
+
+.altblhead h2{
+    padding:5px;
+}
+        .altblhead h3 {
+            padding: 5px;
+        }
+
+.nid_1st::-ms-clear {
+    display: none;
+}
+
+.txt_nid {
+    line-height: 2.4;
+}
+
+
+.input-group-addon {
+    border-right: none;
+}
+
+.input-lg {
+    border-left: none;
+}
+
+.btn_browse_cert, .btn_browse_succ {
+    border: none;
+}
+
+footer {
+    color: purple;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-family: "RobiAxiata";
+    position: absolute
+}
+
+.nid_smart, .passport, .driving_licen {
+    display: none;
+}
+
+/*//////Custom-Checkbox*/
+.container_chk {
+    /*display: block;*/
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    /*font-size: 22px;*/
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    /* Hide the browser's default checkbox */
+    .container_chk input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #ccc;
+}
+
+/* On mouse-over, add a grey background color */
+.container_chk:hover input ~ .checkmark {
+    background-color: gray;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container_chk input:checked ~ .checkmark {
+    background-color: #b21935;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+
+/* This Section for checkbox toggoling  */
+
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 24px;
+    /*width: 60px;
+            height: 34px;*/
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*color:yellow;*/
+    background-color: #F4EFEE; /*close to white color*/
+    /*background-color: #f4425c;*/ /*red color*/
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        /*height: 26px;
+                width: 26px;
+                height: 26px;
+                width: 26px;
+                left: 4px;*/
+        bottom: 4px;
+        /*background-color: yellow;*/
+        background-color: red;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+
+input:checked + .slider:before {
+    /*color:yellow;*/
+    background-color: green;
+    /*color: green;*/
+}
+
+ input:checked + .slider {
+    /*color:yellow;*/
+    /*background-color: ;*/
+    /*color: green;*/
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+    /*border-radius: 34px;*/
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+        /*border-radius: 50%;*/
+    }
+
+/* End of checkbox Toggoling */
+
+
+
+/* Show the checkmark when checked */
+.container_chk input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container_chk .checkmark:after {
+    left: 6.3px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/* On mouse-over, add a grey background color */
+.container_radio:hover input ~ .radio {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container_radio input:checked ~ .radio {
+    background-color: #2196F3;
+}
+
+.selected {
+    width: 33.5% !important;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container_radio input:checked ~ .radio:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container_radio .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.view_Container {
+    position: absolute;
+    width: 98%;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #d9534f;
+    border-radius: 10px;
+    height: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    outline: 1px solid slategrey;
+}
+
+.back_capture_img {
+    width: 400px;
+    height: 55px;
+}
+
+.btn_bottom {
+    position: absolute;
+    top: 98%;
+    left: 32%
+}
+
+.txt_accept {
+    vertical-align: sub;
+}
+
+.btn_on_image {
+    position: absolute;
+    left: 57.5% !important;
+    line-height: 2 !important;
+    top: -4%
+    /*top: 83%;*/
+}
+
+.swal2-container, .jq-toast-wrap {
+    font-family: RobiAxiata !important;
+}
+
+.btn_capture {
+}
+
+.btn_back {
+    left: 16% !important;
+    line-height: 2 !important;
+    top: -4%
+}
+
+
+.custom-fc:focus, .custom-dc:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1) !important;
+    /*padding: 3px 0px 3px 3px;*/
+    /*margin: 5px 1px 3px 0px;*/
+    border: 1px solid rgba(81, 203, 238, 1) !important;
+}
+
+.nid_1st {
+    background-color: white !important;
+}
+
+.nid_init_focus {
+    margin-left: 2px;
+}
+
+.nid_txt {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1) !important;
+    /*padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;*/
+    border: 1px solid rgba(81, 203, 238, 1);
+    border-color: rgba(81, 203, 238, 1) !important;
+}
+
+/*for higher resulation*/
+@media screen and (max-device-width: 1920px) and (min-device-width: 1920px) and (min-device-height:1080px)  {
+
+
+    .navbars {
+        height: 130px;
+        overflow: hidden;
+        background-color: #ed1c24;
+    }
+
+    .menuIcon {
+        height:70px;
+    }
+
+    .btnCommonAll {
+        font-size:15px;
+        
+    }
+
+    .button {
+        background-color: #2f3242; /* light black */
+        border: 2px solid;
+        /*border-width:thin;*/
+        outline: none;
+        color: white;
+        margin-top: 50px;
+        margin-right: 50px;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        /*font-size: 16px;*/
+        margin: 4px 2px;
+        cursor: pointer;
+        padding-top: 5px;
+        border-radius: 30px 30px 30px 30px;
+        padding-bottom: 5px;
+        outline: 0 !important;
+        font-family: 'RobiAxiata';
+        font-size: 120%;
+        height: 35px;
+    }
+
+
+    .subnav-content {
+        display: none;
+        position: absolute;
+        left: 0;
+        background-color: #2f3242;
+        width: 100%;
+        height: 60px;
+        z-index: 1;
+    }
+
+    .tr_row {
+        font-size:16px;
+    }
+   
+    .pRobiAxiata {
+        font-size: 120%;
+    }
+
+
+    .hvr_home {
+        margin-left: 12% !important;
+        height:20000px;
+    }
+
+    .hvr_general_settings {
+        margin-left: 2% !important;
+        height:200%;
+    }
+
+    .tridown_subnav_gsttings {
+        margin-left: 21.75% !important;
+        position: absolute !important;
+    }
+
+    .btngenset {
+        margin-left: 20% !important;
+    }
+
+    .hvr_channel_mgt {
+        margin-left: 2% !important;
+    }
+
+    .tringle_chnl {
+        margin-left: 29.80%;
+        position: absolute !important;
+    }
+
+    .btnchanelMgt {
+        margin-left: 27.75% !important;
+    }
+
+    .hvr_User_mgt {
+        margin-left: 2% !important;
+    }
+
+    .tringle_usMgt {
+        position: absolute !important;
+        margin-left: 37.25% !important;
+    }
+
+    .btnUserMgt {
+        margin-left: 35.5% !important;
+    }
+
+
+    .hvr_Err_Hndle {
+        margin-left: 2% !important;
+    }
+
+
+    .tringle_spclcase {
+        position: absolute !important;
+        margin-left: 45.00% !important;
+    }
+
+    .btnspclCase {
+        margin-left: 42% !important;
+    }
+
+
+    .hvr_Reports {
+        margin-left: 2% !important;
+    }
+
+
+    .trinangle_Reports {
+        position: absolute !important;
+        margin-left: 53.00% !important;
+    }
+
+    .btnReports {
+        margin-left: 51% !important;
+    }
+
+}
+
+
+/*2nd Highest Resulation*/
+
+@media screen and (max-device-width: 1680px) and (min-device-height:1050px) {
+
+    .navbars {
+        height: 130px;
+        overflow: hidden;
+        background-color: #ed1c24;
+    }
+
+    .menuIcon {
+        height: 70px;
+    }
+
+    .button {
+        background-color: #2f3242; /* light black */
+        border: 2px solid;
+        /*border-width:thin;*/
+        outline: none;
+        color: white;
+        margin-top: 50px;
+        margin-right: 50px;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        /*font-size: 16px;*/
+        margin: 4px 2px;
+        cursor: pointer;
+        padding-top: 5px;
+        border-radius: 30px 30px 30px 30px;
+        padding-bottom: 5px;
+        outline: 0 !important;
+        font-family: 'RobiAxiata';
+        font-size: 120%;
+        height: 35px;
+    }
+
+
+    .subnav-content {
+        display: none;
+        position: absolute;
+        left: 0;
+        background-color: #2f3242;
+        width: 100%;
+        height: 60px;
+        z-index: 1;
+    }
+
+
+    .hvr_home {
+        margin-left: 12% !important;
+    }
+
+    .hvr_general_settings {
+        margin-left: 2% !important;
+    }
+
+    .tridown_subnav_gsttings {
+        margin-left: 23% !important;
+        position: absolute !important;
+    }
+
+    .btngenset {
+        margin-left: 21% !important;
+    }
+
+    .hvr_channel_mgt {
+        margin-left: 2% !important;
+    }
+
+    .tringle_chnl {
+        margin-left: 31.80%;
+        position: absolute !important;
+    }
+
+
+    .btnchanelMgt {
+        margin-left: 29.75% !important;
+    }
+
+
+    .hvr_User_mgt {
+        margin-left: 2% !important;
+    }
+
+
+    .tringle_usMgt {
+        position: absolute !important;
+        margin-left: 40.25% !important;
+    }
+
+    .btnUserMgt {
+        margin-left: 38.5% !important;
+    }
+
+
+    .hvr_Err_Hndle {
+        margin-left: 2% !important;
+    }
+
+
+    .tringle_spclcase {
+        position: absolute !important;
+        margin-left: 48.75% !important;
+    }
+
+    .btnspclCase {
+        margin-left: 45.5% !important;
+    }
+}
+
+/*High Resulation*/
+
+
+
+@media screen and (max-device-width: 1600px) and (max-device-height:900px){
+
+    .navbars {
+        height: 130px;
+        overflow: hidden;
+        background-color: #ed1c24;
+    }
+
+    .menuIcon {
+        height: 70px;
+    }
+
+    .button {
+        background-color: #2f3242; /* light black */
+        border: 2px solid;
+        /*border-width:thin;*/
+        outline: none;
+        color: white;
+        margin-top: 50px;
+        margin-right: 50px;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        /*font-size: 16px;*/
+        margin: 4px 2px;
+        cursor: pointer;
+        padding-top: 5px;
+        border-radius: 30px 30px 30px 30px;
+        padding-bottom: 5px;
+        outline: 0 !important;
+        font-family: 'RobiAxiata';
+        font-size: 94%;
+        height: 35px;
+    }
+
+    .subnav-content {
+        display: none;
+        position: absolute;
+        left: 0;
+        background-color: #2f3242;
+        width: 100%;
+        height: 60px;
+        z-index: 1;
+    }
+
+
+    .hvr_home {
+        margin-left: 12% !important;
+    }
+
+    .hvr_general_settings {
+        margin-left: 2% !important;
+    }
+
+    .tridown_subnav_gsttings {
+        margin-left: 23.25% !important;
+        position: absolute !important;
+    }
+
+    .btngenset {
+        margin-left: 21% !important;
+    }
+
+    .hvr_channel_mgt {
+        margin-left: 2% !important;
+    }
+
+    .tringle_chnl {
+        margin-left: 32.5%;
+        position: absolute !important;
+    }
+
+    .btnchanelMgt {
+        margin-left: 30% !important;
+    }
+
+    .hvr_User_mgt {
+        margin-left: 2% !important;
+    }
+
+    .tringle_usMgt {
+        position: absolute !important;
+        margin-left: 41.25% !important;
+    }
+
+    .btnUserMgt {
+        margin-left: 39.5% !important;
+    }
+
+
+    .hvr_Err_Hndle {
+        margin-left: 2% !important;
+    }
+
+
+    .tringle_spclcase {
+        position: absolute !important;
+        margin-left: 50% !important;
+    }
+
+    .btnspclCase {
+        margin-left: 45.85% !important;
+    }
+}
+
+
+
+@media screen and (max-device-width: 1440px) {
+
+
+    .navbars {
+        height: 130px;
+        overflow: hidden;
+        background-color: #ed1c24;
+    }
+
+    .menuIcon {
+        height: 70px;
+    }
+
+
+    .button {
+        background-color: #2f3242; /* light black */
+        border: 2px solid;
+        /*border-width:thin;*/
+        outline: none;
+        color: white;
+        margin-top: 50px;
+        margin-right: 50px;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        /*font-size: 16px;*/
+        margin: 4px 2px;
+        cursor: pointer;
+        padding-top: 5px;
+        border-radius: 30px 30px 30px 30px;
+        padding-bottom: 5px;
+        outline: 0 !important;
+        font-family: 'RobiAxiata';
+        font-size: 120%;
+        height: 35px;
+    }
+
+    .hvr_home {
+        margin-left: 12% !important;
+    }
+
+    .hvr_general_settings {
+        margin-left: 2% !important;
+    }
+
+    .tridown_subnav_gsttings {
+        margin-left: 24.25% !important;
+        position: absolute !important;
+    }
+
+    .btngenset {
+        margin-left: 21.75% !important;
+    }
+
+    .hvr_channel_mgt {
+        margin-left: 2% !important;
+    }
+
+    .tringle_chnl {
+        margin-left: 34%;
+        position: absolute !important;
+    }
+
+    .btnchanelMgt {
+        margin-left: 31.5% !important;
+    }
+
+    .hvr_User_mgt {
+        margin-left: 2% !important;
+    }
+
+    .tringle_usMgt {
+        position: absolute !important;
+        margin-left: 44% !important;
+    }
+
+    .btnUserMgt {
+        margin-left: 42% !important;
+    }
+
+
+    .hvr_Err_Hndle {
+        margin-left: 2% !important;
+    }
+
+
+    .tringle_spclcase {
+        position: absolute !important;
+        margin-left: 53.5% !important;
+    }
+
+    .btnspclCase {
+        margin-left: 36.5% !important;
+    }
+}
+
+
+
+@media screen and (max-device-width: 1400px) {
+
+    .navbars {
+        height: 130px;
+        overflow: hidden;
+        background-color: #ed1c24;
+    }
+
+    .menuIcon {
+        height: 70px;
+    }
+
+
+    .button {
+        background-color: #2f3242; /* light black */
+        border: 2px solid;
+        /*border-width:thin;*/
+        outline: none;
+        color: white;
+        margin-top: 50px;
+        margin-right: 50px;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        /*font-size: 16px;*/
+        margin: 4px 2px;
+        cursor: pointer;
+        padding-top: 5px;
+        border-radius: 30px 30px 30px 30px;
+        padding-bottom: 5px;
+        outline: 0 !important;
+        font-family: 'RobiAxiata';
+        font-size: 120%;
+        height: 35px;
+    }
+
+    .hvr_home {
+        margin-left: 12% !important;
+    }
+
+    .hvr_general_settings {
+        margin-left: 2% !important;
+    }
+
+    .tridown_subnav_gsttings {
+        margin-left: 25% !important;
+        position: absolute !important;
+    }
+
+    .btngenset {
+        margin-left: 22.5% !important;
+    }
+
+    .hvr_channel_mgt {
+        margin-left: 2% !important;
+    }
+
+    .tringle_chnl {
+        margin-left: 34.75%;
+        position: absolute !important;
+    }
+
+    .btnchanelMgt {
+        margin-left: 31.75% !important;
+    }
+
+    .hvr_User_mgt {
+        margin-left: 2% !important;
+    }
+
+    .tringle_usMgt {
+        position: absolute !important;
+        margin-left: 44.5% !important;
+    }
+
+    .btnUserMgt {
+        margin-left: 42.30% !important;
+    }
+
+
+    .hvr_Err_Hndle {
+        margin-left: 2% !important;
+    }
+
+
+    .tringle_spclcase {
+        position: absolute !important;
+        margin-left: 54.5% !important;
+    }
+
+    .btnspclCase {
+        margin-left: 36.5% !important;
+    }
+}
+
+
+@media all and (min-width:300px) and (max-width:2500px) {
+    
+}
+
+    @media screen and (max-width: 400px) {
+        .fixed-height {
+            margin-bottom: 15px
+        }
+
+        .r1c5, .r2c4, r3c5 {
+            width: 98.5%;
+        }
+
+        .brand_logo {
+            display: none;
+        }
+
+        .header-text {
+            float: left;
+        }
+
+        .left_pannel {
+            border-right: none;
+        }
+
+        .right_pannel {
+            padding-left: 15px !important;
+            margin-top: 29px !important;
+        }
+
+        .right_dd, .right_text {
+            width: 92% !important;
+        }
+
+        .separator, .separator_nid, .separator_nid_ {
+            display: none;
+        }
+
+        .nid_1st {
+            letter-spacing: normal !important;
+        }
+    }
+
+    @media screen and (min-width: 401px) and (max-width: 720px) {
+        .fixed-height {
+            margin-bottom: 10px
+        }
+
+        .r1c5, .r2c4, r3c5 {
+            width: 98.5%;
+        }
+
+        .brand_logo {
+            display: none;
+        }
+
+        .header-text {
+            float: left;
+        }
+
+        .right_dd, .right_text {
+            width: 92% !important;
+        }
+
+        .left_pannel {
+            border-right: none;
+        }
+
+        .right_pannel {
+            padding-left: 15px !important;
+            margin-top: 29px !important;
+        }
+
+        .right_dd, .right_text {
+            width: 92% !important;
+        }
+
+        .separator, .separator_nid, .separator_nid_ {
+            display: none;
+        }
+
+        .nid_1st {
+            letter-spacing: normal !important;
+        }
+    }
+
+    @media screen and (min-height: 600px) and (max-height: 700px) {
+        .operations_r1, .operations_r2 {
+            margin-bottom: 10px
+        }
+    }
+
+    @media screen and (min-width: 721px) and (max-width: 1280px) {
+        /*.separator, .separator_nid, .separator_nid_ {
+            display: none;
+        }*/
+        .fixed-height {
+            margin-bottom: 15px
+        }
+
+        .brand_logo {
+            display: none;
+        }
+
+        .header-text {
+            /*float: left;*/
+        }
+
+        .left_pannel {
+            border-right: none;
+        }
+
+        /*.nid_1st {
+            letter-spacing: normal;
+        }*/
+
+        /*.right_pannel {
+        padding-left: 15px !important;
+        margin-top: 29px !important;
+    }*/
+
+        .right_dd, .right_text {
+            width: 100% !important;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .r1c1, rw23, .r1c2, .r2c1, .r2c3, .r3c2, .r3c4 {
+            width: 23% !important
+        }
+
+        .r2c4 {
+            width: 34.2% !important;
+        }
+
+        .brand_logo {
+            display: block;
+        }
+
+        .separator {
+            display: block;
+        }
+    }
+
+    @media screen and (min-width: 1281px) and (max-width: 1440px) {
+        .r1c1, rw23, .r1c2, .r2c1, .r2c3, .r3c2, .r3c4 {
+            width: 23% !important
+        }
+
+        .r2c4 {
+            width: 34.2% !important;
+        }
+
+        .separator {
+            display: block;
+        }
+    }
+
+    @media screen and (min-width: 1441px) and (max-width: 1920px) {
+        .r1c1, rw23, .r1c2, .r2c1, .r2c3, .r3c2, .r3c4 {
+            width: 23% !important
+        }
+
+        .r2c4 {
+            width: 34.2% !important;
+        }
+
+        .separator {
+            display: block;
+        }
+    }
+
+    @media screen and (min-width: 1921px) {
+        .r1c1, rw23, .r1c2, .r2c1, .r2c3, .r3c2, .r3c4 {
+            width: 23% !important
+        }
+
+        .r2c4 {
+            width: 34.2% !important;
+        }
+
+        .separator {
+            display: block;
+        }
+    }
+
+    /*.red {
+    background-image: -moz-linear-gradient( 90deg, rgb(0,0,0) 0%, #ed1c24 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(0,0,0) 0%, #ed1c24 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(0,0,0) 0%, rgb(255,255,255) 100%);
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.15);
+}
+.purple {
+    background-image: -webkit-linear-gradient( 90deg, rgb(0,0,0) 0%, #842e62 100%);
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.15);
+}*/
+
+
+    @-webkit-keyframes blinkText {
+        from {
+            opacity: 1.0;
+        }
+
+        to {
+            opacity: 0.0;
+        }
+    }
+
+    blinkText {
+        -webkit-animation-name: blink;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+        -webkit-animation-duration: 1s;
+    }
+
+    .progressLoader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid red;
+        border-right: 16px solid white;
+        border-bottom: 16px solid red;
+        border-left: 16px solid white;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+        margin: 0 auto;
+        margin-top: 22%;
+        /*display:none*/
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        -webkit-transform: translate(0, -500%);
+        -ms-transform: translate(0, -500%);
+        transform: translate(0, -500%);
+        -webkit-transition: -webkit-transform 0.3s ease-out;
+        -moz-transition: -moz-transform 0.3s ease-out;
+        -o-transition: -o-transform 0.3s ease-out;
+        transition: transform 0.3s ease-out;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        border: 1px solid green;
+        -webkit-text-fill-color: green;
+        -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+    /* Safari */
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }

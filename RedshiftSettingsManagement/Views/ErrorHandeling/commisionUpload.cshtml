@@ -1,0 +1,188 @@
+﻿
+@{
+    ViewData["Title"] = "commisionUpload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+    #load {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 9999;
+        background: url('/images/loader/lg.comet-spinner.gif') no-repeat center center rgba(0,0,0,0.25);
+        /*background: url('../../wwwroot/images/loader/lg.comet-spinner.gif') !important;*/
+    }
+
+    .nextrow {
+        padding-top: 10px;
+        
+    }
+
+    #fileuploadfile {
+        width: 100% !important;
+    }
+</style>
+<link href="~/css/bootstrap/bootstrap431min.css" rel="stylesheet" />
+<link href="~/css/datepicker/bootstrapDatepicker.css" rel="stylesheet" />
+@*<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">*@
+<link href="~/css/site.css" rel="stylesheet" />
+
+@*<link href="~/css/bootstrap/bootstrap-datetimepicker.min.css" rel="stylesheet" />*@
+
+@*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">*@
+
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+<script src="~/js/jquery-3.3.1.min.js"></script>
+@*<script src="~/js/bootstrapDatepicker2/bootstrapDatepicker.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>*@
+<script src="~/js/Special Case/commision_Upload.js"></script>
+<h2 style="padding-top:50px"></h2>
+
+<div id="load"></div>
+
+<div class="row" style="padding-top:30px">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="alldiv">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia"> Comission Upload </h2>
+            </div>
+            <div class="row" style="padding-top:30px;padding-bottom:30px;">
+                @*<form id="uploadForm" enctype="multipart/form-data" v-on:change="uploadFile">*@
+                    <div class="col-md-1 col-md-offset-1 dvRobiMedium">File Name</div>
+                    <div class="col-md-9">
+                        <div class="custom-file mb-3 ">
+                            <input type="file" class="custom-file-input" id="customFile" name="filename">
+                            <label id="fileuploadfile" class="custom-file-label fileuploadfile" for="customFile">Choose file</label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-3 col-md-offset-5 nextrow">
+                        <button type="button" class="btn btn-dark com_fle_upload txtboxdesign btnCommonAll" style="color:white;width:100px;">Upload</button>
+                    </div>
+                    <div class="col-md-4 nextrow">
+
+                    </div>
+                @*</form>*@
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-1">
+
+
+    </div>
+
+</div>
+
+<div class="row nextrow">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="alldiv">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia"> Comission List </h2>
+            </div>
+
+            @*<div class="row" style="padding-top:30px;padding-bottom:30px;">*@
+            <table id="tblCommision_Upload" class="table tbl_allCommision">
+                <thead>
+                    <tr>
+                        <th class="dvRobiMedium" style="text-align:center" scope="col">#</th>
+                        <th class="dvRobiMedium" style="text-align:center" scope="col">TranSection No</th>
+                        <th class="dvRobiMedium" style="text-align:center" scope="col">FileName</th>
+                        <th class="dvRobiMedium" style="text-align:center" scope="col">Commision Month</th>
+                        <th class="dvRobiMedium" style="text-align:center" scope="col">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tbl_AllCommisionList"></tbody>
+
+            </table>
+            @*</div>*@
+        </div>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+
+</div>
+
+<script>
+
+    //$(function () {
+    //    $(".datepickers").datepicker();
+    //});
+
+    //$('#input_starttime').pickatime({
+    //    // Light or Dark theme
+    //    darktheme: true
+    //});
+
+
+    //$('.timepicker').timepicker({ timeFormat: 'h:mm:ss p' });
+
+
+    function change() // no ';' here
+    {
+
+
+        var elem = document.getElementById("btnpublish");
+
+        if (elem.value == "Publish") elem.value = "UnPublish";
+        else elem.value = "Publish";
+
+    }
+
+    $(".custom-file-input").on("change", function () {
+
+
+        var fileName = $(this).val().split("\\").pop();
+
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+
+        //$('.custom-file-input').css('width', '1000px');
+    });
+
+
+    document.onreadystatechange = function () {
+
+        var state = document.readyState
+        if (state == 'complete') {
+            setTimeout(function () {
+                document.getElementById('interactive');
+                document.getElementById('load').style.visibility = "hidden";
+            }, 2000);
+        }
+    }
+
+</script>
+
+
+
+@*this things is cancelled by sofiq bhai
+
+    <div class="col-md-1 col-md-offset-1 nextrow">
+        Date
+    </div>
+    <div class="col-md-3 nextrow">
+        <input type="text" class="form-control datepickers" required>
+    </div>
+    <div class="col-md-1 col-md-offset-1 nextrow">
+        Time
+    </div>
+    <div class="col-md-3 nextrow">
+
+        <div class="md-form">
+            <input placeholder="Selected time" type="text" id="input_starttime" class="form-control timepicker">
+            <label for="input_starttime"></label>
+        </div>
+        @*<input type="time" id="appt" name="appt"
+            min="9:00" max="18:00" required>
+    </div>
+    <div class="col-md-1 nextrow">
+
+    </div>*@

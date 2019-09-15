@@ -1,0 +1,285 @@
+﻿
+@{
+    ViewData["Title"] = "RoleAssign";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/site.css" rel="stylesheet" />
+
+<script src="~/js/User Management/RoleAdd.js"></script>
+
+<style>
+    .nextRow {
+        padding-top: 40px;
+    }
+
+    .checkbox-button {
+        cursor: pointer;
+    }
+
+    input[type=checkbox] {
+        box-sizing: border-box;
+        padding: 0;
+    }
+
+    input {
+        font-size: 1rem;
+        line-height: 1.5;
+        /*padding: 11px 23px;*/
+        border: 1px solid rgba(0,0,0,.15);
+        border-radius: 0;
+        outline: 0;
+        background-color: transparent;
+    }
+
+    .checkbox-button__input {
+        opacity: 0;
+        position: absolute;
+    }
+
+    .checkbox-button__control {
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        /*margin-right: 12px;*/
+        vertical-align: middle;
+        background-color: inherit;
+        color: #017b5f;
+        border: 2px solid #666;
+    }
+
+    .checkbox-button__input:checked + .checkbox-button__control:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 10px;
+        height: 10px;
+        background-color: black;
+    }
+
+    .checkbox-button__input:checked + .checkbox-button__control {
+        border-color: #808080;
+    }
+
+    .checkbox-button__control {
+        transform: scale(0.75);
+    }
+</style>
+
+<h2 style="padding-top:50px"></h2>
+
+<div class="row" style="padding-top:30px">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="alldiv">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia">
+                    Add New Role
+                </h2>
+            </div>
+            <div class="row" style="padding-top:30px;padding-bottom:30px;">
+                <div class="col-md-1 col-md-offset-1 dvRobiMedium"> <b> Role Name </b> </div>
+                <div class="col-md-9" style="width:initial">
+
+                    <input type="text" class="form-control txtroleName txtboxdesign" id="rolename">
+
+                </div>
+                <div class="col-md-1">
+
+                </div>
+
+                <div class="col-md-3 col-md-offset-5 nextRow">
+                    <button type="button" class="btn btn-block btn-success allbutton btnRoleSave btnCommonAll" style="color:white;">Save</button>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+                </div>
+            </div>
+        </div>
+    <div class="col-md-2"></div>
+</div>
+
+<div class="row" style="padding-top:30px">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="alldiv" style="padding-bottom:20px;">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia">
+                    Assign New Role
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-md-offset-1 nextRow dvRobiMedium"> <b> Select Category and Sub-Category </b> </div>
+                <div class="col-md-1 nextRow dvRobiMedium">Select Role</div>
+                <div class="col-md-6 nextRow">
+                    
+
+
+                        <select class="form-control usrole txtboxdesign" id="usrole">
+                            <option>Select Role</option>
+                        </select>
+
+                   
+                </div>
+                <div class="col-md-1">
+
+                </div>
+
+
+                <div class="col-md-3 col-md-offset-1  nextRow" >
+                    <div style="border:ridge">
+                        <div class="altblhead">
+                            <h4> All Menu </h4>
+                        </div>
+                        <div id="dvMenuMname" class="dvMenuMname">
+                            <input id="chkMenuMname" type="checkbox" value="1">
+                            <label for="chkMenuMname" class="dvRobiMedium"> Home DashBoard </label>
+                            <br />
+                            <input id="chkMenuMname" type="checkbox" value="2">
+                            <label for="chkMenuMname" class="dvRobiMedium"> General Settings </label>
+                            <br />
+                            <input id="chkMenuMname" type="checkbox" value="3">
+                            <label for="chkMenuMname" class="dvRobiMedium"> Channel Management </label>
+                            <br />
+                            <input id="chkMenuMname" type="checkbox" value="4">
+                            <label for="chkMenuMname" class="dvRobiMedium"> User Management </label>
+                            <br />
+                            <input id="chkMenuMname" type="checkbox" value="5">
+                            <label for="chkMenuMname" class="dvRobiMedium"> Special Case </label>
+                            <br />
+                            <input id="chkMenuMname" type="checkbox" value="6">
+                            <label for="chkMenuMname" class="dvRobiMedium"> System Report </label>
+                            <br />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+
+                </div>
+
+                <div class="col-md-2 col-md-offset-1 nextRow">
+                    <div style="border:ridge">
+                        <div class="altblhead">
+                            <h4> General Settings </h4>
+                        </div>
+
+                        <div id="dvProcess" class="dvProcess">
+                            <label class="checkbox-button">
+                                <input type="checkbox" class="checkbox-button__input" id="choice1-1" name="choice1">
+                                <span class="checkbox-button__control"></span>
+                                <span class="checkbox-button__label dvRobiMedium">Process</span>
+                            </label>
+                            <br />
+
+                            <label class="checkbox-button">
+                                <input type="checkbox" class="checkbox-button__input" id="choice1-1" name="choice1">
+                                <span class="checkbox-button__control"></span>
+                                <span class="checkbox-button__label dvRobiMedium">App Settings</span>
+                            </label>
+                            <br />
+                            <label class="checkbox-button">
+                                <input type="checkbox" class="checkbox-button__input" id="choice1-1" name="choice1">
+                                <span class="checkbox-button__control"></span>
+                                <span class="checkbox-button__label dvRobiMedium">Ad Settings</span>
+                            </label>
+                            @*<input id="checkbox1" type="checkbox">
+                    <label for="checkbox1"> App Settings </label>*@
+                            <br />
+                            <label class="checkbox-button">
+                                <input type="checkbox" class="checkbox-button__input" id="choice1-1" name="choice1">
+                                <span class="checkbox-button__control"></span>
+                                <span class="checkbox-button__label dvRobiMedium">Configaration Controls</span>
+                            </label>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-2  nextRow" style="padding-left:1%;">
+                    <div style="border:ridge">
+                        <div class="altblhead">
+                            <h4> Channel Management </h4>
+                        </div>
+                        <div id="dvprocess" class="dvprocess">
+                            <input id="checkbox1" type="checkbox">
+                            <label for="checkbox1" class="dvRobiMedium"> Channel </label>
+                            <br />
+                            <input id="checkbox1" type="checkbox">
+                            <label for="checkbox1" class="dvRobiMedium">  Settings </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2  nextRow" style="padding-left:1%;">
+                    <div style="border:ridge">
+                        <div class="altblhead">
+                            <h4> User Management </h4>
+                        </div>
+                        <div id="dvprocess" class="dvprocess">
+                            <input id="checkbox1" type="checkbox">
+                            <label for="checkbox1" class="dvRobiMedium"> User </label>
+                            <br />
+                            <input id="checkbox1" type="checkbox">
+                            <label for="checkbox1" class="dvRobiMedium"> Role </label>
+                            <br />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2  nextRow" style="padding-left:1%;">
+                    <div style="border:ridge">
+                        <div class="altblhead">
+                            <h4> Special Case </h4>
+                        </div>
+                        <div id="dvprocess" class="dvprocess">
+                            <input id="checkbox1" type="checkbox">
+                            <label for="checkbox1" class="dvRobiMedium"> Ownership Transfer </label>
+                            <br />
+                            <input id="checkbox1" type="checkbox">
+                            <label for="checkbox1" class="dvRobiMedium"> Activation Interval </label>
+                            <br />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2  nextRow" style="padding-left:1%;">
+                    <div style="border:ridge">
+                        <div class="altblhead">
+                            <h4> System Report </h4>
+                        </div>
+                        <div id="dvprocess" class="dvprocess">
+                            <input id="checkbox1" type="checkbox">
+                            <label for="checkbox1" class="dvRobiMedium"> Ownership Transfer </label>
+                            <br />
+                            <input id="checkbox1" type="checkbox">
+                            <label for="checkbox1" class="dvRobiMedium"> Activation Interval </label>
+                            <br />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+
+                </div>
+                <div class="col-md-3 col-md-offset-4 nextRow" style="padding-bottom:20px;">
+                    
+                        <button type="button" class="btn btn-block btn-success allbutton btnAssignMenu btnCommonAll" style="color:white;">Asssign Menu</button>
+                   
+                </div>
+                <div class="col-md-5">
+
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+
+
+
+

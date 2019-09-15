@@ -1,0 +1,231 @@
+﻿@{
+    ViewData["Title"] = "RedShift || BRS";
+}
+
+@*<div class="row page_header">
+        <span class="operation-header-text">
+            main content goes here..
+        </span>
+    </div>*@
+
+
+
+<div class="operations" style="">
+
+
+</div>
+
+<style>
+
+    #load {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 9999;
+        background: url('/images/loader/lg.comet-spinner.gif') no-repeat center center rgba(0,0,0,0.25);
+        /*background: url('../../wwwroot/images/loader/lg.comet-spinner.gif') !important;*/
+    }
+
+    .dvborder {
+        border-color: red;
+        border-style: solid;
+    }
+
+    .gimg {
+        padding-top: 15px;
+        padding-bottom: 150px;
+        padding-left: 30%;
+        margin: auto;
+    }
+
+    .nextrow {
+        padding-top: 10px;
+    }
+
+    .nextRowLast {
+        padding-top: 40px;
+    }
+
+    .hme_txt {
+        color: red;
+    }
+
+    .gset_txt {
+        color: red;
+    }
+
+    .chnmgt_txt {
+        color: red;
+    }
+
+    .usr_MGTtxt {
+        color: red;
+    }
+
+    .spcl_cse_txt {
+        color: red;
+    }
+</style>
+<script src="~/js/HomePage/home_index.js"></script>
+
+<h2 style="padding-top:60px"></h2>
+<div id="load"></div>
+<div class="row">
+
+    <div class="col-md-11 col-md-offset-1">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="nextrow dvborder dvhome" style="cursor:pointer; padding-left:25px;padding-right:25px;">
+                    <div>
+
+                        <img class="gimg imghomeIndex" src="~/images/Shared/HomePageIcon/Home.png" />
+
+                    </div>
+                    <div style="padding-left:15%">
+                        <h2 class="hdrRobiAxia hme_txt">
+                            Home<br /> DashBoard
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="nextrow dvborder dvgmgt" style="cursor:pointer;padding-left:25px;padding-right:25px;">
+                    <div>
+
+                        <img class="gimg imggnrl_mgt" src="~/images/Shared/HomePageIcon/general_mgt_red.png" />
+                        @*<img class="gimg" src="~/images/Shared/HomePageIcon/Genelal_Settings_Red.png" />*@
+
+                    </div>
+                    <div style="padding-left:15%">
+                        <h2 class="hdrRobiAxia gset_txt">
+                            General<br />
+                            Settings
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="nextrow dvborder dv_Chnmgt" style="cursor:pointer;padding-left:25px;padding-right:25px;">
+                    <div>
+                        <img class="gimg imgchn_mgt" src="~/images/Shared/HomePageIcon/chnl_MGT_RED.png" />
+                    </div>
+                    <div style="padding-left:15%">
+                        <h2 class="hdrRobiAxia chnmgt_txt">
+                            Channel<br />
+                            Management
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="nextrow dvborder dvusrMGT" style="cursor:pointer;padding-left:25px;padding-right:25px;">
+                    <div>
+                        <img class="gimg img_usrmgt" src="~/images/Shared/HomePageIcon/user_MGT_Red.png" />
+                    </div>
+                    <div style="padding-left:15%">
+                        <h2 class="hdrRobiAxia usr_MGTtxt">
+                            User<br />
+                            Management
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="nextrow  dvborder dvspccase" style="cursor:pointer;padding-left:25px;padding-right:25px;">
+                    <div>
+                        <img class="gimg imgspcase" src="~/images/Shared/HomePageIcon/special_case_Red.png" />
+                    </div>
+                    <div style="padding-left:15%">
+                        <h2 class="hdrRobiAxia spcl_cse_txt">
+                            Special<br />
+                            Case
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-md-1"></div>*@
+        </div>
+        <div class="row nextRowLast" style="padding-bottom:20px;">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+<div class="col-md-1">
+
+</div>
+
+<script>
+    document.onreadystatechange = function () {
+
+        var state = document.readyState
+        if (state == 'complete') {
+            setTimeout(function () {
+                document.getElementById('interactive');
+                document.getElementById('load').style.visibility = "hidden";
+            }, 2000);
+        }
+    }
+</script>
+
+
+@*Ruhul Bhai Css
+    .item3 {
+            grid-column: auto / span 2;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: auto auto;
+            grid-gap: 10px;
+            padding: 10px;
+        }
+
+            .grid-container > div {
+                text-align: center;
+                padding: 20px 0;
+            }
+
+        .dashboard-container {
+            width: 90%;
+            margin: 0 auto
+        }
+
+        .operations {
+            margin-top: 20px;
+            font-family: "RobiAxiata";
+        }
+
+        .page_header {
+            margin-top: 15px;
+            font-family: "RobiAxiataMedium";
+            font-size: 26px
+        }
+
+        .fixed-height {
+            height: 140px;
+            color: white;
+            cursor: pointer
+        }
+
+        .header {
+            border-bottom: 2px solid red;
+            padding-bottom: 8px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+
+
+        .operation-header-text {
+            color: red;
+            display: inline-block;
+            margin-top: 30px;
+        }*@

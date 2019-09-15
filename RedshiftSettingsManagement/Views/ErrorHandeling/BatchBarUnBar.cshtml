@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewData["Title"] = "BatchBarUnBar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    .nextrow {
+        padding-top: 10px;
+    }
+
+    #fileuploadfile {
+        width: 100% !important;
+    }
+</style>
+<link href="~/css/bootstrap/bootstrap431min.css" rel="stylesheet" />
+
+<link href="~/css/site.css" rel="stylesheet" />
+
+@*<link href="~/css/bootstrap/bootstrap-datetimepicker.min.css" rel="stylesheet" />*@
+
+@*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">*@
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+<script src="~/js/jquery-3.3.1.min.js"></script>
+
+<script src="~/js/Special Case/commision_Upload.js"></script>
+<h2 style="padding-top:50px"></h2>
+
+<div class="row" style="padding-top:30px">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="alldiv">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia"> Batch  Un Bar </h2>
+            </div>
+            <div class="row" style="padding-top:30px;padding-bottom:30px;">
+                <div class="col-md-1 col-md-offset-1">File Name</div>
+                <div class="col-md-9">
+
+                    <div class="custom-file mb-3 ">
+                        <input type="file" class="custom-file-input" id="customFile" name="filename">
+                        <label id="fileuploadfile" class="custom-file-label fileuploadfile" for="customFile">Choose file</label>
+                    </div>
+
+                </div>
+                <div class="col-md-1">
+
+                </div>
+                <div class="col-md-3 col-md-offset-5 nextrow">
+                    <button type="button" class="btn btn-dark com_fle_upload" style="color:white;width:100px;">Upload</button>
+                </div>
+                <div class="col-md-4 nextrow">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+
+</div>
+
+<div class="row nextrow">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="alldiv">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia"> Batch Bar Un Bar List </h2>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewData["Title"] = "AdSettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/css/site.css" rel="stylesheet" />
+
+<style>
+
+    #load {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 9999;
+        background: url('/images/loader/lg.comet-spinner.gif') no-repeat center center rgba(0,0,0,0.25);
+        /*background: url('../../wwwroot/images/loader/lg.comet-spinner.gif') !important;*/
+    }
+
+    .nextRow {
+        padding-top: 20px;
+    }
+
+    .btnappUpdate {
+        border-radius: 5px;
+        height: 30px;
+    }
+</style>
+
+<script src="~/js/General Settings/AppSettings.js"></script>
+
+<h2 style="padding-top:50px"></h2>
+<div id="load"></div>
+<div class="row" style="padding-top:30px">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="alldiv">
+            @*<div style="border:ridge">*@
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia"> App Settings </h2>
+            </div>
+
+            <div class="row" style="padding-top:30px;padding-bottom:30px;">
+                <div class="col-md-2 col-md-offset-1 dvRobiMedium">Network Session Timeout <br />(in sec) </div>
+                <div class="col-md-3"> <input type="text" class="form-control txtNettimeout txtboxdesign" id="txtNettimeout"></div>
+                <div class="col-md-2 dvRobiMedium"> Min Number of Fingers <br />(in Numbers) </div>
+                <div class="col-md-3"> <input type="text" class="form-control txtminNumberFingers txtboxdesign" id="txtTimeLimit"></div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2 col-md-offset-1 nextRow dvRobiMedium">Max Number of Attempts <br />(in Number) </div>
+                <div class="col-md-6 nextRow dvRobiMedium"> <input type="text" class="form-control txtmaxNumAttempts txtboxdesign" id="txtpro"></div>
+                <div class="col-md-2 nextRow"><button type="button" class="btn btn-large btn-block btn-dark btnappUpdate btnCommonAll" style="color:white">Update</button></div>
+                <div class="col-md-1">
+                    <input type="hidden" class="appsetID">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10 col-md-offset-1" style="padding-top:30px">
+        <div class="alldiv">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia"> App Settings Information </h2>
+            </div>
+
+            <table id="tblAppSettings" class="table" style="padding-left:10px;">
+                <thead style="border-bottom: 3px solid #FF5533;padding-left:100px;">
+                    <tr class="dvRobiMedium">
+                        <th style="text-align:center;">Network Session Timeout</th>
+                        <th style="text-align:center;">Min Number of Fingers</th>
+                        <th style="text-align:center;">Max No Attempts</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tblAppSettingsList" style="padding-left:100px;"></tbody>
+
+                <tbody id="tblAppSettings_Empty">
+                    <tr>
+                        <td>No Row Found</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+
+        </div>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+</div>
+
+<script>
+    document.onreadystatechange = function () {
+
+        var state = document.readyState
+        if (state == 'complete') {
+            setTimeout(function () {
+                document.getElementById('interactive');
+                document.getElementById('load').style.visibility = "hidden";
+            }, 2000);
+        }
+    }
+</script>

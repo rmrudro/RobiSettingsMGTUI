@@ -1,0 +1,210 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" />
+
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+    <link href="~/css/font_awesome/font-awesome4_7_0.min.css" rel="stylesheet" />
+
+    <link href="~/css/bootstrap/bootstrap431min.css" rel="stylesheet" />
+
+
+    <script src="~/js/ajax_jquiry_min_3_3_1.js/jquery_3_3_1.js"></script>
+
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>*@
+
+    <script src="~/js/axios.min.js"></script>
+
+    @*<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>*@
+
+
+    <script src="~/js/sweet_alert/sweetalert2@8.js"></script>
+
+
+    @*<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@7.1.0/dist/promise.min.js"></script>*@
+
+    <script src="~/js/promise.min.js.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.0.0/Rx.js"></script>*@
+    <script src="~/js/Rx-5.0.0.js"></script>
+    <script src="~/js/_core_processor.js"></script>
+
+    @*<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>*@
+
+    <script src="~/js/jquery_1_11_1min.js"></script>
+
+
+
+    @*<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>*@
+    <script src="~/js/bootstrap4_0_0_min/bootstrap_min_4_0_0.js"></script>
+
+    <title>Login</title>
+</head>
+<body style="overflow-x:hidden;overflow-y:hidden; height:100%">
+
+    <div class="row" style="height:100%">
+        <div class="col-md-5 login_pannel">
+
+            <img src="~/images/Login/robi_logo.png" class="img_robi_Logo" />
+
+            <hr align="centre" width="60%" style="background-color:red;">
+
+            <h2 style="color:red;text-align: center">SETTINGS MANAGEMENT </h2>
+
+            <img src="~/images/Login/sim_picture.png" class="img_sim_card" />
+
+
+
+        </div>
+        @*table-bordered*@
+        <div class="col-md-7 login_pannel2" style="height:100%">
+            <h2 class="hdrRobiAxia" style="margin-top:30%;padding-left:150px;color:white">Log In to Your Settings Management System</h2>
+            <div class="uinfo">
+                <div class="tags-input-custom-name">
+                    <input id="textUserName" autocomplete="off" type="text" class="tags-input" placeholder="USER ID" />
+                </div>
+                <div class="tags-input-custom-password">
+                    <input id="txtPassword" autocomplete="off" type="password" class="tags-input" placeholder="PASSWORD" />
+                </div>
+            </div>
+
+            <div class="uinfo">
+                <p class="reset_password pRobiAxiata" style="color:white">FORGET PASSWORD ? <a style="color:white" href="#">CLICK HERE</a></p>
+            </div>
+
+                <div class="uinfo1">
+                    <div class="btn btn_login" style="margin-left: 40%;line-height:2.1">LOGIN</div>
+                    @{
+                        var greeting = "Welcome to our site!";
+                        var weekDay = DateTime.Now.DayOfWeek;
+                        var greetingMessage = greeting + " Here in Huston it is: " + weekDay;
+                    }
+                    <div>
+                    </div>
+                    <p class="hdrRobiAxia" style="color: white;padding-left: 30%;padding-top: 34%;padding-bottom:4.80%">
+                        @DateTime.Now.Year Robi Axiata Limited
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+</body>
+
+</html>
+<script src="~/js/_login.js"></script>
+
+<style>
+    /*body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: url(../images/login/login_bg_with_aldl.png) no-repeat;
+    }*/
+
+
+    .uinfo {
+        padding-top: 10px;
+        padding-left: 150px;
+    }
+
+    .uinfo1 {
+        padding-top: 10px;
+        padding-left: 150px;
+    }
+
+    .login_pannel2 {
+        background-image: url('../images/login/background.png');
+        font-family: Arial, Helvetica, sans-serif;
+        height: 800px;
+        /*width:30%;*/
+        /*//background-color: red*/
+    }
+
+    .img_sim_card {
+        margin-top: 40%;
+    }
+
+    .img_robi_Logo {
+        margin-top: 30%;
+        margin-left: 50%;
+        margin-right: 50%;
+    }
+    /*.login_pannel2 {
+
+    }*/
+    .tags-input-custom-name {
+        background-image: url('../images/login/login_text_box_with_icon_01.png');
+        /*//  background: url(../images/login/login_text_box_with_icon_01.png) no-repeat;*/
+        height: 50px;
+        width: 410px;
+        background-size: contain;
+        margin-bottom: 10px;
+        /*padding-left: 150px;*/
+        /*margin-left: -24%;*/
+    }
+
+    .tags-input-custom-password {
+        margin-top: 10px;
+        background-image: url('../images/login/login_text_box_with_icon_02.png');
+        /*background: url(../images/login/login_text_box_with_icon_02.png) no-repeat;*/
+        height: 50px;
+        width: 410px;
+        background-size: contain;
+        /*padding-left: 150px;*/
+        /*//margin-left: -24%;*/
+    }
+
+    .tags-input {
+        border: none;
+        /* border-radius: 4px; */
+        height: 59px;
+        width: 100%;
+        /* padding: 0 11px; */
+        font-size: 19px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        overflow: hidden;
+        color: white;
+        background-color: transparent;
+        margin-left: 40%;
+    }
+
+    .btn_login {
+        /*background-image: url('../images/login/background.png');*/
+        color: black;
+        background-color: white;
+        /*background: url('../../images/login/button_bg.png') no-repeat;*/
+        background-size: cover;
+        width: 410px;
+        height: 42px;
+        border-radius: 27px;
+        font-weight: bold;
+        /*margin: 0 auto;*/
+        /*padding: 0;*/
+        display: table-cell;
+        /*padding-left:100px;*/
+        vertical-align: middle;
+    }
+
+    .tags-input:focus {
+        border-color: #71ccd5;
+        outline: none;
+    }
+
+        .tags-input:focus[data-cursor]::after {
+            display: block;
+        }
+</style>
+

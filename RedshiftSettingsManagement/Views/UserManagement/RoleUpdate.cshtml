@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "RoleUpdate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+    .nextRow {
+        padding-top: 40px;
+    }
+
+</style>
+<link href="~/css/site.css" rel="stylesheet" />
+
+
+<script src="~/js/cookie/jquery_cookie_1_3_1.js"></script>
+<script src="~/js/User Management/RoleUpdate.js"></script>
+
+
+<h2 style="padding-top:50px"></h2>
+
+<div class="row" style="padding-top:30px">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="alldiv">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia">
+                    Add New Role
+                </h2>
+            </div>
+
+            <div class="row" style="padding-top:30px;padding-bottom:30px;">
+                <div class="col-md-1 col-md-offset-1 dvRobiMedium"> <b> Role Name </b> </div>
+                <div class="col-md-9" style="width:initial">
+
+                    <input type="text" class="form-control txtroleName txtboxdesign" id="rolename">
+
+                </div>
+                <div class="col-md-1">
+                    <input type="text" class="form-control txtroleid txtboxdesign" id="roleid" hidden>
+                </div>
+
+                <div class="col-md-3 col-md-offset-5 nextRow">
+                    <button type="button" class="btn btn-block btn-success allbutton btnRoleUpdate" style="color:white;">Update</button>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

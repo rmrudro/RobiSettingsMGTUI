@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewData["Title"] = "FTR";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/css/site.css" rel="stylesheet" />
+<style>
+
+    #load {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 9999;
+        background: url('/images/loader/lg.comet-spinner.gif') no-repeat center center rgba(0,0,0,0.25);
+        /*background: url('../../wwwroot/images/loader/lg.comet-spinner.gif') !important;*/
+    }
+
+    .nextrow {
+        padding-top:10px;
+    }
+</style>
+<script src="~/js/General Settings/FTR.js"></script>
+
+
+
+<h2 style="padding-top:50px"></h2>
+<div id="load"></div>
+<div class="row" style="padding-top:30px">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="alldiv">
+
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia"> Add FTR </h2>
+            </div>
+
+            <div class="row" style="padding-top:30px;padding-bottom:30px;">
+                <div class="col-md-2 col-md-offset-1 dvRobiMedium">FTR NAME * </div>
+                <div class="col-md-4"> <input type="text" class="form-control ftrTitle txtboxdesign" id="ftrTitle"> </div>
+                <div class="col-md-1 dvRobiMedium">
+                    Amount
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control ftramount txtboxdesign" id="ftramount" >
+                </div>
+                <div class="col-md-1">
+
+                </div>
+                <div class="col-md-offset-4 col-md-4 nextrow"><button type="button" class="btn btn-dark ftrAdd btnCommon btnCommonAll" style="color:white;width:120px">Add</button>
+                                                              <button type="button" class="btn btn-dark ftrUpdate btnCommon btnCommonAll" style="color:white;width:120px;display:none" >Update</button></div>
+                <div class="col-md-4 nextrow"></div>
+            </div>
+
+        </div>
+        <div style="padding-top:20px;">
+        </div>
+        <div class="alldiv">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia"> FTR LIST </h2>
+               
+            </div>
+
+            @*<div class="col-md-12">*@
+
+            <table id="tblFTRList"
+                   class="col-md-12 table table-striped table-condensed cf allchannel">
+
+                <thead>
+                    <tr>
+                        <th class="dvRobiMedium" style="text-align:center">FTR Title</th>
+                        <th class="dvRobiMedium" style="text-align:center">Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="tblFTR"></tbody>
+
+                <tbody id="tblFTR_Empty">
+                    <tr>
+                        <td>No Row Found</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+</div>
+
+<script>
+
+    document.onreadystatechange = function () {
+
+        var state = document.readyState
+        if (state == 'complete') {
+            setTimeout(function () {
+                document.getElementById('interactive');
+                document.getElementById('load').style.visibility = "hidden";
+            }, 2000);
+        }
+    }
+
+</script>

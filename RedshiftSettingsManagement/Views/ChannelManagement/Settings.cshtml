@@ -1,0 +1,169 @@
+﻿
+@{
+    ViewData["Title"] = "Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/site.css" rel="stylesheet" />
+
+<script src="~/js/Channel Management/Ch_Settings.js"></script>
+
+<style>
+    #load {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 9999;
+        background: url('/images/loader/lg.comet-spinner.gif') no-repeat center center rgba(0,0,0,0.25);
+        /*background: url('../../wwwroot/images/loader/lg.comet-spinner.gif') !important;*/
+    }
+</style>
+
+<h2 style="padding-top:50px"></h2>
+<div id="load"></div>
+<div class="row" style="padding-top:20px;padding-bottom:20px;">
+    <div class="col-md-8 col-md-offset-2" style="padding-left:30px;padding-right:30px;">
+        <div class="alldiv">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia"> Assign Channel Settings</h2>
+            </div>
+
+            <div class="row" style="padding-top:30px;padding-bottom:30px;">
+                <div class="col-md-3 col-md-offset-1 dvRobiMedium">Channel Name * </div>
+                <div class="col-md-4">
+                    <select class="form-control allchannel txtboxdesign" id="allchannel">
+                        <option>Choose Channel</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+
+    <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-4" style="padding-top:30px;">
+            <div style="width:95%">
+                <div class="alldiv">
+                    <div class="altblhead">
+                        <h2 class="hdrRobiAxia"> Menu</h2>
+                    </div>
+
+                    <div id="dvchkSellectAll" class="dvchkSellectAll" style="padding-left:20px">
+                        <input id="chkMenuNameAll" class="chkMenuNameAll" type="checkbox" />
+                        <label class="tr_row" for="chkMenuNameAll">Select All</label>
+                    </div>
+
+                    <div id="dvAllMenu" class="dvAllMenu" style="padding-left:20px;">
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4" style="padding-top:30px">
+            <div style="width:95%">
+                <div class="alldiv">
+                    <div class="altblhead">
+                        <h2 class="hdrRobiAxia"> Add Settings</h2>
+                    </div>
+
+                    <div id="dvAdSettings" class="dvAdSettings" style="padding-left:20px;">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" style="padding-top:30px">
+            <div class="alldiv">
+                <div class="altblhead">
+                    <h2 class="hdrRobiAxia"> Auto Update </h2>
+                </div>
+
+                <div style="padding-left:15px">
+
+
+                    <input id="rdoautoupdate01" type="radio" class="rdoautoupdate" name="autoupdate" checked value="1" style="padding-left:10px;text-align:center">
+                    <label class="tr_row">
+                        Yes
+                    </label>
+                    <br>
+
+
+                    <input id="rdoautoupdate00" type="radio" class="rdoautoupdate" name="autoupdate" value="0" style="padding-left:10px;text-align:center">
+                    <label class="tr_row">
+                        No
+                    </label>
+
+
+                </div>
+            </div>
+
+            <br />
+            <br />
+
+            <div class="alldiv">
+                <div class="altblhead">
+                    <h2 class="hdrRobiAxia"> Is Identity </h2>
+                </div>
+
+                <div style="padding-left:15px">
+
+                    <input id="rdo_isIdentity_01" type="radio" class="rdoisIdentity" name="isidentity" value="1" checked style="padding-left:10px;text-align:center"> <label class="tr_row">
+                        Yes
+                    </label>
+                    <br>
+                    <input id="rdo_isIdentity_00" type="radio" class="rdoisIdentity" name="isidentity" value="0" style="padding-left:10px;text-align:center">
+                    <label class="tr_row">
+                        No
+                     <br>
+                    </label>
+                    
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-md-2">
+
+    </div>
+
+
+
+
+
+
+    <div class="col-md-2 col-md-offset-5" style="padding-top:10px;">
+        <button type="button" class="btn btn-dark btnassignMenu btnCommonAll" style="color:white;width:100px">Save</button>
+    </div>
+    <div class="col-md-5">
+
+    </div>
+</div>
+<script>
+
+    document.onreadystatechange = function () {
+
+        var state = document.readyState
+        if (state == 'complete') {
+            setTimeout(function () {
+                document.getElementById('interactive');
+                document.getElementById('load').style.visibility = "hidden";
+            }, 2000);
+        }
+    }
+
+</script>
+
+
+

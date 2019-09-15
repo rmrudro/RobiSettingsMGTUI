@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewData["Title"] = "GetTransaction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+    #load {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 9999;
+        background: url('/images/loader/lg.comet-spinner.gif') no-repeat center center rgba(0,0,0,0.25);
+        /*background: url('../../wwwroot/images/loader/lg.comet-spinner.gif') !important;*/
+    }
+
+    .nextrow {
+        padding-top: 10px;
+    }
+</style>
+<link href="~/css/site.css" rel="stylesheet" />
+@*<link href="~/css/bootstrap/bootstrap431min.css" rel="stylesheet" />*@
+<link href="~/css/datepicker/bootstrapDatepicker.css" rel="stylesheet" />
+<link type="text/css" href="~/css/DataTable/DataTable_1_10_19.css" rel="stylesheet" />
+<link href="~/css/DataTable/buttons_1_5_6_datatables.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+@*<script src="~/js/jquery-3.3.1.min.js"></script>*@
+<script src="~/js/bootstrapDatepicker2/bootstrapDatepicker.js"></script>
+<script type="text/javascript" src="~/js/DataTable/DataTable_1_10_19.js"></script>
+
+
+<script src="~/js/DataTable/Datatables_button_1_5_6.js"></script>
+<script src="~/js/DataTable/buttons_flash_1_5_6.js"></script>
+<script src="~/js/DataTable/ajax_jszip_3_1_3.js"></script>
+<script src="~/js/DataTable/ajax_0_1_53_pdfMake.js"></script>
+<script src="~/js/DataTable/pdfMake_0_1_53_vfsFonts.js"></script>
+<script src="~/js/DataTable/buttons_1_5_6_html5_buttons.js"></script>
+<script src="~/js/DataTable/buttons_1_5_6_print.js"></script>
+
+
+<script src="~/js/Reports/GetTransactionReport.js"></script>
+
+
+<h2 style="padding-top:50px"></h2>
+
+<div id="load"></div>
+
+<div class="row" style="padding-top:30px">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="alldiv">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia"> Transaction Report </h2>
+            </div>
+            <div class="row" style="padding-top:30px;padding-bottom:30px;">
+
+                <div class="col-md-1 col-md-offset-1 dvRobiMedium">From Date</div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control txtfromdate datepickers txtboxdesign" required>
+                </div>
+                <div class="col-md-2 dvRobiMedium">
+                    To Date
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control txttodate datepickers txtboxdesign" required>
+                </div>
+                <div class="col-md-1">
+
+                </div>
+
+                <div class="col-md-3 col-md-offset-5 nextrow">
+
+                    <button type="button" class="btn btn-dark com_fle_upload btnGetReport btnCommon btnCommonAll" style="color:white;width:100px;">Get Report</button>
+
+                </div>
+                <div class="col-md-4 nextrow">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+</div>
+
+
+<div class="row nextrow">
+
+    <div class="col-md-10 col-md-offset-1">
+        <div class="alldiv">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia"> Report </h2>
+            </div>
+            <table class="table table-responsive" id="tbl_Transeaction">
+               
+            </table>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+
+<script>
+   
+    document.onreadystatechange = function () {
+
+        var state = document.readyState
+        if (state == 'complete') {
+            setTimeout(function () {
+                document.getElementById('interactive');
+                document.getElementById('load').style.visibility = "hidden";
+            }, 2000);
+        }
+    }
+
+    $(function () {
+        $(".datepickers").datepicker();
+    });
+</script>

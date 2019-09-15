@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewData["Title"] = "Configaration_Controls";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+
+    .nextRow {
+        padding-top: 20px;
+    }
+
+    fieldset.scheduler-border {
+        border: 1px groove #ddd !important;
+        padding: 0 1.4em 1.4em 1.4em !important;
+        margin: 0 0 1.5em 0 !important;
+        -webkit-box-shadow: 0px 0px 0px 0px #000;
+        box-shadow: 0px 0px 0px 0px #000;
+    }
+
+    legend.scheduler-border {
+        font-size: 1.2em !important;
+        font-weight: bold !important;
+        text-align: left !important;
+        width: auto;
+        padding: 0 10px;
+        border-bottom: none;
+    }
+    .txtboxdesign {
+        border-radius: 5px;
+        height: 30px;
+    }
+   
+
+    /*fieldset {
+        border: 1px solid green
+    }
+
+    legend {
+        padding: 0.2em 0.5em;
+        border: 1px solid green;
+        color: green;
+        font-size: 90%;
+        text-align: right;
+    }*/
+</style>
+
+<link href="~/css/site.css" rel="stylesheet" />
+
+<div class="row" style="padding-top:70px">
+    <div class="col-md-11 col-md-offset-1">
+        <div class="alldiv">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia"> Configaration Controls</h2>
+            </div>
+            <div class="row" style="padding-top:30px;padding-bottom:30px;">
+
+                <div class="col-md-1  col-md-offset-1 dvRobiMedium"><b>Activation Time Interval</b> <br>(min) </div>
+                <div class="col-md-2 "> <input type="text" class="form-control txtinterval txtboxdesign" id="txtinterval"></div>
+                <div class="col-md-1 dvRobiMedium"><b>Activation Limit</b> <br>(Number) </div>
+                <div class="col-md-2"> <input type="text" class="form-control txtinterval txtboxdesign" id="txtinterval"></div>
+                <div class="col-md-1 dvRobiMedium"><b>Max Number of Sim </b><br>(Number) </div>
+                <div class="col-md-2"> <input type="text" class="form-control txtinterval txtboxdesign" id="txtinterval"></div>
+                <div class="col-md-2 "></div>
+
+
+                @*<div class="col-md-2 col-md-offset-1 col-lg-2 col-lg-offset-1"><button type="button" class="btn btn-large btn-block btn-dark" style="color:white">Update</button></div>*@
+
+
+                @*<button type="button" class="btn btn-large btn-block btn-dark">Update</button>*@
+                @*class="btn btn-dark btn-block"*@
+
+
+
+                @*<div class="col-md-2 col-lg-2 col-md-offset-1 col-lg-offset-1 nextRow"><button type="button" class="btn btn-block btn-dark " style="color:white">Update</button></div>*@
+
+
+
+
+
+                @*<div class="col-md-2 col-lg-2 col-md-offset-1 col-lg-offset-1 nextRow"><button type="button" class="btn btn-block btn-dark " style="color:white">Update</button></div>*@
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
+
+                    <fieldset class="scheduler-border">
+                        <legend class="scheduler-border altblhead" ><span style="text-align:center;"><label style="padding-top:10px;">Ownership Transfer</label> </span></legend>
+                        <div class="col-md-2  nextRow dvRobiMedium"><b>Number Of Transfer Allowed</b> <br>(Number) </div>
+                        <div class="col-md-4 nextRow">
+                            <input type="text" class="form-control txtinterval txtboxdesign" id="txtinterval">
+                        </div>
+                        <div class="col-md-2  nextRow dvRobiMedium"><b>Number Of Day</b> <br>(Number) </div>
+                        <div class="col-md-4  nextRow">
+                            <input type="text" class="form-control txtinterval txtboxdesign" id="txtinterval">
+                        </div>
+                    </fieldset>
+
+                </div>
+
+                <div class="col-md-1 col-lg-1">
+
+                </div>
+            </div>
+
+
+            @*<div class="row">*@
+            <div class="row nextRow">
+
+                <div class="col-md-2 col-lg-2 col-md-offset-4 col-lg-offset-4 ">
+                    <button type="button" class="btn btn-block btn-dark allbutton btnCommonAll" style="color:white">Update</button>
+                </div>
+                <div class="col-md-4 col-lg-4">
+
+                </div>
+
+
+                @*</div>*@
+            </div>
+
+            <div class="nextRow">
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-md-1">
+
+    </div>
+</div>

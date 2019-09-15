@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedshiftSMWeb", "RedshiftSettingsManagement\RedshiftSMWeb.csproj", "{1775F27A-B7A5-402C-B96D-D5666CB2276D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1775F27A-B7A5-402C-B96D-D5666CB2276D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1775F27A-B7A5-402C-B96D-D5666CB2276D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1775F27A-B7A5-402C-B96D-D5666CB2276D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1775F27A-B7A5-402C-B96D-D5666CB2276D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B39362EF-5C0F-4930-A412-9D82AFE6F3E9}
+	EndGlobalSection
+EndGlobal

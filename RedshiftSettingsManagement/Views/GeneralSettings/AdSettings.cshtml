@@ -1,0 +1,254 @@
+﻿
+@{
+    ViewData["Title"] = "AdSettings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/Delete_Confirmation/bootstrap-confirm-delete.css" rel="stylesheet" />
+<link type="text/css" href="~/css/DataTable/DataTable_1_10_19.css" rel="stylesheet" />
+
+<script type="text/javascript" src="~/js/DataTable/DataTable_1_10_19.js"></script>
+
+
+
+
+<style>
+
+    #load {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 9999;
+        background: url('/images/loader/lg.comet-spinner.gif') no-repeat center center rgba(0,0,0,0.25);
+        /*background: url('../../wwwroot/images/loader/lg.comet-spinner.gif') !important;*/
+    }
+
+
+    .nextRow {
+        padding-top: 20px;
+    }
+
+    .txtboxdesign {
+        border-radius: 5px;
+        height: 30px;
+    }
+
+    .appUpdate {
+        border-radius: 5px;
+        height: 30px;
+    }
+
+    #fileuploadfile {
+        width: 100% !important;
+    }
+
+
+    #tbl_AddSettings_paginate {
+        text-align: center;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+
+    .paginate_button {
+        width: 50px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        padding-left: 7px;
+        padding-right: 7px;
+        background-color: white;
+        border-color: #a7a9ac;
+        padding-top: 10px;
+        padding-bottom: 100px;
+    }
+
+    #tbl_AddSettings_previous {
+        width: 80px;
+        padding-right: 80px;
+        background-color: #d1d3d4;
+    }
+
+    #tbl_AddSettings_next {
+        width: 80px;
+        background-color: #d1d3d4;
+    }
+
+    .current {
+        background: #5c7988 !important;
+    }
+
+    /*.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+        background-color: #5c7988;
+    }*/
+</style>
+<script src="~/js/General Settings/AdSettings.js"></script>
+
+<script src="~/js/DataTable/Datatables_button_1_5_6.js"></script>
+<script src="~/js/DataTable/buttons_flash_1_5_6.js"></script>
+<script src="~/js/DataTable/ajax_jszip_3_1_3.js"></script>
+<script src="~/js/DataTable/ajax_0_1_53_pdfMake.js"></script>
+<script src="~/js/DataTable/pdfMake_0_1_53_vfsFonts.js"></script>
+<script src="~/js/DataTable/buttons_1_5_6_html5_buttons.js"></script>
+<script src="~/js/DataTable/buttons_1_5_6_print.js"></script>
+<script src="~/js/jquery_delete_confirmation/bootstrap-confirm-delete.js"></script>
+
+
+<h2 style="padding-top:50px"></h2>
+<div id="load"></div>
+<div class="row" style="padding-top:25px">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="alldiv">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia"> Assign Feature To Role</h2>
+            </div>
+
+            <div class="row" style="padding-top:30px;padding-bottom:30px;">
+                <div class="col-md-2 col-md-offset-1 dvRobiMedium">Promotional Text * </div>
+                <div class="col-md-3"> <input type="text" class="form-control txtpro txtboxdesign" name="name_x" id="txtpro" required></div>
+                <div class="col-md-1 dvRobiMedium">Time Limit * </div>
+                <div class="col-md-4"> <input type="text" class="form-control txtTimeLimit txtboxdesign" id="txtTimeLimit"></div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2 col-md-offset-1 nextRow dvRobiMedium">Promotional Picture *</div>
+                <div class="col-md-7 nextRow">
+                    <div class="custom-file mb-3 ">
+                        <input type="file" class="custom-file-input txtboxdesign" id="customFile" name="filename" onchange="encodeImageFileAsURL();">
+                        <label id="fileuploadfile" class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                </div>
+                <div class="col-md-1 nextRow">
+
+                    <button type="submit" class="btn btn-dark addSettingsAdd btnCommonAll" style="color:white;width:100%;">Add</button>
+
+                </div>
+                <div class="col-md-1">
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-12" hidden="hidden">
+        <h2>Input</h2>
+        <form class="input-group" id="img2b64">
+            <input id="inputFileToLoad" type="file" onchange="encodeImageFileAsURL();" />
+        </form>
+
+
+        <div hidden="hidden">
+            <h2>Output</h2>
+            <div class="output">
+                <textarea class="form-control base64image"></textarea><br>
+                <a></a><br><br>
+                <img><br>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2" style="padding-bottom:30px;padding-top:20px;">
+        <div class="alldiv">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia"> Add Information</h2>
+            </div>
+            <table id="tbl_AddSettings" class="table tblcustom" style="width:100% !important;">
+                <thead>
+                    <tr id="trtheadaddsettings" class="dvRobiMedium">
+                        @*<th scope="col">#</th>*@
+                        <th scope="col" style="text-align:center;width:250px">Promotional Picture</th>
+                        <th scope="col" style="text-align:center;width:250px;">Promotional Text</th>
+                        <th scope="col" style="text-align:center;width:320px">Process Window Time Limit</th>
+                        <th style="text-align:center;width:320px"></th>
+                    </tr>
+                </thead>
+                <tbody id="tbl_tbdy_AdSettings"></tbody>
+                <tbody id="tbl_tby_AddSettings_Empty">
+                    <tr>
+
+                        <td> <b>No Row Found</b></td>
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function encodeImageFileAsURL(cb) {
+        //alert('Hello');
+        return function () {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                cb(reader.result);
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
+    $('#customFile').change(encodeImageFileAsURL(function (base64Img) {
+        $('.output')
+            .find('textarea')
+            .val(base64Img)
+            .end()
+            .find('a')
+            .attr('href', base64Img)
+            .text(base64Img)
+            .end()
+            .find('img')
+            .attr('src', base64Img);
+    }));
+
+    $(".custom-file-input").on("change", function () {
+
+        var fileName = $(this).val().split("\\").pop();
+
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+
+        //$('.custom-file-input').css('width', '1000px');
+    });
+
+
+
+    document.onreadystatechange = function () {
+
+        var state = document.readyState
+        if (state == 'complete') {
+            setTimeout(function () {
+                document.getElementById('interactive');
+                document.getElementById('load').style.visibility = "hidden";
+            }, 2000);
+        }
+    }
+
+
+
+</script>
+
+@*<tr>
+        <th scope="row">1</th>
+        <td><img src="~/images/robi Co-Branded Recharge Offer with Pepsi.jpg" style="height:50px" /></td>
+        <td>Otto</td>
+        <td>Hiss</td>
+
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td><img src="~/images/robi Co-Branded Recharge Offer with Pepsi.jpg" style="height:50px" /></td>
+        <td>Thornton</td>
+        <td>Hiss</td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td><img src="~/images/robi Co-Branded Recharge Offer with Pepsi.jpg" style="height:50px" /></td>
+        <td>the Bird</td>
+        <td>Hiss</td>
+    </tr>*@

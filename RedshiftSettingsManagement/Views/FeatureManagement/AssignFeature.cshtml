@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewData["Title"] = "AssignFeature";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="~/js/Feature Management/AssignFeature.js"></script>
+
+<style>
+    .nextRow {
+        padding-top: 40px;
+    }
+</style>
+<h2 style="padding-top:50px"></h2>
+<div class="row" style="padding-top:30px">
+    <div class="col-md-8 col-md-offset-2">
+        <div style="border:ridge">
+            <div class="altblhead">
+                <h2> Add Settings</h2>
+            </div>
+
+            <div class="row" style="padding-top:30px;padding-bottom:30px;">
+                <div class="col-md-2 col-md-offset-1">Role Selection* </div>
+                <div class="col-md-3" style="width:initial">
+
+
+                    <select class="form-control usrole" id="usrole">
+                        <option>Choose Role</option>
+                    </select>
+
+
+                </div>
+                <div class="col-md-2">Feature Selection* </div>
+                <div class="col-md-3">
+                    <select class="form-control">
+                        <option value="0">Select Feature:</option>
+                        <option value="1">Admin</option>
+                        <option value="1">SuperAdmin</option>
+                    </select>
+                </div>
+                <div class="col-md-2 col-md-offset-1 nextRow">Sub Features* </div>
+                <div class="custom-control custom-checkbox nextRow col-md-3">
+                    <div class="checkbox">
+                        <input id="checkbox1" type="checkbox">
+                        <label for="checkbox1">
+                            Default
+                        </label>
+                    </div>
+                    <div class="checkbox checkbox-primary">
+                        <input id="checkbox2" type="checkbox" checked="">
+                        <label for="checkbox2">
+                            Primary
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-3 col-md-offset-5 nextRow">
+                    <button type="button" class="btn btn-block btn-dark" style="color:white;">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

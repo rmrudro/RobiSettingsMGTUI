@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "UpdateFeature";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .nextRow {
+        padding-top: 40px;
+    }
+</style>
+<h2 style="padding-top:50px"></h2>
+<div class="row" style="padding-top:30px">
+    <div class="col-md-8 col-md-offset-2">
+        <div style="border:ridge">
+            <div class="altblhead">
+                <h2> Update Features</h2>
+            </div>
+            <div class="row" style="padding-top:30px;padding-bottom:30px;">
+                <div class="col-md-2 col-md-offset-1">Feature Name * </div>
+                <div class="col-md-3">
+                    <select class="form-control">
+                        <option value="0">Select Feature Name:</option>
+                        <option value="1">Admin</option>
+                        <option value="2">SuperAdmin</option>
+                    </select>
+                </div>
+                <div class="col-md-3">New Feature Name * </div>
+                <div class="col-md-3"> <input type="text" class="form-control txtTimeLimit" id="txtTimeLimit"></div>
+
+                <div class="col-md-2 col-md-offset-1 nextRow">Sub Feature Name * </div>
+                <div class="col-md-3 nextRow"> <input type="text" class="form-control txtpro" id="txtpro"></div>
+                <div class="col-md-3 nextRow">URL * </div>
+                <div class="col-md-3 nextRow"> <input type="text" class="form-control txtTimeLimit" id="txtTimeLimit"></div>
+                <div class="col-md-3 col-md-offset-5 nextRow" style="padding-top:40px">
+                    <button type="button" class="btn btn-block btn-dark" style="color:white;">Save</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-2">
+
+    </div>
+</div>
+

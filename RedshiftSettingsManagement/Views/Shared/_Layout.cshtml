@@ -1,0 +1,1017 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RedShift | Settings Management</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+
+    <link href="~/css/bootstrap/bootstrap431min.css" rel="stylesheet" />
+
+    <link href="~/css/bootstrap/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="~/css/toast/jquery_toast.min.css" rel="stylesheet" />
+
+    
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+
+    <script src="~/js/bootstrap4_0_0_min/bootstrap_min_4_0_0.js"></script>
+    <script src="~/js/moment.js"></script>
+    <script src="~/js/bootstrap-datetimepicker.min.js"></script>
+
+
+
+    <script src="~/js/Layout.js"></script>
+
+    <script src="~/js/Rx-5.0.0.js"></script>
+
+    <script src="~/js/axios.min.js"></script>
+
+
+
+
+
+    <script src="~/js/sweet_alert/sweetalert2@8.js"></script>
+
+    <script src="~/js/promise.min.js.js"></script>
+
+    <script src="~/js/jquery.toast.min.js"></script>
+
+
+
+    <script src="~/js/_core_processor.js"></script>
+
+    <script src="~/js/ajax_jquery_3_4_0.min.js"></script>
+
+   
+
+    <script src="~/js/popper/popper.js"></script>
+
+
+    <environment include="Development">
+
+    </environment>
+</head>
+<body>
+
+    @*<div class="container">*@
+    @*<div class="row header topheader">*@
+    <div class="row topheader">
+        <div class="col-lg-2 col-md-2 brand_logo">
+            <a href="http://localhost:40160" style="padding-left:30px"><img height="50" src="~/images/robi_logo.png" /></a>
+        </div>
+        <div class="col-lg-6 header-text" style="margin-top:10px;">
+            <span class="">
+                ROBI SVS  SETTINGS MANAGEMENT
+            </span>
+        </div>
+        <div class="col-lg-1 col-md-1">
+            @*<img src="~/images/Icon_notification-32.png" style="margin-left:50px;" />*@
+        </div>
+        <div class="col-lg-1 col-md-1" style="cursor:pointer" title="notification">
+
+
+        </div>
+
+        @*This is show UserName Text <div class="col-lg-2 txtSessionUser" style="text-align:right;color:#b21935;margin-top:15px;font-size:large;"></div>*@
+        <div class="col-lg-1 col-md-1">
+            @*<img style="float:right" height="45" width="45" src="~/images/profileIcon.jpg" />*@
+
+            <img src="~/images/Icon_notification-32.png" style="margin-left:90px; height:35px; width:35px;margin-top:15px" />
+
+
+            @*<img style="float:right" height="45" width="45" src="~/images/logout.png" />*@
+        </div>
+        <div class="col-lg-1 col-md-1 btn_logout" style="cursor:pointer" title="Logout">
+
+            <img src="~/images/Shared/Icon-60_user_menu_down_icon.png" style="float:left ;margin-left:20px;height:50px; width:50px;margin-top:10px;" />
+           
+        </div>
+     
+    </div>
+
+    <div class="navbars">
+        <div class="row">
+            <div id="hvr_home" class="subnav mousehover hvr_home" data-value="1">
+
+                <img class="menuIcon" id="imgHome" src="~/images/Shared/Home_White_40.png" />
+
+                <p class="pRobiAxiata" id="pHome" style="width:110px; color:white;"> Home <br /> DashBoard </p>
+
+            </div>
+            <div class="subnav mousehover hvr_general_settings" data-value="1">
+
+
+
+                <img class="menuIcon" id="imgGeneralSettings" src="~/images/Shared/Icon-60_general_Settings_White.png" />
+
+                <p class="pRobiAxiata" id="pgeneralsettings" style="width:110px; color:white;"> General <br /> Settings </p>
+
+
+
+                <div class="subnav-content subnav-gsetings">
+
+                    <div class="triangle-down tridown_subnav_gsttings"></div>
+
+                    <div class="btngenset" style="text-align:justify;margin-top:10px;">
+                        @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>*@
+
+                        @*<button class="button btnprocess" value="1" style="margin-right:50px;text-align:center;" onclick="window.location.href='/GeneralSettings/Process'">Process</button>*@
+
+                        <button class="button btnAppSettings" value="2" style="margin-right:50px;" onclick="window.location.href='/GeneralSettings/AppSettings'">App Settings</button>
+
+                        <button class="button btnAdSettings" value="3" style="margin-right:50px;" onclick="window.location.href='/GeneralSettings/AdSettings'">Ad Settings</button>
+
+                        <button class="button btnconfi_controls" value="3" style="margin-right:50px;" onclick="window.location.href='/GeneralSettings/Configaration_Controls'">Configaration Controls</button>
+
+                        <button class="button btnFTR" value="3" style="margin-right:50px;" onclick="window.location.href='/GeneralSettings/FTR'">FTR</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="ssss" class="subnav mousehover hvr_channel_mgt">
+                @*style="height:initial"*@
+                @*style="height: 150px"*@
+                <img class="menuIcon" id="imgchannelmgt" src="~/images/Shared/Icon-60_chanel_mgt_White.png" />
+
+                <p class="pRobiAxiata" id="pchanllenmgt" style="width:110px; color:white;">Channel <br /> Management </p>
+
+                @*font-size:94%*@
+
+                <div class="subnav-content subnavschnl">
+                    @*style="height:initial"*@
+                    <div class="triangle-down tringle_chnl"></div>
+                    <div class="btnchanelMgt" style="text-align:justify;margin-top:10px;">
+                        <button class="button btnchnl" style="margin-right:50px;" onclick="window.location.href='/ChannelManagement/Chennel'">Channel</button>
+                        <button class="button btnsettings" style="margin-right:50px;" onclick="window.location.href='/ChannelManagement/Settings'">Settings</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="subnav mousehover hvr_User_mgt">
+                @*style="height: 150px"*@
+                <img class="menuIcon" id="imgUserMgt" src="~/images/Shared/Icon-60_user_mgt_white.png" />
+
+                <p class="pRobiAxiata" id="puserMgt" style="width:110px; color:white;">User <br /> Management </p>
+
+                @*font-size:94%*@
+
+                <div class="subnav-content subnavusrmgt">
+                    @*style="height:initial"*@
+                    <div class="triangle-down tringle_usMgt"></div>
+                    <div id="btnUserMgt" class="btnUserMgt" style="text-align:justify;margin-top:10px;!important;">
+
+                        <button class="button btnusr" style="margin-right:50px;" onclick="window.location.href='/UserManagement/Users'">User</button>
+                        <button class="button btnrole" style="margin-right:50px;" onclick="window.location.href='/UserManagement/Role'">Role</button>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="subnav mousehover hvr_Err_Hndle">
+
+                <img class="menuIcon" id="img_Err_Hndle" src="~/images/Shared/Icon_Err_Hndle_White-60.png" />
+
+                <p class="pRobiAxiata" id="pErrHndle" style="width:110px; color:white;">Special <br /> Cases </p>
+
+                <div class="subnav-content subnaverrhndle">
+
+                    <div class="triangle-down tringle_spclcase" style="position:absolute;margin-left:55.5%;"></div>
+
+                    <div id="btnspclCase" class="btnspclCase" style="text-align:justify;margin-top:10px !important;">
+
+                        <button class="button btn_own_trnfer" style="margin-right:50px;" onclick="window.location.href='/ErrorHandeling/OwnershipTransfer'">Ownership Transfer</button>
+
+                        <button class="button btnActIntval" style="margin-right:50px;" onclick="window.location.href='/ErrorHandeling/ActivationInterval'">Activation Interval</button>
+
+                        <button class="button btn_commisionUpload" style="margin-right:50px;" onclick="window.location.href='/ErrorHandeling/commisionUpload'">Commision Upload</button>
+
+                        <button class="button btn_DoNotSimChange" style="margin-right:50px;" onclick="window.location.href='/ErrorHandeling/NotSimChange'">Do Not Sim Change</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="subnav mousehover hvr_Reports">
+               
+                <img class="menuIcon" id="img_Reports" src="~/images/Shared/Reports_White_Icon-60.png" />
+
+                <p class="pRobiAxiata" id="pReports" style="width:110px; color:white;"> System <br /> Report </p>
+
+                <div class="subnav-content subnav_Reports_transaction">
+                  
+                    <div class="triangle-down trinangle_Reports" ></div>
+
+                    <div id="btnReports" class="btnReports" style="text-align:justify;margin-top:10px !important;">
+
+                        <button class="button btn_Transaction_Reports" style="margin-right:50px;" onclick="window.location.href='/Reports/GetTransaction'">Transaction Report</button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="view_Container">
+        @RenderBody()
+    </div>
+
+
+    @*<footer>
+                <p>&copy; 2019 Robi Axiata Limited</p>
+        </footer>*@
+    @*<object class="" style="width:0px;height:0px;display:none" type="" name="DemoActiveX" classid="clsid:80B59B58-98EA-303C-BE83-D26E5D8D6794" codebase="CSActiveX.cab"></object>*@
+    @*</div>*@
+
+    @RenderSection("Scripts", required: false)
+    @*progressLoader*@
+    @*<div id="showProgress" class="modal">
+            <div class="progressLoader"></div>
+        </div>*@
+
+</body>
+</html>
+<style>
+    .btn_update {
+        display: none
+    }
+
+    .topheader {
+        height: 60px;
+    }
+</style>
+<script>
+
+    //let getvalue = localStorage.getItem('getvalue');
+    //alert(getvalue);
+    $('document').ready(function () {
+        var pageURL = $(location).attr("href");
+        pageURL = pageURL.replace('http://localhost:40160/', '');
+        let controllerName = pageURL.substr(0, pageURL.indexOf('/'));
+        let actionName = pageURL.split('/').pop();
+
+
+
+        document.getElementById("hvr_home").onclick = function () {
+            location.href = "/home";
+        };
+
+
+
+        function subnavGeneral_sett_Show() {
+            $('#imgHome').attr('src', '/images/Shared/Home_White_40.png');
+            $("#pchanllenmgt").css("color", "white");
+            $('.hvr_channel_mgt').css('background-color', '#ed1c24');
+
+            $('#imgchannelmgt').attr('src', '/images/Shared/Icon-60_chanel_mgt_White.png');
+            $("#pchanllenmgt").css("color", "white");
+            $('.hvr_channel_mgt').css('background-color', '#ed1c24');
+
+            $('#imgfeaturemgt').attr('src', '/images/Shared/Icon-60_Feature_mgt_White.png');
+            $("#pfeaturemgt").css("color", "white");
+            $('.hvr_feature_mgt').css('background-color', '#ed1c24');
+
+            $('#imgUserMgt').attr('src', '/images/Shared/Icon-60_user_mgt_white.png');
+            $("#puserMgt").css("color", "white");
+            $('.hvr_User_mgt').css('background-color', '#ed1c24');
+
+            $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_White-60.png');
+            $("#pErrHndle").css("color", "white");
+            $('.hvr_Err_Hndle').css('background-color', '#ed1c24');
+
+            $('#img_Reports').attr('src', '/images/Shared/Reports_White_Icon-60.png');
+            $("#pReports").css("color", "white");
+            $('.hvr_Reports').css('background-color', '#ed1c24');
+
+        }
+
+        function subnavChannl_MGT_Show() {
+            $('#imgHome').attr('src', '/images/Shared/Home_White_40.png');
+            $("#pgeneralsettings").css("color", "white");
+            $('.hvr_general_settings').css('background-color', '#ed1c24');
+
+            $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_general_Settings_White.png');
+            $("#pgeneralsettings").css("color", "white");
+            $('.hvr_general_settings').css('background-color', '#ed1c24');
+
+            $('#imgfeaturemgt').attr('src', '/images/Shared/Icon-60_Feature_mgt_White.png');
+            $("#pfeaturemgt").css("color", "white");
+            $('.hvr_feature_mgt').css('background-color', '#ed1c24');
+
+            $('#imgUserMgt').attr('src', '/images/Shared/Icon-60_user_mgt_white.png');
+            $("#puserMgt").css("color", "white");
+            $('.hvr_User_mgt').css('background-color', '#ed1c24');
+
+            $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_White-60.png');
+            $("#pErrHndle").css("color", "white");
+            $('.hvr_Err_Hndle').css('background-color', '#ed1c24');
+
+            $('#img_Reports').attr('src', '/images/Shared/Reports_White_Icon-60.png');
+            $("#pReports").css("color", "white");
+            $('.hvr_Reports').css('background-color', '#ed1c24');
+        }
+
+        function subnavFeature_MGT_Show() {
+            $('#imgHome').attr('src', '/images/Shared/Home_White_40.png');
+            $("#pchanllenmgt").css("color", "white");
+            $('.hvr_channel_mgt').css('background-color', '#ed1c24');
+
+            $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_general_Settings_White.png');
+            $("#pgeneralsettings").css("color", "white");
+            $('.hvr_general_settings').css('background-color', '#ed1c24');
+
+            $('#imgchannelmgt').attr('src', '/images/Shared/Icon-60_chanel_mgt_White.png');
+            $("#pchanllenmgt").css("color", "white");
+            $('.hvr_channel_mgt').css('background-color', '#ed1c24');
+
+            $('#imgUserMgt').attr('src', '/images/Shared/Icon-60_user_mgt_white.png');
+            $("#puserMgt").css("color", "white");
+            $('.hvr_User_mgt').css('background-color', '#ed1c24');
+
+            $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_White-60.png');
+            $("#pErrHndle").css("color", "white");
+            $('.hvr_Err_Hndle').css('background-color', '#ed1c24');
+
+            $('#img_Reports').attr('src', '/images/Shared/Reports_White_Icon-60.png');
+            $("#pReports").css("color", "white");
+            $('.hvr_Reports').css('background-color', '#ed1c24');
+        }
+
+        function subnavUser_MGT_Show() {
+            $('#imgHome').attr('src', '/images/Shared/Home_White_40.png');
+            $("#pchanllenmgt").css("color", "white");
+            $('.hvr_channel_mgt').css('background-color', '#ed1c24');
+
+            $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_general_Settings_White.png');
+            $("#pgeneralsettings").css("color", "white");
+            $('.hvr_general_settings').css('background-color', '#ed1c24');
+
+            $('#imgchannelmgt').attr('src', '/images/Shared/Icon-60_chanel_mgt_White.png');
+            $("#pchanllenmgt").css("color", "white");
+            $('.hvr_channel_mgt').css('background-color', '#ed1c24');
+
+            $('#imgfeaturemgt').attr('src', '/images/Shared/Icon-60_Feature_mgt_White.png');
+            $("#pfeaturemgt").css("color", "white");
+            $('.hvr_feature_mgt').css('background-color', '#ed1c24');
+
+            $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_White-60.png');
+            $("#pErrHndle").css("color", "white");
+            $('.hvr_Err_Hndle').css('background-color', '#ed1c24');
+
+            $('#img_Reports').attr('src', '/images/Shared/Reports_White_Icon-60.png');
+            $("#pReports").css("color", "white");
+            $('.hvr_Reports').css('background-color', '#ed1c24');
+        }
+
+        function subnavError_Handle_Show() {
+            $('#imgHome').attr('src', '/images/Shared/Home_White_40.png');
+            $("#pchanllenmgt").css("color", "white");
+            $('.hvr_channel_mgt').css('background-color', '#ed1c24');
+
+
+            $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_general_Settings_White.png');
+            $("#pgeneralsettings").css("color", "white");
+            $('.hvr_general_settings').css('background-color', '#ed1c24');
+
+            $('#imgchannelmgt').attr('src', '/images/Shared/Icon-60_chanel_mgt_White.png');
+            $("#pchanllenmgt").css("color", "white");
+            $('.hvr_channel_mgt').css('background-color', '#ed1c24');
+
+            $('#imgfeaturemgt').attr('src', '/images/Shared/Icon-60_Feature_mgt_White.png');
+            $("#pfeaturemgt").css("color", "white");
+            $('.hvr_feature_mgt').css('background-color', '#ed1c24');
+
+            $('#imgUserMgt').attr('src', '/images/Shared/Icon-60_user_mgt_white.png');
+            $("#puserMgt").css("color", "white");
+            $('.hvr_User_mgt').css('background-color', '#ed1c24');
+
+            $('#img_Reports').attr('src', '/images/Shared/Reports_White_Icon-60.png');
+            $("#pReports").css("color", "white");
+            $('.hvr_Reports').css('background-color', '#ed1c24');
+
+        }
+
+        function subnavReports_Show() {
+            $('#imgHome').attr('src', '/images/Shared/Home_White_40.png');
+            $("#pchanllenmgt").css("color", "white");
+            $('.hvr_channel_mgt').css('background-color', '#ed1c24');
+
+
+            $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_general_Settings_White.png');
+            $("#pgeneralsettings").css("color", "white");
+            $('.hvr_general_settings').css('background-color', '#ed1c24');
+
+            $('#imgchannelmgt').attr('src', '/images/Shared/Icon-60_chanel_mgt_White.png');
+            $("#pchanllenmgt").css("color", "white");
+            $('.hvr_channel_mgt').css('background-color', '#ed1c24');
+
+            $('#imgfeaturemgt').attr('src', '/images/Shared/Icon-60_Feature_mgt_White.png');
+            $("#pfeaturemgt").css("color", "white");
+            $('.hvr_feature_mgt').css('background-color', '#ed1c24');
+
+            $('#imgUserMgt').attr('src', '/images/Shared/Icon-60_user_mgt_white.png');
+            $("#puserMgt").css("color", "white");
+            $('.hvr_User_mgt').css('background-color', '#ed1c24');
+
+            $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_White-60.png');
+            $("#pErrHndle").css("color", "white");
+            $('.hvr_Err_Hndle').css('background-color', '#ed1c24');
+        }
+
+        //alert('Hello');
+        //console.log(actionName);
+        //console.log(controllerName);
+        //I have Do The Task
+        if (controllerName == '') {
+            //General Settings
+            $('.hvr_home').hover(function () {
+                $('#imgHome').attr('src', '/images/Shared/Home_40_Red.png');
+                $("#pHome").css("color", "red");
+                $(this).css('background-color', 'white');
+            }, function () {
+
+                $('#imgHome').attr('src', '/images/Shared/Home_White_40.png');
+                $("#pHome").css("color", "white");
+                $(this).css('background-color', '#ed1c24');
+
+            });
+
+
+            $('.hvr_general_settings').hover(function () {
+
+                $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_General_Management_Red.png');
+                $("#pgeneralsettings").css("color", "red");
+                $(this).css('background-color', 'white');
+
+            }, function () {
+
+                $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_general_Settings_White.png');
+                $("#pgeneralsettings").css("color", "white");
+                $(this).css('background-color', '#ed1c24');
+
+            });
+
+            //channel Mgt
+            $('.hvr_channel_mgt').hover(function () {
+                $('#imgchannelmgt').attr('src', '/images/Shared/Icon_channel_mgt_Red-60.png');
+                $("#pchanllenmgt").css("color", "red");
+                $(this).css('background-color', 'white');
+
+            }, function () {
+
+
+                $('#imgchannelmgt').attr('src', '/images/Shared/Icon-60_chanel_mgt_White.png');
+                $("#pchanllenmgt").css("color", "white");
+                $(this).css('background-color', '#ed1c24');
+
+
+            });
+
+            //Feature MGT
+
+            $('.hvr_feature_mgt').hover(function () {
+                $('#imgfeaturemgt').attr('src', '/images/Shared/Feature_mgt_Red_Icon-60.png');
+                $("#pfeaturemgt").css("color", "red");
+                $(this).css('background-color', 'white');
+
+            }, function () {
+
+
+                $('#imgfeaturemgt').attr('src', '/images/Shared/Icon-60_Feature_mgt_White.png');
+                $("#pfeaturemgt").css("color", "white");
+                $(this).css('background-color', '#ed1c24');
+
+            });
+            
+            //user mgt
+
+            $('.hvr_User_mgt').hover(function () {
+
+                $('#imgUserMgt').attr('src', '/images/Shared/Icon_User_Mgt_Red-60.png');
+                $("#puserMgt").css("color", "red");
+                $(this).css('background-color', 'white');
+
+            }, function () {
+
+
+                $('#imgUserMgt').attr('src', '/images/Shared/Icon-60_user_mgt_white.png');
+                $("#puserMgt").css("color", "white");
+                $(this).css('background-color', '#ed1c24');
+
+            });
+
+            //Error Handeling
+
+            $('.hvr_Err_Hndle').hover(function () {
+
+                $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_Red-60.png');
+                $("#pErrHndle").css("color", "red");
+                $(this).css('background-color', 'white');
+
+            }, function () {
+
+
+
+                $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_White-60.png');
+                $("#pErrHndle").css("color", "white");
+                $(this).css('background-color', '#ed1c24');
+
+
+                });
+            
+
+            $('.hvr_Reports').hover(function () {
+
+                $('#img_Reports').attr('src', '/images/Shared/Reports_Red_Icon-60.png');
+                $("#pReports").css("color", "red");
+                $(this).css('background-color', 'white');
+
+
+            }, function () {
+
+
+                $('#img_Reports').attr('src', '/images/Shared/Reports_White_Icon-60.png');
+                $("#pReports").css("color", "white");
+                $(this).css('background-color', '#ed1c24');
+
+
+            });
+
+
+        }
+
+        else {
+            if (controllerName == 'GeneralSettings') {
+                $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_General_Management_Red.png');
+                $("#pgeneralsettings").css("color", "red");
+                $('.hvr_general_settings').css('background-color', 'white');
+                //alert('yes');
+                if (actionName == 'Process') {
+
+                    //$('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_General_Management_Red.png');
+                    //$("#pgeneralsettings").css("color", "red");
+                    //$('.hvr_general_settings').css('background-color', 'white');
+                    $('.subnav-gsetings').show();
+                    $('.btnprocess').css("background-color", "white");
+                    $('.btnprocess').css("color", "black");
+
+                    //background - color: white;
+                    //color: black;
+                }
+                else if (actionName == 'AppSettings') {
+                    $('.subnav-gsetings').show();
+                    $('.btnAppSettings').css("background-color", "white");
+                    $('.btnAppSettings').css("color", "black");
+
+                }
+                else if (actionName == 'AdSettings') {
+                    $('.subnav-gsetings').show();
+                    $('.btnAdSettings').css("background-color", "white");
+                    $('.btnAdSettings').css("color", "black");
+
+                }
+                else if (actionName == 'Configaration_Controls') {
+                    $('.subnav-gsetings').show();
+                    $('.btnconfi_controls').css("background-color", "white");
+                    $('.btnconfi_controls').css("color", "black");
+
+                }
+                else if (actionName == 'FTR') {
+                    $('.subnav-gsetings').show();
+                    $('.btnFTR').css("background-color", "white");
+                    $('.btnFTR').css("color", "black");
+                }
+            }
+            else if (controllerName == 'ChannelManagement') {
+                $('#imgchannelmgt').attr('src', '/images/Shared/Icon_channel_mgt_Red-60.png');
+                $("#pchanllenmgt").css("color", "red");
+                $('.hvr_channel_mgt').css('background-color', 'white');
+                //alert('yes');
+                if (actionName == 'Chennel') {
+                    $('.subnavschnl').show();
+                    $('.btnchnl').css("background-color", "white");
+                    $('.btnchnl').css("color", "black");
+
+                }
+                else if (actionName == 'Settings') {
+                    $('.subnavschnl').show();
+                    $('.btnsettings').css("background-color", "white");
+                    $('.btnsettings').css("color", "black");
+                }
+            }
+
+            else if (controllerName == 'FeatureManagement') {
+                $('#imgfeaturemgt').attr('src', '/images/Shared/Feature_mgt_Red_Icon-60.png');
+                $("#pfeaturemgt").css("color", "red");
+                $('.hvr_feature_mgt').css('background-color', 'white');
+
+                if (actionName == 'UpdateFeature') {
+                    $('.subnavftrmgt').show();
+                    $('.btnupdatefeature').css("background-color", "white");
+                    $('.btnupdatefeature').css("color", "black");
+
+                }
+                else if (actionName == 'AssignFeature') {
+                    $('.subnavftrmgt').show();
+                    $('.btnassignfeature').css("background-color", "white");
+                    $('.btnassignfeature').css("color", "black");
+                }
+            }
+
+
+            else if (controllerName == 'UserManagement') {
+                $('#imgUserMgt').attr('src', '/images/Shared/Icon_User_Mgt_Red-60.png');
+                $("#puserMgt").css("color", "red");
+                $('.hvr_User_mgt').css('background-color', 'white');
+
+                if (actionName == 'Users') {
+                    $('.subnavusrmgt').show();
+                    $('.btnusr').css("background-color", "white");
+                    $('.btnusr').css("color", "black");
+
+                }
+                else if (actionName == 'Role') {
+                    $('.subnavusrmgt').show();
+                    $('.btnrole').css("background-color", "white");
+                    $('.btnrole').css("color", "black");
+                }
+                else if (actionName == 'UserAdd') {
+                    $('.subnavusrmgt').show();
+                    $('.btnusr').css("background-color", "white");
+                    $('.btnusr').css("color", "black");
+                }
+                else if (actionName == 'UserUpdate') {
+                    $('.subnavusrmgt').show();
+                    $('.btnusr').css("background-color", "white");
+                    $('.btnusr').css("color", "black");
+                }
+                else if (actionName == 'RoleAdd') {
+                    $('.subnavusrmgt').show();
+                    $('.btnrole').css("background-color", "white");
+                    $('.btnrole').css("color", "black");
+                }
+            }
+
+            else if (controllerName == 'ErrorHandeling') {
+
+                $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_Red-60.png');
+                $("#pErrHndle").css("color", "red");
+                $('.hvr_Err_Hndle').css('background-color', 'white');
+
+                if (actionName == 'OwnershipTransfer') {
+                    $('.subnaverrhndle').show();
+                    $('.btn_own_trnfer').css("background-color", "white");
+                    $('.btn_own_trnfer').css("color", "black");
+
+                }
+                else if (actionName == 'ActivationInterval') {
+                    $('.subnaverrhndle').show();
+                    $('.btnActIntval').css("background-color", "white");
+                    $('.btnActIntval').css("color", "black");
+                }
+                else if (actionName == 'commisionUpload') {
+                    $('.subnaverrhndle').show();
+                    $('.btn_commisionUpload').css("background-color", "white");
+                    $('.btn_commisionUpload').css("color", "black");
+                }
+                else if (actionName == 'NotSimChange') {
+                    $('.subnaverrhndle').show();
+                    $('.btn_DoNotSimChange').css("background-color", "white");
+                    $('.btn_DoNotSimChange').css("color", "black");
+                }
+            }
+
+
+            else if (controllerName == 'Reports') {
+
+                $('#img_Reports').attr('src', '/images/Shared/Reports_Red_Icon-60.png');
+                $("#pReports").css("color", "red");
+                $('.hvr_Reports').css('background-color', 'white');
+
+            }
+
+            $('.hvr_home').hover(function () {
+                $('#imgHome').attr('src', '/images/Shared/Home_40_Red.png');
+                $("#pHome").css("color", "red");
+                $(this).css('background-color', 'white');
+            }, function () {
+
+                $('#imgHome').attr('src', '/images/Shared/Home_White_40.png');
+                $("#pHome").css("color", "white");
+                $(this).css('background-color', '#ed1c24');
+
+            });
+
+            //$('.hvr_general_settings').click() {
+            //    alert('Hello');
+            //}
+                
+           
+
+            $('.hvr_general_settings').hover(function () {
+                //alert('General Settings Hover');
+                $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_General_Management_Red.png');
+                $("#pgeneralsettings").css("color", "red");
+                $(this).css('background-color', 'white');
+                $('.subnav-content').hide();
+                $('.subnav-gsetings').show();
+
+
+            }, function () {
+                if (controllerName == 'GeneralSettings') {
+                    subnavGeneral_sett_Show();
+                    $('.subnav-gsetings').show();
+                }
+                else if (controllerName == 'ChannelManagement') {
+                    subnavChannl_MGT_Show();
+                    $('.subnavschnl').show();
+                }
+                else if (controllerName == 'FeatureManagement') {
+                    subnavFeature_MGT_Show();
+                    $('.subnavftrmgt').show();
+                }
+                else if (controllerName == 'UserManagement') {
+                    subnavUser_MGT_Show();
+                    $('.subnavusrmgt').show();
+                }
+                else if (controllerName == 'ErrorHandeling') {
+                    subnavError_Handle_Show();
+                    $('.subnaverrhndle').show();
+                }
+
+                else if (controllerName == 'Reports') {
+                    subnavReports_Show();
+                    $('.subnav_Reports_transaction').show();
+                }
+
+                else {
+                    $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_chanel_mgt_White.png');
+                    $("#pgeneralsettings").css("color", "white");
+                    $(this).css('background-color', '#ed1c24');
+                }
+
+            });
+
+
+            $('.hvr_channel_mgt').hover(function () {
+                $('.subnav-content').hide();
+                $('#imgchannelmgt').attr('src', '/images/Shared/Icon_channel_mgt_Red-60.png');
+                $("#pchanllenmgt").css("color", "red");
+                $(this).css('background-color', 'white');
+                $('.subnavschnl').show();
+
+            }, function () {
+                if (controllerName == 'GeneralSettings') {
+                    subnavGeneral_sett_Show();
+                    //$('.subnav-content').hide();
+                    $('.subnav-gsetings').show();
+
+                }
+                else if (controllerName == 'ChannelManagement') {
+                    subnavChannl_MGT_Show();
+                    $('.subnavschnl').show();
+                }
+                else if (controllerName == 'FeatureManagement') {
+                    subnavFeature_MGT_Show();
+                    $('.subnavftrmgt').show();
+                }
+                else if (controllerName == 'UserManagement') {
+                    subnavUser_MGT_Show();
+                    $('.subnavusrmgt').show();
+                }
+                else if (controllerName == 'ErrorHandeling') {
+                    subnavError_Handle_Show();
+                    $('.subnaverrhndle').show();
+                }
+                else if (controllerName == 'Reports') {
+                    subnavReports_Show();
+                    $('.subnav_Reports_transaction').show();
+                }
+
+                else {
+                    $('#imgchannelmgt').attr('src', '/images/Shared/Icon-60_chanel_mgt_White.png');
+                    $("#pchanllenmgt").css("color", "white");
+                    $(this).css('background-color', '#ed1c24');
+                }
+
+            });
+
+            //Feature Management
+
+            $('.hvr_feature_mgt').hover(function () {
+                $('.subnav-content').hide();
+                $('.subnavftrmgt').show();
+                $('#imgfeaturemgt').attr('src', '/images/Shared/Feature_mgt_Red_Icon-60.png');
+                $("#pfeaturemgt").css("color", "red");
+                $(this).css('background-color', 'white');
+
+            }, function () {
+                if (controllerName == 'GeneralSettings') {
+                    subnavGeneral_sett_Show();
+                    $('.subnav-gsetings').show();
+
+                }
+                else if (controllerName == 'ChannelManagement') {
+                    subnavChannl_MGT_Show();
+                    $('.subnavschnl').show();
+                }
+                else if (controllerName == 'FeatureManagement') {
+                    subnavFeature_MGT_Show();
+                    $('.subnavftrmgt').show();
+                }
+                else if (controllerName == 'UserManagement') {
+                    subnavUser_MGT_Show();
+                    $('.subnavusrmgt').show();
+                }
+                else if (controllerName == 'ErrorHandeling') {
+                    subnavError_Handle_Show();
+                    $('.subnaverrhndle').show();
+                }
+                else if (controllerName == 'Reports') {
+                    subnavReports_Show();
+                    $('.subnav_Reports_transaction').show();
+                }
+                else {
+                    $('#imgfeaturemgt').attr('src', '/images/Shared/Icon-60_Feature_mgt_White.png');
+                    $("#pfeaturemgt").css("color", "white");
+                    $(this).css('background-color', '#ed1c24');
+                }
+            });
+
+            // Pos Management
+
+
+            //User Management
+
+            $('.hvr_User_mgt').hover(function () {
+                $('.subnav-content').hide();
+                $('.subnavusrmgt').show();
+                $('#imgUserMgt').attr('src', '/images/Shared/Icon_User_Mgt_Red-60.png');
+                $("#puserMgt").css("color", "red");
+                $(this).css('background-color', 'white');
+
+            }, function () {
+                if (controllerName == 'GeneralSettings') {
+                    subnavGeneral_sett_Show();
+                    $('.subnav-gsetings').show();
+
+                }
+                else if (controllerName == 'ChannelManagement') {
+                    subnavChannl_MGT_Show();
+                    $('.subnavschnl').show();
+                }
+                else if (controllerName == 'FeatureManagement') {
+                    subnavFeature_MGT_Show();
+                    $('.subnavftrmgt').show();
+                }
+                else if (controllerName == 'UserManagement') {
+                    subnavUser_MGT_Show();
+                    $('.subnavusrmgt').show();
+                }
+                else if (controllerName == 'ErrorHandeling') {
+                    subnavError_Handle_Show();
+                    $('.subnaverrhndle').show();
+                }
+                else if (controllerName == 'Reports') {
+                    subnavReports_Show();
+                    $('.subnav_Reports_transaction').show();
+                }
+                else {
+                    $('#imgUserMgt').attr('src', '/images/Shared/Icon-60_user_mgt_white.png');
+                    $("#puserMgt").css("color", "white");
+                    $(this).css('background-color', '#ed1c24');
+                }
+            });
+
+            //Error Handeling
+
+            $('.hvr_Err_Hndle').hover(function () {
+                $('.subnav-content').hide();
+                $('.subnaverrhndle').show();
+                $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_Red-60.png');
+                $("#pErrHndle").css("color", "red");
+                $(this).css('background-color', 'white');
+
+            }, function () {
+                if (controllerName == 'GeneralSettings') {
+                    subnavGeneral_sett_Show();
+                    $('.subnav-gsetings').show();
+
+                }
+                else if (controllerName == 'ChannelManagement') {
+                    subnavChannl_MGT_Show();
+                    $('.subnavschnl').show();
+                }
+                else if (controllerName == 'FeatureManagement') {
+                    subnavFeature_MGT_Show();
+                    $('.subnavftrmgt').show();
+                }
+                else if (controllerName == 'UserManagement') {
+                    subnavUser_MGT_Show();
+                    $('.subnavusrmgt').show();
+                }
+                else if (controllerName == 'ErrorHandeling') {
+                    subnavError_Handle_Show();
+                    $('.subnaverrhndle').show();
+                }
+                else if (controllerName == 'Reports') {
+                    subnavReports_Show();
+                    $('.subnav_Reports_transaction').show();
+                }
+                else {
+                    $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_White-60.png');
+                    $("#pErrHndle").css("color", "white");
+                    $(this).css('background-color', '#ed1c24');
+                }
+
+                });
+
+
+            $('.hvr_Reports').hover(function () {
+                $('.subnav-content').hide();
+                $('.subnav_Reports_transaction').show();
+                
+                $('#img_Reports').attr('src', '/images/Shared/Reports_Red_Icon-60.png');
+                $("#pReports").css("color", "red");
+                $(this).css('background-color', 'white');
+
+            }, function () {
+                if (controllerName == 'GeneralSettings') {
+                    subnavGeneral_sett_Show();
+                    $('.subnav-gsetings').show();
+
+                }
+                else if (controllerName == 'ChannelManagement') {
+                    subnavChannl_MGT_Show();
+                    $('.subnavschnl').show();
+                }
+                else if (controllerName == 'FeatureManagement') {
+                    subnavFeature_MGT_Show();
+                    $('.subnavftrmgt').show();
+                }
+                else if (controllerName == 'UserManagement') {
+                    subnavUser_MGT_Show();
+                    $('.subnavusrmgt').show();
+                }
+                else if (controllerName == 'ErrorHandeling') {
+                    subnavError_Handle_Show();
+                    $('.subnaverrhndle').show();
+                }
+                else if (controllerName == 'Reports') {
+                    subnavReports_Show();
+                    $('.subnav_Reports_transaction').show();
+                }
+                else {
+                    $('#img_Reports').attr('src', '/images/Shared/Reports_White_Icon-60.png');
+                    $("#pReports").css("color", "white");
+                    $(this).css('background-color', '#ed1c24');
+                }
+               
+                });
+
+
+            //<div class="subnav mousehover hvr_Reports">
+
+            //    <img class="menuIcon" id="img_Reports" src="~/images/Shared/Reports_White_Icon-60.png" />
+
+            //    <p class="pRobiAxiata" id="pReports" style="width:110px; color:white;"> System <br /> Report </p>
+
+            //    <div class="subnav-content subnav_Reports_transaction">
+
+            //        <div class="triangle-down trinangle_Reports" ></div>
+
+            //        <div id="btnReports" class="btnReports" style="text-align:justify;margin-top:10px !important;">
+
+            //            <button class="button btn_Transaction_Reports" style="margin-right:50px;" onclick="window.location.href='/Reports/GetTransaction'">Transaction Report</button>
+
+            //        </div>
+            //    </div>
+            //</div>
+
+
+        }
+        let value = 1;
+
+
+    });
+
+
+
+</script>
+
+

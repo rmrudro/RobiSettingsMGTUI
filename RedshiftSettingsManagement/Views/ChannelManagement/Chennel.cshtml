@@ -1,0 +1,185 @@
+﻿
+@{
+    ViewData["Title"] = "Chennel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/Delete_Confirmation/bootstrap-confirm-delete.css" rel="stylesheet" />
+<link type="text/css" href="~/css/DataTable/DataTable_1_10_19.css" rel="stylesheet" />
+
+<script src="~/js/jquery-3.3.1.min.js"></script>
+<script src="~/js/_channel.js"></script>
+
+@*<script src="~/js/bootstrap4_0_0_min/bootstrap_min_4_0_0.js"></script>*@
+
+<script type="text/javascript" src="~/js/DataTable/DataTable_1_10_19.js"></script>
+
+
+<script src="~/js/DataTable/Datatables_button_1_5_6.js"></script>
+<script src="~/js/DataTable/buttons_flash_1_5_6.js"></script>
+<script src="~/js/DataTable/ajax_jszip_3_1_3.js"></script>
+<script src="~/js/DataTable/ajax_0_1_53_pdfMake.js"></script>
+<script src="~/js/DataTable/pdfMake_0_1_53_vfsFonts.js"></script>
+<script src="~/js/DataTable/buttons_1_5_6_html5_buttons.js"></script>
+<script src="~/js/DataTable/buttons_1_5_6_print.js"></script>
+<script src="~/js/jquery_delete_confirmation/bootstrap-confirm-delete.js"></script>
+
+
+
+
+@*<script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>*@
+
+<style>
+
+    #load {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 9999; 
+        background: url('/images/loader/lg.comet-spinner.gif') no-repeat center center rgba(0,0,0,0.25);
+        /*background: url('../../wwwroot/images/loader/lg.comet-spinner.gif') !important;*/
+      
+    }
+
+
+
+    #tblChannalList_paginate {
+        text-align: center;
+        width: 100%;
+    }
+    /*.dataTables_paginate .previous {
+        background: #B1A9A7;
+        content: '<<'
+    }
+
+    .dataTables_paginate .next {
+        background: #B1A9A7;
+        content: '>>'
+    }*/
+
+
+    .paginatebutton {
+        width: 50px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        padding-left: 7px;
+        padding-right: 7px;
+        background-color: white;
+        border-color: #a7a9ac;
+    }
+
+    #tblChannalList_previous {
+        width: 80px;
+        padding-right: 80px;
+        background-color: #d1d3d4;
+    }
+
+    #tblChannalList_next {
+        width: 80px;
+        background-color: #d1d3d4;
+    }
+
+    .current {
+        background-color: #5c7988;
+    }
+
+
+
+
+
+    /*.pagination .page-item.current .page-link {
+        background-color: #000;
+    }*/
+    /*.pagination .page-item.active .page-link {
+        background-color: #000;
+    }
+
+    div.dataTables_wrapper div.dataTables_paginate ul.pagination .page-item.active .page-link:focus {
+        background-color: #000;
+    }
+
+    .pagination .page-item.active .page-link:hover {
+        background-color: #000;
+    }*/
+</style>
+
+
+<h2 style="padding-top:50px"></h2>
+<div id="load"></div>
+<div class="row" style="padding-top:20px;padding-bottom:20px;">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="alldiv">
+
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia"> Add Channel </h2>
+            </div>
+
+
+            <div class="row" style="padding-top:30px;padding-bottom:30px;">
+                <div class="col-md-2 col-md-offset-1 dvRobiMedium">Channel Name * </div>
+                <div class="col-md-6"> <input type="text" class="form-control channelname txtboxdesign" id="usr"> </div>
+                <div class="col-md-3"><button type="button" class="btn btn-dark channeladd allbutton btnCommonAll" style="color:white;width:80%">Add</button></div>
+                <div class="col-md-1"></div>
+            </div>
+
+
+        </div>
+
+        <div style="padding-top:20px;">
+        </div>
+        <div class="alldiv">
+            <div class="altblhead">
+                <h2 class="hdrRobiAxia" style="text-align:left;float:left;"> Channel Information </h2>
+                <h5 style="text-align:right;float:right;">
+                    Total:
+                    <label id="lbltotalchannel"></label>
+                </h5>
+            </div>
+
+            @*<div class="col-md-12">*@
+            @*<table id="tblChannalList"
+                class="col-md-12 table table-bordered table-striped table-condensed cf allchannel"
+                style="height: 250px; display:inline-block; overflow-y: scroll; width:100% !important;">*@
+
+            <table id="tblChannalList"
+                   class="col-md-12 table table-bordered"
+                   style="width:100% !important;">
+
+                <thead>
+                    <tr class="dvRobiMedium" style="background-color:white;">
+                        @*<th style="text-align:center;width:50px;">#</th>*@
+                        <th style="text-align:center;width:350px;">Channel Name</th>
+                        <th style="text-align:center;width:150px;">Status</th>
+                        <th style="text-align:center;width:150px">Auto Update</th>
+                        <th style="text-align:center;width:150px">Is Identity</th>
+                        <th style="text-align:center;width:150px"></th>
+                    </tr>
+                </thead>
+                <tbody id="tblallchannel"></tbody>
+
+            </table>
+        </div>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+</div>
+
+
+<script>
+    document.onreadystatechange = function () {
+
+        var state = document.readyState
+        if (state == 'complete') {
+            setTimeout(function () {
+                document.getElementById('interactive');
+                document.getElementById('load').style.visibility = "hidden";
+            }, 2000);
+        }
+    }
+
+</script>
+
