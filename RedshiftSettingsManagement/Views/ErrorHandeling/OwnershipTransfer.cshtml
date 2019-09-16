@@ -4,6 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/Delete_Confirmation/bootstrap-confirm-delete.css" rel="stylesheet" />
+<link type="text/css" href="~/css/DataTable/DataTable_1_10_19.css" rel="stylesheet" />
+
+
+
 
 <style>
 
@@ -15,10 +20,23 @@
         background: url('/images/loader/lg.comet-spinner.gif') no-repeat center center rgba(0,0,0,0.25);
         /*background: url('../../wwwroot/images/loader/lg.comet-spinner.gif') !important;*/
     }
-
 </style>
 
 <script src="~/js/Special Case/OwnershipTransfer.js"></script>
+
+<script src="~/js/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript" src="~/js/DataTable/DataTable_1_10_19.js"></script>
+
+
+<script src="~/js/DataTable/Datatables_button_1_5_6.js"></script>
+<script src="~/js/DataTable/buttons_flash_1_5_6.js"></script>
+<script src="~/js/DataTable/ajax_jszip_3_1_3.js"></script>
+<script src="~/js/DataTable/ajax_0_1_53_pdfMake.js"></script>
+<script src="~/js/DataTable/pdfMake_0_1_53_vfsFonts.js"></script>
+<script src="~/js/DataTable/buttons_1_5_6_html5_buttons.js"></script>
+<script src="~/js/DataTable/buttons_1_5_6_print.js"></script>
+<script src="~/js/jquery_delete_confirmation/bootstrap-confirm-delete.js"></script>
 
 <h2 style="padding-top:50px"></h2>
 
@@ -54,14 +72,12 @@
             <table id="tbl_Ownership_Transfer" class="table">
                 <thead>
                     <tr>
-                      <th class="dvRobiMedium" style="width:50px;text-align:center;">#</th>
-                      <th class="dvRobiMedium" style="text-align:center;">MSISDN</th>
-                       <th></th>
+                        <th class="dvRobiMedium" style="width:50px;text-align:center;">#</th>
+                        <th class="dvRobiMedium" style="text-align:center;">MSISDN</th>
+                        <th></th>
                     </tr>
                 </thead>
-                <tbody id="tbl_ownership_TransferList">
-
-                </tbody>
+                <tbody id="tbl_ownership_TransferList"></tbody>
             </table>
         </div>
 
@@ -90,23 +106,23 @@
 </script>
 
 @*<tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Yellow</td>
-        <td>Otto</td>
-        <td>Hiss</td>
+        <tr>
+            <th scope="row">1</th>
+            <td>Yellow</td>
+            <td>Otto</td>
+            <td>Hiss</td>
 
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Just Touch</td>
-        <td>Thornton</td>
-        <td>Hiss</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td>Jahahaha</td>
-        <td>the Bird</td>
-        <td>Hiss</td>
-    </tr>
-</tbody>*@
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Just Touch</td>
+            <td>Thornton</td>
+            <td>Hiss</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Jahahaha</td>
+            <td>the Bird</td>
+            <td>Hiss</td>
+        </tr>
+    </tbody>*@

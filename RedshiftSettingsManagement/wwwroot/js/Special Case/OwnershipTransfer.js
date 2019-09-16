@@ -26,7 +26,7 @@
         axios.get(sc_ownership_transfer, authToken).then(function (result) {
             var results = result.data.result;
             var act_len = results.length;
-            table = document.getElementById('tbl_ownership_TransferList');
+            table = document.getElementById('tbl_Ownership_Transfer');
             var newTableData = "";
             for (let i = 0; i < act_len; i++) {
                 let tableItem = `<tr><td class='tr_row' style='text-align:center'>` + i + `</td>`;
@@ -34,10 +34,24 @@
                 tableItem = tableItem + '<td style="text-align:center"><a  onClick="onDelete(' + results[i].id + ')"><img src="/images/Common UI Assets/Icon-16 _Delete.png" /></a></td> <td> <a  onClick="onEdit(' + results[i].id + ')"><img src="/images/Common UI Assets/Icon-16.png" /></a> </td> </tr > ';
                 newTableData += tableItem;
             }
-            $('#tbl_ownership_TransferList').html(newTableData);
+            $('#tbl_Ownership_Transfer').html(newTableData);
+            LoadPaging();
         }).catch(function (error) {
             $('#tbl_Ownership_Transfer').html("<b>Network Error NO Data Found!</b>").css("text-align", "center");
             Swal.fire({ type: "error", title: error.message.toUpperCase() })
+            });
+
+    }
+
+    function LoadPaging() {
+        
+        $('#tbl_ownership_TransferList').DataTable({
+            "paging": true,
+            "searching": false,
+            "lengthChange": false,
+            "bInfo": false,
+            "iDisplayLength": 6,
+
         });
     }
 
