@@ -25,8 +25,10 @@
                 var style = "color: red";
 
                 for (let i = 0; i < results.length; i++) {
-
-                    let tableItem = "<tr><td class='tr_row' style='text-align: center; width: 300px'><img src='" + basepath + results[i].promotionalpicture + "' style='height:30px;width:30px;' /></td>";
+                    //let tableItem = '<tr id="row' + pid + '" style="background-color: white;">';
+                    let tableItem = '<tr id="row' + results[i].id + '" style="background-color: white;">';
+                    tableItem += "<td class='tr_row' style='text-align: center; width: 300px'><img src='" + basepath + results[i].promotionalpicture + "' style='height:30px;width:30px;' /></td>";
+                    //let tableItem = "<tr id='row'" + results[i].id + "'><td class='tr_row' style='text-align: center; width: 300px'><img src='" + basepath + results[i].promotionalpicture + "' style='height:30px;width:30px;' /></td>";
                     tableItem += "<td class='tr_row' style='text-align: center; width: 300px'>" + results[i].promotionaltext + "</td>";
                     tableItem += "<td class='tr_row' style='text-align: center; width: 320px'>" + results[i].timelimit + "</td>";
                     tableItem = tableItem + '<td style="text-align:center;width:320px"><a onClick="onDelete(' + results[i].id + ')"><img src="/images/Common UI Assets/Icon-16 _Delete.png" style="cursor:pointer" /></a></td></tr>';
@@ -98,7 +100,15 @@
                     'Deleted!',
                     'Your file has been deleted.',
                     'success'
-                )
+                );
+
+                var table = $('#tbl_AddSettings').DataTable();
+
+                table.row($('#row' + item)).remove();
+                table.draw();
+
+
+
             } else if (
                 /* Read more about handling dismissals below */
                 result.dismiss === Swal.DismissReason.cancel
@@ -170,8 +180,16 @@
                             timer: 1500
                         });
 
-                        //Swal.fire({ type: "Sucess", title: "Sucessfully Inserted" });
+                        var html = '<tr style="background-color: white;">';
+                        html += "<td class='tr_row' style='text-align: center; width: 300px'><img src='" + ppic + "' style='height:30px;width:30px;' /></td>"
+                        html += '<td class="tr_row" style="text-align: center; text-align: center">' + txtPromotionaltext + '</td>';
+                        html += '<td class="tr_row" style="text-align: center; text-align: center">' + txtTimeLimit + '</td>';
+                        html += '<td style="text-align:center;width:320px"><a onClick="onDelete(1)"><img src="/images/Common UI Assets/Icon-16 _Delete.png" style="cursor:pointer" /></a></td></tr>';
                         
+                        $('#tbl_AddSettings').prepend(html);
+
+                        return;
+
                     }
                     else {
                         Swal.fire({

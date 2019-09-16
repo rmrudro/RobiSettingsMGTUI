@@ -36,7 +36,7 @@ $(document).ready(function () {
                     let pid = result.data.result[i].id;
                     let isidentity = result.data.result[i].isidentity;
                     //let tableItem = '<tr style="background-color: white;"><td class="tr_row">' + i + '</td>';
-                    let tableItem = '<tr style="background-color: white;">';/*<td class="tr_row">' + i + '</td>';*/
+                    let tableItem = '<tr id="row' + pid + '" style="background-color: white;">';/*<td class="tr_row">' + i + '</td>';*/
                     tableItem = tableItem + "<td class='tr_row' style='text-align:center;text-align:center'>" + result.data.result[i].channelName + "</td>";
                     if (checkboxvalue == '0') {
 
@@ -114,6 +114,7 @@ $(document).ready(function () {
         //return;
     }
 
+    
 
 
     this.checkedorUncheked = function (e) {
@@ -223,7 +224,7 @@ $(document).ready(function () {
 
         //swal.fire("Here's a message!", "It's pretty, isn't it?");
 
-
+        console.log('row' + item);
 
         Swal.fire({
             title: 'Are you sure?',
@@ -245,19 +246,13 @@ $(document).ready(function () {
                             'success'
                         );
 
-                        $('#tblChannalList').DataTable().row('.delete-row-default' + item).remove().draw(true);
-                        //var myTable = $('#tblChannalList').DataTable();
-                        //$('#tblChannalList').on('click', 'tbody tr', function () {
+                        //$('#tblChannalList').DataTable().row('#delete-row-default' + item).remove().draw();
 
-                        //$('.delete-row-default' + item).remove();
+                        var table = $('#tblChannalList').DataTable();
 
-                        //$('#tblChannalList').DataTable().row('#tblChannalList tbody tr').delete();
-                        //});
-                        //$('#tblChannalList')
-                        //    .row($(this).parents('tr'))
-                        //    .remove()
-                        //    .draw();
-                        //GetAllChannel();
+                        table.row($('#row' + item)).remove();
+                        table.draw();
+
                     }
 
                     else {
@@ -360,6 +355,14 @@ $(document).ready(function () {
 
                     return;
 
+                }
+                else {
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                        footer: '<a href>Why do I have this issue?</a>'
+                    });
                 }
             });
         //alert(chanelname);

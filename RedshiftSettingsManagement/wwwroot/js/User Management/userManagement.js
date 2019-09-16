@@ -26,7 +26,7 @@ function GetAllUser() {
                 i = i + 1;
                 let username = user.username;
                 const profileURL = `./UserUpdate?name=${user.username}&firstname=${user.firstname}&usertype=${user.usertype}`;
-                return `<tr> 
+                return `<tr id='row'>
     <td class='tr_row' style='text-align:center'>${i}</td>
     <td class='tr_row' style='text-align:center'>${user.username}</td>
     <td class='tr_row' style='text-align:center'>${user.firstname}</td>
@@ -67,6 +67,11 @@ function LoadPaging() {
     });
 }
 
+
+$("#row").click(function () {
+    alert('hello TR');
+});
+
 function onDelete(item) {
 
 
@@ -82,20 +87,26 @@ function onDelete(item) {
         if (result1.value) {
             axios.delete(all_Userlist + '/' + item, authToken).then(function (result) {
 
-                console.log(result.data.isSuccessful);
+                console.log(result.data);
                 
-                if (result.data.isSuccessful) {
+                if (result.data.isResult) {
                     Swal.fire(
                         'Deleted!',
                         'User has been deleted.',
                         'success'
-                    )
-                    GetAllChannel();
+                    );
+
+                    var table = $('#usertable').DataTable();
+
+                    table.row($('#row' + item)).remove();
+                    table.draw();
+                    
                 }
 
                 else {
+
                     Swal.fire({ type: "warning", title: "Error in Deleting" });
-                    GetAllChannel();
+                    
                 }
 
             });
