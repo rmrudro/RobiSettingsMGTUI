@@ -62,6 +62,13 @@
 .tblcustom {
 
 }
+
+.padding-0 {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+
 /*.subnav span:hover {
             color: red;
         }*/

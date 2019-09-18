@@ -1,4 +1,38 @@
-﻿$(document).ready(function () {
+﻿$("body").on("click", ".btnpasswordGenerate", function (e) {
+    function randString(id) {
+        var dataSet = $(id).attr('data-character-set').split(',');
+        var possible = '';
+        if ($.inArray('a-z', dataSet) >= 0) {
+            possible += 'abcdefghijklmnopqrstuvwxyz';
+        }
+        if ($.inArray('A-Z', dataSet) >= 0) {
+            possible += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        }
+        if ($.inArray('0-9', dataSet) >= 0) {
+            possible += '0123456789';
+        }
+        if ($.inArray('#', dataSet) >= 0) {
+            possible += '![]{}()%&*$#^<>~@|';
+        }
+        var text = '';
+        for (var i = 0; i < $(id).attr('data-size'); i++) {
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+        return text;
+    }
+
+    // Create a new password on page load
+    $('.txtPasswordGenerator').each(function () {
+
+        $(this).val(randString($(this)));
+
+    });
+
+
+});
+
+
+$(document).ready(function () {
     GetAllRole();
     GetAllChannel();
     function GetAllRole() {
@@ -6,7 +40,7 @@
             console.log(result);
             let select = document.getElementById('usrole');
             for (let i = 0; i < result.data.resultSet.length; i++) {
-               
+
                 var optname = result.data.resultSet[i].roleName;
                 var optid = result.data.resultSet[i].id;
                 var el = document.createElement("option");
@@ -39,6 +73,12 @@
 
     $("body").on("click", ".btnAddUser", function (e) {
 
+        var robi = 'Robi';
+        var airtel = 'Airtel';
+        var admin = 'Admin';
+        var adminstrator = 'Adminstrator';
+         
+
         let us_roleid = $('.usrole').val();
         let us_channel_ID = $('.usrchannel').val();
         let userName = $(".txtusername").val();
@@ -49,44 +89,112 @@
         let us_address = $('.txtaddress').val();
         let us_contact = $('.txtContact').val();
 
+        var userNamevalidate = userName;
+
         let txtRETAILERMSISDNAIRTEL = $('.txtRetailerMSISDNAirtel').val();
         let txtRETAILERMSISDNROBI = $('.txtRetailerMSISDNRobi').val();
         let txtRETAILERCODEAIRTEL = $('.txtRetailerCodeAirtel').val();
         let txtRETAILERCODEROBI = $('.txtRetailerCodeRobi').val();
+        let txtpassword = $('.txtPasswordGenerator').val();
 
-        let userModel = {
-            username: userName,
-            retailermsisdn: "01847287638",
-            firstname: firstName,
-            lastname: lastname,
-            dob: dobirth,
-            CHANNELTYPEID: us_channel_ID,
-            email: usemail,
-            address: us_address,
-            contact: us_contact,
-            companY_ID: 1,
-            roleid: us_roleid,
-            retailerPosCode: "990",
-            id: 0,
-            status: 0,
-            createddate: 0,
-            updateddate: 0,
-            createdby: 0,
-            updatedby: 0,
-            RETAILERMSISDNAIRTEL: txtRETAILERMSISDNAIRTEL,
-            RETAILERMSISDNROBI: txtRETAILERMSISDNROBI,
-            RETAILERCODEAIRTEL: txtRETAILERCODEAIRTEL,
-            RETAILERCODEROBI: txtRETAILERCODEROBI
-        };
 
-        console.log(userModel);
-        axios
-            .post(all_Userlist +'/add', userModel, authToken)
-            .then(function (result) {
 
-                Swal.fire({ type: "Sucess", title: "Sucessfully Inserted" });
-                //location.href = '/UserManagement/UserAdd';
+        if (txtpassword.includes(robi)) {     /*.toLowerCase()*/
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Text Should Not Have Robi',
+                footer: '<a href>Why do I have this issue?</a>'
             });
+        }
+        else if (txtpassword.includes(airtel)) {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Text Should Not Have Airtel',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+        else if (txtpassword.includes(admin)) {  //.toLowerCase()
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Text Should Not Have Admin',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+        else if (txtpassword.includes(adminstrator)) {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Text Should Not Have Admininstrator',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+        else if (txtpassword.includes(userName)) {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Password Should Not Have username',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+        else {
+            
+            let userModel = {
+                username: userName,
+                retailermsisdn: "01847287638",
+                firstname: firstName,
+                lastname: lastname,
+                dob: dobirth,
+                CHANNELTYPEID: us_channel_ID,
+                email: usemail,
+                address: us_address,
+                contact: us_contact,
+                companY_ID: 1,
+                roleid: us_roleid,
+                retailerPosCode: "990",
+                id: 0,
+                status: 0,
+                createddate: 0,
+                updateddate: 0,
+                createdby: 0,
+                updatedby: 0,
+                RETAILERMSISDNAIRTEL: txtRETAILERMSISDNAIRTEL,
+                RETAILERMSISDNROBI: txtRETAILERMSISDNROBI,
+                RETAILERCODEAIRTEL: txtRETAILERCODEAIRTEL,
+                RETAILERCODEROBI: txtRETAILERCODEROBI
+            };
+
+            console.log(userModel);
+            axios
+                .post(all_Userlist + '/add', userModel, authToken)
+                .then(function (result) {
+
+                    if (result.data.isResult) {
+                        Swal.fire({
+                            type: 'success',
+                            title: 'Sucessfully Inserted',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                    else {
+
+                        Swal.fire({
+                            type: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong!',
+                            footer: '<a href>Why do I have this issue?</a>'
+                        });
+                    }
+
+                });
+        }
+        
+
+
+        
 
     });
 });

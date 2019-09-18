@@ -1,4 +1,29 @@
-﻿$(document).ready(function () {
+﻿
+function checkPasswordStrength() {
+    var number = /([0-9])/;
+    var alphabets = /([a-zA-Z])/;
+    var special_characters = /([~,!,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
+    if ($('#txtPassword').val().length < 8) {
+        $('#password-strength-status').removeClass();
+        $('#password-strength-status').addClass('weak-password');
+        $('#password-strength-status').html("Weak (should be atleast 6 characters.)");
+    } else {
+
+        if ($('#txtPassword').val().match(number) && $('#txtPassword').val().match(alphabets) && $('#txtPassword').val().match(special_characters)) {
+            $('#password-strength-status').removeClass();
+            $('#password-strength-status').addClass('strong-password');
+            $('#password-strength-status').html("Strong");
+        } else {
+            $('#password-strength-status').removeClass();
+            $('#password-strength-status').addClass('medium-password');
+            $('#password-strength-status').html("Medium (should include alphabets, numbers and special characters.)");
+        }
+    }
+}
+
+
+
+$(document).ready(function () {
     //const login_api = baseHost + '/api/v1/account/login';
     $("img").css("height", "80px");
     var staticResponse = null;
@@ -42,6 +67,7 @@
                         localStorage.setItem("session_id", JSON.stringify(response.sessionToken));
                         localStorage.setItem('poscode', JSON.stringify(response.posCode));
                         localStorage.setItem('userID', JSON.stringify(response.userId));
+                        localStorage.setItem('username', JSON.stringify(response.userName));
 
                         console.log(JSON.stringify(response.userId));
 

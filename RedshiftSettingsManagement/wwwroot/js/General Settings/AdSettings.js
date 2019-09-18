@@ -71,6 +71,8 @@
 
     this.onDelete = function (item) {
 
+        
+
 
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -169,7 +171,7 @@
             axios
                 .post(ad_Settings, addSettingsModel, authToken)
                 .then(function (result) {
-                    console.log(result.data.isResult);
+                    console.log(result.data);
 
                     if (result.data.isResult) {
 
@@ -184,7 +186,7 @@
                         html += "<td class='tr_row' style='text-align: center; width: 300px'><img src='" + ppic + "' style='height:30px;width:30px;' /></td>"
                         html += '<td class="tr_row" style="text-align: center; text-align: center">' + txtPromotionaltext + '</td>';
                         html += '<td class="tr_row" style="text-align: center; text-align: center">' + txtTimeLimit + '</td>';
-                        html += '<td style="text-align:center;width:320px"><a onClick="onDelete(1)"><img src="/images/Common UI Assets/Icon-16 _Delete.png" style="cursor:pointer" /></a></td></tr>';
+                        html += '<td style="text-align:center;width:320px"><a onClick="onDelete(' + result.data.result.id +')"><img src="/images/Common UI Assets/Icon-16 _Delete.png" style="cursor:pointer" /></a></td></tr>';
                         
                         $('#tbl_AddSettings').prepend(html);
 

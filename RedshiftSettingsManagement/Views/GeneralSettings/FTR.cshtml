@@ -20,6 +20,7 @@
     .nextrow {
         padding-top:10px;
     }
+
 </style>
 <script src="~/js/General Settings/FTR.js"></script>
 
@@ -36,20 +37,20 @@
             </div>
 
             <div class="row" style="padding-top:30px;padding-bottom:30px;">
-                <div class="col-md-2 col-md-offset-1 dvRobiMedium">FTR NAME * </div>
-                <div class="col-md-4"> <input type="text" class="form-control ftrTitle txtboxdesign" id="ftrTitle"> </div>
+                <div class="col-md-1 col-md-offset-1 dvRobiMedium">FTR NAME * </div>
+                <div class="col-md-3"> <input type="text" class="form-control ftrTitle txtboxdesign" id="ftrTitle"> </div>
                 <div class="col-md-1 dvRobiMedium">
                     Amount
                 </div>
                 <div class="col-md-3">
                     <input type="text" class="form-control ftramount txtboxdesign" id="ftramount" >
                 </div>
-                <div class="col-md-1">
+               
+                <div class="col-md-3"><button type="button" class="btn btn-dark ftrAdd btnCommon btnCommonAll" style="color:white;width:120px">Add</button>
+                                       <button type="button" class="btn btn-dark ftrUpdate btnCommon btnCommonAll" style="color:white;width:120px;display:none" >Update</button></div>
 
-                </div>
-                <div class="col-md-offset-4 col-md-4 nextrow"><button type="button" class="btn btn-dark ftrAdd btnCommon btnCommonAll" style="color:white;width:120px">Add</button>
-                                                              <button type="button" class="btn btn-dark ftrUpdate btnCommon btnCommonAll" style="color:white;width:120px;display:none" >Update</button></div>
-                <div class="col-md-4 nextrow"></div>
+
+                <div class="col-md-1"></div>
             </div>
 
         </div>
@@ -64,7 +65,7 @@
             @*<div class="col-md-12">*@
 
             <table id="tblFTRList"
-                   class="col-md-12 table table-striped table-condensed cf allchannel">
+                   class="table tblcustom" style="width:100% !important;background-color:white;">
 
                 <thead>
                     <tr>

@@ -20,6 +20,46 @@
         background: url('/images/loader/lg.comet-spinner.gif') no-repeat center center rgba(0,0,0,0.25);
         /*background: url('../../wwwroot/images/loader/lg.comet-spinner.gif') !important;*/
     }
+
+    #tbl_Ownership_Transfer_paginate {
+        text-align: center;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+
+    .paginate_button {
+        width: 50px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        padding-left: 7px;
+        padding-right: 7px;
+        background-color: white;
+        border-color: #a7a9ac;
+        padding-top: 10px;
+        padding-bottom: 100px;
+    }
+
+    #tbl_Ownership_Transfer_previous {
+        width: 80px;
+        padding-right: 80px;
+        background-color: #d1d3d4;
+    }
+
+    #tbl_Ownership_Transfer_next {
+        width: 80px;
+        background-color: #d1d3d4;
+    }
+
+    .current {
+        background: #5c7988 !important;
+    }
+
+
+
+
 </style>
 
 <script src="~/js/Special Case/OwnershipTransfer.js"></script>
@@ -50,7 +90,7 @@
             </div>
             <div class="row" style="padding-top:30px;padding-bottom:30px;">
                 <div class="col-md-2 col-md-offset-1 dvRobiMedium">Ownership Transfer <br />(MSISDN) </div>
-                <div class="col-md-5">
+                <div class="col-md-5 padding-0">
 
                     <input type="text" class="form-control txtOwnTranMSISDN txtboxdesign" id="txtOwnTranMSISDN">
 
@@ -69,15 +109,18 @@
             <div class="altblhead">
                 <h2 class="hdrRobiAxia">Existing List</h2>
             </div>
-            <table id="tbl_Ownership_Transfer" class="table">
+            <table id="tbl_Ownership_Transfer" class="col-md-12 table tblcustom"
+                   style="width:100% !important;">
                 <thead>
-                    <tr>
+                    <tr class="dvRobiMedium" style="background-color:white;">
                         <th class="dvRobiMedium" style="width:50px;text-align:center;">#</th>
                         <th class="dvRobiMedium" style="text-align:center;">MSISDN</th>
-                        <th></th>
+                        <th class="dvRobiMedium"></th>
                     </tr>
                 </thead>
-                <tbody id="tbl_ownership_TransferList"></tbody>
+                <tbody id="tbl_ownership_TransferList">
+
+                </tbody>
             </table>
         </div>
 

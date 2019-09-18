@@ -42,7 +42,7 @@
 
     <script src="~/js/jquery_1_11_1min.js"></script>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     @*<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>*@
     <script src="~/js/bootstrap4_0_0_min/bootstrap_min_4_0_0.js"></script>
@@ -72,9 +72,15 @@
                 <div class="tags-input-custom-name">
                     <input id="textUserName" autocomplete="off" type="text" class="tags-input" placeholder="USER ID" />
                 </div>
+
                 <div class="tags-input-custom-password">
-                    <input id="txtPassword" autocomplete="off" type="password" class="tags-input" placeholder="PASSWORD" />
+
+                    @*<input type="password" name="password" id="password" class="demoInputBox" onKeyUp="checkPasswordStrength();" />*@
+                    <input id="txtPassword" autocomplete="off" type="password" class="tags-input" placeholder="PASSWORD" onKeyUp="checkPasswordStrength();" />
+
                 </div>
+
+                <div id="password-strength-status"></div>
             </div>
 
             <div class="uinfo">
@@ -206,5 +212,45 @@
         .tags-input:focus[data-cursor]::after {
             display: block;
         }
+
+
+
+/*Password Strong CSS*/
+    #frmCheckPassword {
+        border-top: #F0F0F0 2px solid;
+        background: #808080;
+        padding: 10px;
+    }
+
+    .demoInputBox {
+        padding: 7px;
+        border: #F0F0F0 1px solid;
+        border-radius: 4px;
+    }
+
+    #password-strength-status {
+        padding: 5px 10px;
+        color: #FFFFFF;
+        border-radius: 4px;
+        margin-top: 5px;
+    }
+
+    .medium-password {
+        background-color: #b7d60a;
+        border: #BBB418 1px solid;
+    }
+
+    .weak-password {
+        background-color: #3D2823;
+        border: #AA4502 1px solid;
+    }
+
+    .strong-password {
+        background-color: #12CC1A;
+        border: #0FA015 1px solid;
+    }
+
 </style>
+
+
 

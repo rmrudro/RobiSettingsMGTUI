@@ -22,8 +22,52 @@
     #fileuploadfile {
         width: 100% !important;
     }
+
+    #tbl_DoNotSimChange_paginate {
+        text-align: center;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+
+    .paginate_button {
+        width: 50px;
+        height: 30px;
+        text-align: center;
+        font-size: 18px;
+        padding-left: 7px;
+        padding-right: 7px;
+        background-color: white;
+        border-color: #a7a9ac;
+        padding-top: 10px;
+        padding-bottom: 100px;
+    }
+
+    #tbl_DoNotSimChange_previous {
+        width: 80px;
+        padding-right: 80px;
+        background-color: #d1d3d4;
+    }
+
+    #tbl_DoNotSimChange_next {
+        width: 80px;
+        background-color: #d1d3d4;
+    }
+
+    .current {
+        background: #5c7988 !important;
+    }
+
+
+
+
 </style>
 <link href="~/css/bootstrap/bootstrap431min.css" rel="stylesheet" />
+
+<link href="~/css/Delete_Confirmation/bootstrap-confirm-delete.css" rel="stylesheet" />
+<link type="text/css" href="~/css/DataTable/DataTable_1_10_19.css" rel="stylesheet" />
+
 
 <link href="~/css/site.css" rel="stylesheet" />
 
@@ -32,6 +76,20 @@
 <script src="~/js/jquery-3.3.1.min.js"></script>
 
 <script src="~/js/Special Case/NotSimChange.js"></script>
+
+<script type="text/javascript" src="~/js/DataTable/DataTable_1_10_19.js"></script>
+
+
+<script src="~/js/DataTable/Datatables_button_1_5_6.js"></script>
+<script src="~/js/DataTable/buttons_flash_1_5_6.js"></script>
+<script src="~/js/DataTable/ajax_jszip_3_1_3.js"></script>
+<script src="~/js/DataTable/ajax_0_1_53_pdfMake.js"></script>
+<script src="~/js/DataTable/pdfMake_0_1_53_vfsFonts.js"></script>
+<script src="~/js/DataTable/buttons_1_5_6_html5_buttons.js"></script>
+<script src="~/js/DataTable/buttons_1_5_6_print.js"></script>
+<script src="~/js/jquery_delete_confirmation/bootstrap-confirm-delete.js"></script>
+
+
 
 <h2 style="padding-top:50px"></h2>
 
@@ -49,35 +107,32 @@
                 <div class="col-md-4">
                     <input type="text" class="form-control txtMSISDN txtboxdesign" id="txtMSISDN">
                 </div>
-                <div class="col-md-2 pRobiAxiata">
+                <div class="col-md-1 pRobiAxiata">
                     SIM Serial Or ICC ID
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4 padding-0">
                     <input type="text" class="form-control txtsimSerialID txtboxdesign" id="txtsimSerialID">
                 </div>
                 <div class="col-md-1">
 
                 </div>
                 <div class="col-md-1 col-md-offset-1 pRobiAxiata nextrow">File Name</div>
-                <div class="col-md-9 nextrow">
+                <div class="col-md-7 nextrow">
 
                     <div class="custom-file mb-3 ">
-                        <input type="file" class="custom-file-input" id="customFile" name="filename">
-                        <label id="fileuploadfile" class="custom-file-label fileuploadfile" for="customFile">Choose file</label>
+                        <input type="file" class="custom-file-input txtboxdesign" id="customFile" name="filename">
+                        <label id="fileuploadfile" class="custom-file-label fileuploadfile txtboxdesign" for="customFile">Choose file</label>
                     </div>
 
                 </div>
-                <div class="col-md-1 nextrow">
+                <div class="col-md-2 nextrow">
+
+                    <button type="button" class="btn btn-dark com_fle_upload btnSave btnCommon btnCommonAll" style="color:white;width:100%;">Save</button>
 
                 </div>
-                <div class="col-md-3 col-md-offset-5 nextrow">
+                <div class="col-md-1 nextrow"></div>
+               
 
-                    <button type="button" class="btn btn-dark com_fle_upload btnSave btnCommon btnCommonAll" style="color:white;width:100px;">Save</button>
-
-                </div>
-                <div class="col-md-4 nextrow">
-
-                </div>
             </div>
         </div>
         <div style="padding-top:20px;">

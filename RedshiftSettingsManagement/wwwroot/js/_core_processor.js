@@ -14,7 +14,10 @@ var sessionId = JSON.parse(localStorage.getItem("session_id"));
 var poscode = JSON.parse(localStorage.getItem("poscode"));
 
 var userID = JSON.parse(localStorage.getItem("userID"));
-console.log(userID);
+var userName = JSON.parse(localStorage.getItem("username"));
+
+
+console.log(userName);
 
 //var baseHost = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
 var baseHost = 'http://10.101.65.109:8000';
@@ -97,6 +100,9 @@ $(document).ready(function () {
     if (window.location.pathname != "/Login") {
         isVaildSession();
     }
+
+
+    $(".btnprofilename").html(userName);
 
     $("body").on("click", ".btn_logout", function (e) {
         localStorage.clear();

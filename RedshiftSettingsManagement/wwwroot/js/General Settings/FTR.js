@@ -10,13 +10,19 @@
 
 
             for (let i = 0; i < totalFTR; i++) {
-                let tableItem = "<tr><td class='tr_row' style='text-align:center'>" + results[i].title + "</td>";
+
+                let tableItem = '<tr id="row' + results[i].id + '"  style="background-color: white;>';
+                tableItem = tableItem +  "<td class='tr_row' style='text-align:center'>" + results[i].title + "</td>";
                 tableItem = tableItem + "<td class='tr_row' style='text-align:center'>" + results[i].amount + "</td>";
                 tableItem = tableItem + '<td><a  onClick="onDelete(' + results[i].id + ')" style="cursor:pointer;"><img src="/images/Common UI Assets/Icon-16 _Delete.png" /></a><a onClick="onEdit(' + results[i].id + "," + results[i].title + ',' + results[i].amount + ')" style="padding-left:10px;cursor:pointer"><img src="/images/Common UI Assets/Icon-16.png" /></a></td></tr>';
                 newTableData += tableItem;
+
             }
-            $('#tblFTR_Empty').hide();
+
+            //$('#tblFTR_Empty').hide();
+
             $('#tblFTR').html(newTableData);
+
         }
         else {
             $('#tblFTR_Empty').show();
@@ -44,7 +50,7 @@ $(document).ready(function () {
 
                 console.log(result.data);
                 //    console.log(result);
-                if (result.data) {
+                if (result.data.isResult) {
                     Swal.fire({
                         position: 'top-end',
                         type: 'success',
@@ -53,7 +59,31 @@ $(document).ready(function () {
                         timer: 1500
                     })
                     //Swal.fire({ type: "Success", title: "Sucessfully Inserted" });
-                    GetAllFTR();
+                    //GetAllFTR();
+                    //let tableItem = "<tr><td class='tr_row' style='text-align:center'>" + results[i].title + "</td>";
+                    //tableItem = tableItem + "<td class='tr_row' style='text-align:center'>" + results[i].amount + "</td>";
+                    //tableItem = tableItem + '<td><a  onClick="onDelete(' + results[i].id + ')" style="cursor:pointer;"><img src="/images/Common UI Assets/Icon-16 _Delete.png" /></a><a onClick="onEdit(' + results[i].id + "," + results[i].title + ',' + results[i].amount + ')" style="padding-left:10px;cursor:pointer"><img src="/images/Common UI Assets/Icon-16.png" /></a></td></tr>';
+                    //newTableData += tableItem;
+
+                    var html = '<tr id="row' + result.data.result.id + '" style="background-color: white;">';
+                    html += '<td class="tr_row" style="text-align: center; ">' + ftrTitle+ '</td>';
+                    html += '<td class="tr_row" style="text-align: center;">' + ftramount + '</td>';
+                    
+                    html += '<td><a  onClick="onDelete(' + result.data.result.id + ')" style="cursor:pointer;"><img src="/images/Common UI Assets/Icon-16 _Delete.png" /></a><a onClick="onEdit(' + result.data.result.id + "," + ftrTitle + ',' + FTRModel + ')" style="padding-left:10px;cursor:pointer"><img src="/images/Common UI Assets/Icon-16.png" /></a></td></tr>';
+                    //html += '<td style="text-align:center"><a onClick="onDelete(' + result.data.result.id + ')"><img src="/images/Common UI Assets/Icon-16 _Delete.png" /></a> <a onClick="onEdit(' + result.data.result.id + ')"><img src="/images/Common UI Assets/Icon-16.png" /></a></td> </tr>';
+
+                    $('#tblFTRList').prepend(html);
+
+                }
+                else {
+
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                        footer: '<a href>Why do I have this issue?</a>'
+                    });
+
                 }
                 
 
