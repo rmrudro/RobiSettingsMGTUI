@@ -1,25 +1,34 @@
-﻿function GetAllFTR() {
+﻿//let tableItem = '<tr><td>1</td>';
+ //tableItem += '<td>1</td>';
+ //tableItem += '<td>2</td></tr>';
+
+function GetAllFTR() {
     axios.get(ftrpackage, authToken).then(function (result) {
         var resultjson = JSON.stringify(result.data.result);
         console.log(result.data.result);
         var results = result.data.result;
         totalFTR = results.length;
+       
         if (totalFTR > 0) {
             table = document.getElementById('tblFTR');
             var newTableData = "";
 
+           
 
             for (let i = 0; i < totalFTR; i++) {
 
-                let tableItem = '<tr id="row' + results[i].id + '"  style="background-color: white;>';
-                tableItem = tableItem +  "<td class='tr_row' style='text-align:center'>" + results[i].title + "</td>";
+                console.log(results[i].id);
+                let tableItem = '<tr id="row' + results[i].id + '"  style="background-color: white;">';
+                tableItem = tableItem + "<td class='tr_row' style='text-align:center'>" + results[i].title + "</td>";
                 tableItem = tableItem + "<td class='tr_row' style='text-align:center'>" + results[i].amount + "</td>";
+                
                 tableItem = tableItem + '<td><a  onClick="onDelete(' + results[i].id + ')" style="cursor:pointer;"><img src="/images/Common UI Assets/Icon-16 _Delete.png" /></a><a onClick="onEdit(' + results[i].id + "," + results[i].title + ',' + results[i].amount + ')" style="padding-left:10px;cursor:pointer"><img src="/images/Common UI Assets/Icon-16.png" /></a></td></tr>';
+
                 newTableData += tableItem;
 
             }
 
-            //$('#tblFTR_Empty').hide();
+            $('#tblFTR_Empty').hide();
 
             $('#tblFTR').html(newTableData);
 

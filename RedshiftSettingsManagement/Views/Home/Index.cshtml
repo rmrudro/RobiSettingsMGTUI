@@ -69,10 +69,10 @@
 <script src="~/js/HomePage/home_index.js"></script>
 
 <h2 style="padding-top:60px"></h2>
-<div id="load"></div>
+@*<div id="load"></div>*@
 <div class="row">
 
-    <div class="col-md-11 col-md-offset-1">
+    <div class="col-md-12" style="padding-left:3%;">
         <div class="row">
             <div class="col-md-2">
                 <div class="nextrow dvborder dvhome" style="cursor:pointer; padding-left:25px;padding-right:25px;">
@@ -83,7 +83,8 @@
                     </div>
                     <div style="padding-left:15%">
                         <h2 class="hdrRobiAxia hme_txt">
-                            Home<br /> DashBoard
+                            <label style="padding-left:10%">Home </label>
+                            <br /> <label>DashBoard</label>
                         </h2>
                     </div>
                 </div>
@@ -98,8 +99,8 @@
                     </div>
                     <div style="padding-left:15%">
                         <h2 class="hdrRobiAxia gset_txt">
-                            General<br />
-                            Settings
+                            <label>General</label>  <br />
+                            <label> Settings</label>
                         </h2>
                     </div>
                 </div>
@@ -111,8 +112,13 @@
                     </div>
                     <div style="padding-left:15%">
                         <h2 class="hdrRobiAxia chnmgt_txt">
-                            Channel<br />
-                            Management
+                            <label style="padding-left:8%">
+                                Channel
+                            </label><br />
+                            <label>
+                                Management
+                            </label>
+
                         </h2>
                     </div>
                 </div>
@@ -124,12 +130,14 @@
                     </div>
                     <div style="padding-left:15%">
                         <h2 class="hdrRobiAxia usr_MGTtxt">
-                            User<br />
-                            Management
+                            <label style="padding-left:15%">User</label> <br />
+                            <label>Management</label>
                         </h2>
                     </div>
                 </div>
             </div>
+
+
             <div class="col-md-2">
                 <div class="nextrow  dvborder dvspccase" style="cursor:pointer;padding-left:25px;padding-right:25px;">
                     <div>
@@ -137,12 +145,32 @@
                     </div>
                     <div style="padding-left:15%">
                         <h2 class="hdrRobiAxia spcl_cse_txt">
-                            Special<br />
-                            Case
+                            <label>Special</label> <br />
+                            <label style="padding-left:5%">Case</label>
                         </h2>
                     </div>
                 </div>
             </div>
+
+
+
+            <div class="col-md-2">
+                <div class="nextrow  dvborder dvSystem_Reports" style="cursor:pointer;padding-left:25px;padding-right:25px;">
+                    <div>
+
+                        <img class="gimg imgSystem_Reports" src="~/images/Shared/HomePageIcon/System_Reports_Red.png" />
+
+                        @*<img class="gimg imgspcase" src="~/images/Shared/HomePageIcon/special_case_Red.png" />*@
+                    </div>
+                    <div style="padding-left:15%">
+                        <h2 class="hdrRobiAxia system_Reports" style="color:red;">
+                            <label>System</label>   <br />
+                            <label>Report</label>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
             @*<div class="col-md-1"></div>*@
         </div>
         <div class="row nextRowLast" style="padding-bottom:20px;">
@@ -161,18 +189,7 @@
 
 </div>
 
-<script>
-    document.onreadystatechange = function () {
 
-        var state = document.readyState
-        if (state == 'complete') {
-            setTimeout(function () {
-                document.getElementById('interactive');
-                document.getElementById('load').style.visibility = "hidden";
-            }, 2000);
-        }
-    }
-</script>
 
 
 @*Ruhul Bhai Css

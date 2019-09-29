@@ -622,7 +622,7 @@ body::-webkit-scrollbar-thumb {
     }
 
     .btnCommonAll {
-        font-size:15px;
+        font-size:15px !important;
         
     }
 
@@ -669,6 +669,9 @@ body::-webkit-scrollbar-thumb {
         font-size: 120%;
     }
 
+    .hvrALL {
+        height: 20000px;
+    }
 
     .hvr_home {
         margin-left: 12% !important;

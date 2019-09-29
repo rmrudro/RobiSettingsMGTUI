@@ -9,11 +9,18 @@ var currentProcessObserver = currentProcess.asObservable();
 //var lastColor = new Rx.BehaviorSubject("");
 //var lastColorSubscriber = lastColor.asObservable();
 
+var basehost_settingsmgt = 'http://10.101.65.108:8090';
+
+//var basehost_settingsmgt = 'http://localhost:40160';
+
+
 var sessionId = JSON.parse(localStorage.getItem("session_id"));
 
 var poscode = JSON.parse(localStorage.getItem("poscode"));
 
 var userID = JSON.parse(localStorage.getItem("userID"));
+
+
 var userName = JSON.parse(localStorage.getItem("username"));
 
 
@@ -94,10 +101,14 @@ const gettransaction = baseHost + '/api/v1/Activity/GetTransaction';
 
 
 $(document).ready(function () {
+    
     adjustFooter();
     getServerMACAddress();
 
+   
+
     if (window.location.pathname != "/Login") {
+        
         isVaildSession();
     }
 
@@ -105,11 +116,12 @@ $(document).ready(function () {
     $(".btnprofilename").html(userName);
 
     $("body").on("click", ".btn_logout", function (e) {
+
         localStorage.clear();
-        var retUrl = window.location.replace;
-        localStorage.setItem("retUrl", retUrl);
-        window.location.replace("http://localhost:40160/Login");
-        //window.location.replace = "./Login";
+        //var retUrl = window.location.replace;
+        //localStorage.setItem("retUrl", retUrl);
+        //window.location.replace(basehost_settingsmgt+'/Login');
+        window.location.href = "/Login";
         //alert('Hello');
     });
 
@@ -120,16 +132,16 @@ $(document).ready(function () {
 function isVaildSession() {
     let sessionData = JSON.parse(localStorage.getItem("sessionData"));
     if (sessionData) {
-        retailerSubject.next(sessionData.posCode);
-        const authToken = {
+        retailerSubject.next(sessionData.userName);
+        //const authToken = {
 
-            headers: {
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Headers": "*",
-                'token': sessionData.sessionToken
-                //'token': sessionData.sessionToken
-            }
-        };
+        //    headers: {
+        //        'Content-Type': 'application/json',
+        //        "Access-Control-Allow-Headers": "*",
+        //        'token': sessionData.sessionToken
+        //        //'token': sessionData.sessionToken
+        //    }
+        //};
         //console.log(authToken);
         return true;
     } else {
@@ -141,7 +153,9 @@ function isVaildSession() {
             confirmButtonText: 'Ok'
         }).then(function (result) {
             if (result.value) {
-                window.location.href = './Login'
+                //alert('Error Page');
+                window.location.href = "/Login";
+                //window.location.href = basehost_settingsmgt + '/Login';
             }
         })
         return false;

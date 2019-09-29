@@ -2,17 +2,18 @@
     function randString(id) {
         var dataSet = $(id).attr('data-character-set').split(',');
         var possible = '';
-        if ($.inArray('a-z', dataSet) >= 0) {
-            possible += 'abcdefghijklmnopqrstuvwxyz';
+        if ($.inArray('#', dataSet) >= 0) {
+            possible += '![]{}()%&*$#^<>~@|';
         }
+        
         if ($.inArray('A-Z', dataSet) >= 0) {
             possible += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         }
         if ($.inArray('0-9', dataSet) >= 0) {
             possible += '0123456789';
         }
-        if ($.inArray('#', dataSet) >= 0) {
-            possible += '![]{}()%&*$#^<>~@|';
+        if ($.inArray('a-z', dataSet) >= 0) {
+            possible += 'abcdefghijklmnopqrstuvwxyz';
         }
         var text = '';
         for (var i = 0; i < $(id).attr('data-size'); i++) {
@@ -22,6 +23,7 @@
     }
 
     // Create a new password on page load
+
     $('.txtPasswordGenerator').each(function () {
 
         $(this).val(randString($(this)));
@@ -163,13 +165,16 @@ $(document).ready(function () {
                 RETAILERMSISDNAIRTEL: txtRETAILERMSISDNAIRTEL,
                 RETAILERMSISDNROBI: txtRETAILERMSISDNROBI,
                 RETAILERCODEAIRTEL: txtRETAILERCODEAIRTEL,
-                RETAILERCODEROBI: txtRETAILERCODEROBI
+                RETAILERCODEROBI: txtRETAILERCODEROBI,
+                password: txtpassword
             };
 
             console.log(userModel);
             axios
                 .post(all_Userlist + '/add', userModel, authToken)
                 .then(function (result) {
+
+                    console.log(result.data);
 
                     if (result.data.isResult) {
                         Swal.fire({

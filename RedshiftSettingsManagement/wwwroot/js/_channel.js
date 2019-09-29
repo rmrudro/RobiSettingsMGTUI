@@ -251,13 +251,15 @@ $(document).ready(function () {
                         var table = $('#tblChannalList').DataTable();
 
                         table.row($('#row' + item)).remove();
+
                         table.draw();
 
                     }
 
                     else {
+
                         Swal.fire({ type: "warning", title: "Error in Deleting" });
-                        //GetAllChannel();
+                       
                     }
 
                 });

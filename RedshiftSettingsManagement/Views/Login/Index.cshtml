@@ -1,68 +1,50 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" />
-
+    @*<link href="~/css/site.css" rel="stylesheet" />*@
     <link href="~/css/site.css" rel="stylesheet" />
-
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-
     <link href="~/css/font_awesome/font-awesome4_7_0.min.css" rel="stylesheet" />
-
     <link href="~/css/bootstrap/bootstrap431min.css" rel="stylesheet" />
-
 
     <script src="~/js/ajax_jquiry_min_3_3_1.js/jquery_3_3_1.js"></script>
 
-    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>*@
-
     <script src="~/js/axios.min.js"></script>
-
     @*<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>*@
-
 
     <script src="~/js/sweet_alert/sweetalert2@8.js"></script>
 
-
     @*<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@7.1.0/dist/promise.min.js"></script>*@
-
     <script src="~/js/promise.min.js.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-
     @*<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.0.0/Rx.js"></script>*@
     <script src="~/js/Rx-5.0.0.js"></script>
-    <script src="~/js/_core_processor.js"></script>
 
     @*<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>*@
-
     <script src="~/js/jquery_1_11_1min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <script src="~/js/ajax_jquiry_min_3_3_1.js/ajax_jquery_3_2_1_min.js"></script>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
     @*<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>*@
     <script src="~/js/bootstrap4_0_0_min/bootstrap_min_4_0_0.js"></script>
+    <script src="~/js/_core_processor.js"></script>
+    <script src="~/js/_login.js"></script>
+
+
 
     <title>Login</title>
 </head>
 <body style="overflow-x:hidden;overflow-y:hidden; height:100%">
-
     <div class="row" style="height:100%">
         <div class="col-md-5 login_pannel">
-
             <img src="~/images/Login/robi_logo.png" class="img_robi_Logo" />
-
             <hr align="centre" width="60%" style="background-color:red;">
-
             <h2 style="color:red;text-align: center">SETTINGS MANAGEMENT </h2>
-
             <img src="~/images/Login/sim_picture.png" class="img_sim_card" />
-
-
 
         </div>
         @*table-bordered*@
@@ -72,49 +54,34 @@
                 <div class="tags-input-custom-name">
                     <input id="textUserName" autocomplete="off" type="text" class="tags-input" placeholder="USER ID" />
                 </div>
-
                 <div class="tags-input-custom-password">
-
                     @*<input type="password" name="password" id="password" class="demoInputBox" onKeyUp="checkPasswordStrength();" />*@
                     <input id="txtPassword" autocomplete="off" type="password" class="tags-input" placeholder="PASSWORD" onKeyUp="checkPasswordStrength();" />
-
                 </div>
-
                 <div id="password-strength-status"></div>
             </div>
-
-            <div class="uinfo">
-                <p class="reset_password pRobiAxiata" style="color:white">FORGET PASSWORD ? <a style="color:white" href="#">CLICK HERE</a></p>
-            </div>
-
-                <div class="uinfo1">
-                    <div class="btn btn_login" style="margin-left: 40%;line-height:2.1">LOGIN</div>
-                    @{
-                        var greeting = "Welcome to our site!";
-                        var weekDay = DateTime.Now.DayOfWeek;
-                        var greetingMessage = greeting + " Here in Huston it is: " + weekDay;
-                    }
-                    <div>
-                    </div>
-                    <p class="hdrRobiAxia" style="color: white;padding-left: 30%;padding-top: 34%;padding-bottom:4.80%">
-                        @DateTime.Now.Year Robi Axiata Limited
-                    </p>
+            @*<div class="uinfo" >
+                    <p class="reset_password pRobiAxiata" style="color:white">FORGET PASSWORD ? <a style="color:white" href="#">CLICK HERE</a></p>
+                </div>*@
+            <div class="uinfo1">
+                <div class="btn btn_login btnCommonAll" style="margin-left: 40%;line-height:2.1;">LOGIN</div>
+                @{
+                    var greeting = "Welcome to our site!";
+                    var weekDay = DateTime.Now.DayOfWeek;
+                    var greetingMessage = greeting + " Here in Huston it is: " + weekDay;
+                }
+                <div>
                 </div>
-
+                <p class="hdrRobiAxia" style="color: white;padding-left: 30%;padding-top: 34%;padding-bottom:4.80%">
+                    @DateTime.Now.Year Robi Axiata Limited
+                </p>
             </div>
         </div>
-
+    </div>
 </body>
-
 </html>
-<script src="~/js/_login.js"></script>
 
 <style>
-    /*body {
-        font-family: Arial, Helvetica, sans-serif;
-        background: url(../images/login/login_bg_with_aldl.png) no-repeat;
-    }*/
-
 
     .uinfo {
         padding-top: 10px;
@@ -215,7 +182,7 @@
 
 
 
-/*Password Strong CSS*/
+    /*Password Strong CSS*/
     #frmCheckPassword {
         border-top: #F0F0F0 2px solid;
         background: #808080;
@@ -238,18 +205,23 @@
     .medium-password {
         background-color: #b7d60a;
         border: #BBB418 1px solid;
+        font-size: 20px;
+        width: 42.5%;
     }
 
     .weak-password {
         background-color: #3D2823;
         border: #AA4502 1px solid;
+        font-size: 20px;
+        width: 42.5%;
     }
 
     .strong-password {
         background-color: #12CC1A;
         border: #0FA015 1px solid;
+        font-size: 20px;
+        width: 42.5%;
     }
-
 </style>
 
 

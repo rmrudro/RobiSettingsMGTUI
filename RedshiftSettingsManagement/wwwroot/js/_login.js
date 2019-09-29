@@ -6,7 +6,7 @@ function checkPasswordStrength() {
     if ($('#txtPassword').val().length < 8) {
         $('#password-strength-status').removeClass();
         $('#password-strength-status').addClass('weak-password');
-        $('#password-strength-status').html("Weak (should be atleast 6 characters.)");
+        $('#password-strength-status').html("Weak (should be atleast 8 characters.)");
     } else {
 
         if ($('#txtPassword').val().match(number) && $('#txtPassword').val().match(alphabets) && $('#txtPassword').val().match(special_characters)) {
