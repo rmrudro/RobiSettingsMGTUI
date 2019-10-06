@@ -21,7 +21,7 @@
             $('#dvAllMenu').html(newdiv);
         }).catch(function (error) {
             $('#dvAllMenu').html("<b>Network Error NO Data Found!</b>").css("text-align", "center");
-            Swal.fire({ type: "error", title: error.message.toUpperCase() })
+            //Swal.fire({ type: "error", title: error.message.toUpperCase() })
         });
             
     }
@@ -40,8 +40,7 @@
                 let divitemItem = '<input id="rdopromotext' + results[i].id + '" name="gender" class="rdopromotext"  type="radio" value=' + results[i].id + '>';
                 divitemItem += '<label class="tr_row" for="rdopromotext" >' + results[i].promotionaltext + '</label>';
                 divitemItem += '<br>';
-                //divitemItem = divitemItem + ;
-                //console.log(divitemItem);
+            
                 newdiv += divitemItem;
             }
 
@@ -63,7 +62,7 @@
     function GetAllChannel() {
         axios.get(allChannel_api, authToken).then(function (result) {
 
-            //console.log(result.data.resultSet.length);
+            
             let select = document.getElementById('allchannel');
             for (let i = 0; i < result.data.result.length; i++) {
                 var optname = result.data.result[i].channelName;
@@ -138,11 +137,21 @@
                     .post(allChannel_api + '/AssisgnOption', channelSettingsModel, authToken)
                     .then(function (result) {
                         if (result.data.isResult) {
+                            let txtMessageRes = result.data.result.messageEN;
                             Swal.fire({
                                 type: 'success',
-                                title: 'Sucessfully Saved',
+                                title: txtMessageRes,
                                 showConfirmButton: false,
                                 timer: 1500
+                            });
+                        }
+                        else {
+                            let txtMessageRes = result.data.result.messageEN;
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Oops...',
+                                text: txtMessageRes,
+
                             });
                         }
                     });
@@ -159,18 +168,45 @@
         let channelvalue = $(".allchannel").val();
         axios.get(allChannel_api + '/' + channelvalue, authToken).then(function (result) {
 
-            //console.log(result.data.result);
+            
             var results = result.data.result;
-            console.log(results);
+            
             var menuarray = results.menu;
             var ad_Settings_Array = results.advertisement;
 
             var menulen = menuarray.length;
             var ad_Settings_Arraylen = ad_Settings_Array.length;
 
+
+
             $('.chkMenuName').prop("checked", false);
 
             $(".rdopromotext").prop("checked", false);
+
+            if (menulen == 0 && ad_Settings_Arraylen == 0) {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: 'No data Inserted in Menu and Ad Settings',
+                    footer: '<a href>Why do I have this issue?</a>'
+                });
+            }
+            else if (menulen == 0 && ad_Settings_Arraylen>0) {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: 'No data Inserted in Menu',
+                    footer: '<a href>Why do I have this issue?</a>'
+                });
+            }
+            else if (menulen > 0 && ad_Settings_Arraylen == 0) {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: 'No data Inserted in Ad Settings',
+                    footer: '<a href>Why do I have this issue?</a>'
+                });
+            }
 
             if (menulen > 0) {
                 for (let i = 0; i < menulen; i++) {
@@ -241,8 +277,7 @@
                     divitemItem += '<br>';
                     newdiv += divitemItem;
                 }
-                //divitemItem = divitemItem + ;
-                //console.log(divitemItem);
+               
 
             }
             $('#dvAdSettings').html(newdiv);

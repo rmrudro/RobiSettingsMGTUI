@@ -37,8 +37,8 @@
                 //console.log(only_day);
                 
                 if (status == 'UnPublished') {
-                    
-                    let tableItem = '<tr><td style="text-align:center" class="tr_row">' + i  + '</td>';
+
+                    let tableItem = '<tr><td style="text-align:center" class="tr_row">' + parseInt(i+1) + '</td>';
                     tableItem = tableItem + '<td style="text-align:center" class="tr_row">' + results[i].transactionno + '</td>';
                     tableItem = tableItem + '<td style="text-align:center" class="tr_row">' + results[i].filename + '</td>';
                     tableItem = tableItem + '<td style="text-align:center" class="tr_row">' + month_date + '</td>';
@@ -61,7 +61,7 @@
 
         }).catch(function (error) { 
             $('#tblCommision_Upload').html("<b>Network Error NO Data Found!</b>").css("text-align", "center");
-            Swal.fire({ type: "error", title: error.message.toUpperCase() })
+            //Swal.fire({ type: "error", title: error.message.toUpperCase() })
         });
     }
 
@@ -82,20 +82,23 @@
             .post(commisionUpload + '/UnPublished', publishModel, authToken)
             .then(function (result) {
                 if (result.data.isResult) {
+
+                    let txtMessageRes = result.data.result.messageEN;
                     Swal.fire({
 
                         type: 'success',
-                        title: 'Sucessfully UnPublished',
+                        title: txtMessageRes,
                         showConfirmButton: false,
                         timer: 1500
                     });
                 }
                 else {
+                    let txtMessageRes = result.data.result.messageEN;
                     Swal.fire({
                         type: 'error',
                         title: 'Oops...',
-                        text: 'Something went wrong!',
-                        footer: '<a href>Why do I have this issue?</a>'
+                        text: txtMessageRes,
+
                     });
                 }
                 GetAllCommisionList();
@@ -118,17 +121,18 @@
                     Swal.fire({
 
                         type: 'success',
-                        title: 'Sucessfully Published',
+                        title: txtMessageRes,
                         showConfirmButton: false,
                         timer: 1500
                     });
                 }
                 else {
+                    let txtMessageRes = result.data.result.messageEN;
                     Swal.fire({
                         type: 'error',
                         title: 'Oops...',
-                        text: 'Something went wrong!',
-                        footer: '<a href>Why do I have this issue?</a>'
+                        text: txtMessageRes,
+
                     });
                 }
                 GetAllCommisionList();

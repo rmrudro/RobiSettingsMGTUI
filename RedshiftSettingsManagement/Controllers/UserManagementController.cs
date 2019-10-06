@@ -40,5 +40,10 @@ namespace RedshiftSMWeb.Controllers
             return View();
         }
 
+        public IActionResult PassWordReset()
+        {
+            return View();
+        }
+
     }
 }

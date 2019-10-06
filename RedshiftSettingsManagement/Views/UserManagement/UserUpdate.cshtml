@@ -6,7 +6,7 @@
 
 <style>
     .nextRow {
-        padding-top: 40px;
+        padding-top: 30px;
         padding-left:40px;
     }
 </style>
@@ -20,7 +20,7 @@
 
 <link rel="stylesheet" href="/resources/demos/style.css">
 
-<script src="~/js/jquery-3.3.1.min.js"></script>
+@*<script src="~/js/jquery-3.3.1.min.js"></script>*@
 <script src="~/js/bootstrapDatepicker2/bootstrapDatepicker.js"></script>
 <script src="~/js/cookie/jquery_cookie_1_3_1.js"></script>
 <script src="~/js/User Management/UserUpdate.js"></script>
@@ -43,14 +43,14 @@
                 <div class="col-md-2 col-md-offset-1 dvRobiMedium"> UserName </div>
                 <div class="col-md-3" style="width:initial">
 
-                    <input type="text" class="form-control txtusername txtboxdesign" required>
+                    <input type="text" class="form-control txtusername txtboxdesign inputFont" required>
 
                 </div>
                 <div class="col-md-2 dvRobiMedium">
                     Date Of Birth
                 </div>
                 <div class="col-md-3">
-                    <input type="text" class="form-control datepickers txtboxdesign" required>
+                    <input type="text" class="form-control datepickers txtboxdesign inputFont" required>
                 </div>
                 <div class="col-md-1">
 
@@ -59,13 +59,13 @@
                     First Name
                 </div>
                 <div class="col-md-3 nextRow">
-                    <input type="text" class="form-control txtfirstName txtboxdesign" required>
+                    <input type="text" class="form-control txtfirstName txtboxdesign inputFont" required>
                 </div>
                 <div class="col-md-2 dvRobiMedium  nextRow">
                     Last Name
                 </div>
                 <div class="col-md-3 nextRow">
-                    <input type="text" class="form-control txtlastName txtboxdesign" required>
+                    <input type="text" class="form-control txtlastName txtboxdesign inputFont" required>
                 </div>
                 <div class="col-md-1 nextRow">
 
@@ -76,8 +76,8 @@
                 <div class="col-md-3 nextRow" style="width:initial">
 
 
-                    <select class="form-control usrole txtboxdesign" id="usrole">
-                        <option>Select Role</option>
+                    <select id="usrole" class="form-control usrole txtboxdesign inputFont" >
+                        @*<option>Select Role</option>*@
                     </select>
 
 
@@ -88,8 +88,8 @@
                 <div class="col-md-3 nextRow" style="width:initial">
 
 
-                    <select class="form-control usrchannel txtboxdesign" id="usrchannel">
-                        <option>Select Channel</option>
+                    <select class="form-control usrchannel txtboxdesign inputFont" id="usrchannel">
+                        @*<option>Select Channel</option>*@
                     </select>
 
 
@@ -99,7 +99,7 @@
                     Email
                 </div>
                 <div class="col-md-3 nextRow">
-                    <input type="email" class="form-control txtemail txtboxdesign" required>
+                    <input type="email" class="form-control txtemail txtboxdesign inputFont" required>
                 </div>
 
 
@@ -107,7 +107,7 @@
                     Address
                 </div>
                 <div class="col-md-3 nextRow">
-                    <textarea class="form-control txtaddress" rows="3" placeholder="Address" required></textarea>
+                    <textarea class="form-control txtaddress inputFont" rows="3" placeholder="Address" required></textarea>
                 </div>
                 <div class="col-md-1 nextRow">
 
@@ -116,15 +116,65 @@
                     Contact
                 </div>
                 <div class="col-md-3 nextRow">
-                    <input type="text" class="form-control txtContact" required>
+                    <input type="number" class="form-control txtContact txtboxdesign inputFont" required>
                 </div>
-                <div class="col-md-1 nextRow">
+                @*<div class="col-md-1 nextRow">*@
 
-                    <input type="hidden" id="usID" class="usID" name="custId" >
-                    @*<input type="text" class="form-control txtID" required>*@
+                <input type="hidden" id="usID" class="usID" name="custId">
+                @*<input type="text" class="form-control txtID" required>*@
+                @*</div>*@
+
+                <div class="col-md-2   dvRobiMedium  nextRow">
+                    Retailer MSISDN Airtel
                 </div>
+
+
+                <div class="col-md-3 nextRow">
+                    <input type="number" class="form-control txtRetailerMSISDNAirtel txtboxdesign inputFont" required>
+                </div>
+                <div class="col-md-1"></div>
+
+                <div class="col-md-2 col-md-offset-1  dvRobiMedium  nextRow">
+                    Retailer MSISDN Robi
+                </div>
+
+                <div class="col-md-3 nextRow">
+                    <input type="number" class="form-control txtRetailerMSISDNRobi txtboxdesign inputFont" required>
+                </div>
+                <div class="col-md-2   dvRobiMedium  nextRow">
+                    Retailer Code Airtel
+                </div>
+
+                <div class="col-md-3 nextRow">
+                    <input type="text" class="form-control txtRetailerCodeAirtel txtboxdesign inputFont" required>
+                </div>
+
+                <div class="col-md-2 col-md-offset-1  dvRobiMedium  nextRow">
+                    Retailer Code Robi
+                </div>
+
+                <div class="col-md-3 nextRow">
+                    <input type="text" class="form-control txtRetailerCodeRobi txtboxdesign inputFont" required>
+                </div>
+
+                <div class="col-md-2 nextRow dvRobiMedium">
+                    Password
+
+                </div>
+
+                <div class="col-md-2 nextRow">
+                    <input type="text" class="form-control txtPasswordGenerator txtboxdesign inputFont" required data-size="12" data-character-set="a-z,A-Z,0-9,#">
+                </div>
+
+                <div class="col-md-1 nextRow dvRobiMedium">
+                    <button type="button" class="btn btn-primary btnpasswordGenerate  allbutton btnCommonAll"> Generate</button>
+                </div>
+
+
+
+
                 <div class="col-md-3 col-md-offset-5 nextRow">
-                    <button type="button" class="btn btn-block btn-success btnUpdateUser allbutton" style="color:white;">Update</button>
+                    <button type="button" class="btn btn-block btn-success btnUpdateUser btnCommonAll allbutton" style="color:white;">Update</button>
                 </div>
             </div>
 

@@ -841,75 +841,75 @@
     }
 
 
-    $('.subnav-gsetings').mouseout(function () {
+    //$('.subnav-gsetings').mouseout(function () {
 
 
-        $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_general_Settings_White.png');
-        $("#pgeneralsettings").css("color", "white");
-        $('.hvr_general_settings').css('background-color', '#ed1c24');
+    //    $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_general_Settings_White.png');
+    //    $("#pgeneralsettings").css("color", "white");
+    //    $('.hvr_general_settings').css('background-color', '#ed1c24');
 
 
-        $('.dvgmgt').css('background-color', 'white');
-        $('.imggnrl_mgt').attr('src', '/images/Shared/HomePageIcon/general_mgt_red.png');
-        $('.gset_txt').css('color', 'red');
+    //    $('.dvgmgt').css('background-color', 'white');
+    //    $('.imggnrl_mgt').attr('src', '/images/Shared/HomePageIcon/general_mgt_red.png');
+    //    $('.gset_txt').css('color', 'red');
 
-        $('.subnav-content').hide();
+    //    $('.subnav-content').hide();
 
 
-    });
+    //});
 
-    $('.subnavschnl').mouseout(function () {
+    //$('.subnavschnl').mouseout(function () {
 
-        $('#imgchannelmgt').attr('src', '/images/Shared/Icon-60_chanel_mgt_White.png');
-        $("#pchanllenmgt").css("color", "white");
-        $('.hvr_channel_mgt').css('background-color', '#ed1c24');
+    //    $('#imgchannelmgt').attr('src', '/images/Shared/Icon-60_chanel_mgt_White.png');
+    //    $("#pchanllenmgt").css("color", "white");
+    //    $('.hvr_channel_mgt').css('background-color', '#ed1c24');
 
-        $('.dv_Chnmgt').css('background-color', 'white');
-        $('.imgchn_mgt').attr('src', '/images/Shared/HomePageIcon/chnl_MGT_RED.png');
-        $('.chnmgt_txt').css('color', 'red');
+    //    $('.dv_Chnmgt').css('background-color', 'white');
+    //    $('.imgchn_mgt').attr('src', '/images/Shared/HomePageIcon/chnl_MGT_RED.png');
+    //    $('.chnmgt_txt').css('color', 'red');
 
-        $('.subnav-content').hide();
-    });
+    //    $('.subnav-content').hide();
+    //});
  
-    $('.subnavusrmgt').mouseout(function () {
+    //$('.subnavusrmgt').mouseout(function () {
        
-        $('#imgUserMgt').attr('src', '/images/Shared/Icon-60_user_mgt_white.png');
-        $("#puserMgt").css("color", "white");
-        $('.hvr_User_mgt').css('background-color', '#ed1c24');
+    //    $('#imgUserMgt').attr('src', '/images/Shared/Icon-60_user_mgt_white.png');
+    //    $("#puserMgt").css("color", "white");
+    //    $('.hvr_User_mgt').css('background-color', '#ed1c24');
 
 
-        $('.dvusrMGT').css('background-color', 'white');
-        $('.img_usrmgt').attr('src', '/images/Shared/HomePageIcon/user_MGT_Red.png');
-        $('.usr_MGTtxt').css('color', 'red');
+    //    $('.dvusrMGT').css('background-color', 'white');
+    //    $('.img_usrmgt').attr('src', '/images/Shared/HomePageIcon/user_MGT_Red.png');
+    //    $('.usr_MGTtxt').css('color', 'red');
 
-        $('.subnav-content').hide();
-    });
+    //    $('.subnav-content').hide();
+    //});
 
-    $('.subnaverrhndle').mouseout(function () {
+    //$('.subnaverrhndle').mouseout(function () {
 
-        $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_White-60.png');
-        $("#pErrHndle").css("color", "white");
-        $('.hvr_Err_Hndle').css('background-color', '#ed1c24');
+    //    $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_White-60.png');
+    //    $("#pErrHndle").css("color", "white");
+    //    $('.hvr_Err_Hndle').css('background-color', '#ed1c24');
 
-        $('.dvspccase').css('background-color', 'white');
-        $('.imgspcase').attr('src', '/images/Shared/HomePageIcon/special_case_Red.png');
-        $('.spcl_cse_txt').css('color', 'red');
+    //    $('.dvspccase').css('background-color', 'white');
+    //    $('.imgspcase').attr('src', '/images/Shared/HomePageIcon/special_case_Red.png');
+    //    $('.spcl_cse_txt').css('color', 'red');
 
-        $('.subnav-content').hide();
-    });
+    //    $('.subnav-content').hide();
+    //});
 
-    $('.subnav_Reports_transaction').mouseout(function () {
+    //$('.subnav_Reports_transaction').mouseout(function () {
 
-        $('#img_Reports').attr('src', '/images/Shared/Reports_White_Icon-60.png');
-        $("#pReports").css("color", "white");
-        $('.hvr_Reports').css('background-color', '#ed1c24');
+    //    $('#img_Reports').attr('src', '/images/Shared/Reports_White_Icon-60.png');
+    //    $("#pReports").css("color", "white");
+    //    $('.hvr_Reports').css('background-color', '#ed1c24');
 
-        $('.dvSystem_Reports').css('background-color', 'white');
-        $('.imgSystem_Reports').attr('src', '/images/Shared/HomePageIcon/System_Reports_Red.png');
-        $('.system_Reports').css('color', 'red');
+    //    $('.dvSystem_Reports').css('background-color', 'white');
+    //    $('.imgSystem_Reports').attr('src', '/images/Shared/HomePageIcon/System_Reports_Red.png');
+    //    $('.system_Reports').css('color', 'red');
 
-        $('.subnav-content').hide();
-    });
+    //    $('.subnav-content').hide();
+    //});
 
 });
 

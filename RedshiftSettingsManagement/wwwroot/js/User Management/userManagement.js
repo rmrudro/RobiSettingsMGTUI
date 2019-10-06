@@ -1,5 +1,6 @@
 ﻿
-function UpdateUser(username,firstname,lastname,email,roleid,userId) {
+function UpdateUser(username, firstname, lastname, email, roleid, retailerCodeAirtel, retailerCodeRobi,
+    retailerMsisdnAirtel, retailerMsisdnRobi, contact, address, dob, channelID, roleid, userId) {
     console.log(firstname);
     $.cookie("username", username);
     $.cookie("firstname", firstname);
@@ -7,20 +8,28 @@ function UpdateUser(username,firstname,lastname,email,roleid,userId) {
     $.cookie("email", email);
     $.cookie("roleId", roleid);
     $.cookie("userId", userId);
+    $.cookie("retailerCodeAirtel", retailerCodeAirtel);
+    $.cookie("retailerCodeRobi", retailerCodeRobi);
+    $.cookie("retailerMsisdnAirtel", retailerMsisdnAirtel);
+    $.cookie("retailerMsisdnRobi", retailerMsisdnRobi);
+    $.cookie("contact", contact);
+    $.cookie("dob", dob);
+    $.cookie("address", address);
+    $.cookie("channelID", channelID);
+    $.cookie("roleid", roleid);
+    $.cookie("roleid", roleid);
     location.href = '/UserManagement/UserUpdate';
 }
 
-
+var tables = "";
 function GetAllUser() {
     
     axios.get(all_Userlist, authToken).then(function (result) {
-
-        
         let i = 0;
-
         let results = result.data.resultSet;
+        
         let resultlen = results.length;
-        console.log(resultlen);
+        //console.log(resultlen);
         if (resultlen > 0) {
             var rows = result.data.resultSet.map(user => {
                 i = i + 1;
@@ -34,8 +43,10 @@ function GetAllUser() {
     <td class='tr_row' style='text-align:center'>${user.email}</td>
     <td class='tr_row' style='text-align:center'>${user.role.roleName}</td>
     <td>
-      <a href="#" class="" onclick="UpdateUser('${username}','${user.firstname}','${user.lastname}','${user.email}','${user.roleid}','${user.id}')"><img src="/images/Common UI Assets/Icon-16.png" /></a>
-      <a href="#" class="delete" data-user-id="${user.id}"><img src="/images/Common UI Assets/Icon-16 _Delete.png" /></a>
+      <a href="#" class="" onclick="UpdateUser('${username}','${user.firstname}','${user.lastname}','${user.email}','${user.roleid}','${user.retailerCodeAirtel}',
+'${user.retailerCodeRobi}','${user.retailerMsisdnAirtel}','${user.retailerMsisdnRobi}','${user.contact}','${user.address}'
+,'${user.dob}','${user.channeltypeid}','${user.role.id}','${user.id}')"><img src="/images/Common UI Assets/Icon-16.png" /></a>
+      <a href="#" style="padding-left:15px;" class="delete" data-user-id="${user.id}"><img src="/images/Common UI Assets/Icon-16 _Delete.png" /></a>
     </td>
   </tr>`;
             });
@@ -52,20 +63,14 @@ function GetAllUser() {
        
     }).catch(function (error) {
         $('#usertable').html("<b>Network Error NO Data Found!</b>").css("text-align", "center");
-        Swal.fire({ type: "error", title: error.message.toUpperCase() })
+        //Swal.fire({ type: "error", title: error.message.toUpperCase() })
     });
 }
 
-function LoadPaging() {
-    $('#usertable').DataTable({
-        "paging": true,
-        "searching": false,
-        "lengthChange": false,
-        "bInfo": false,
-        "iDisplayLength": 6,
 
-    });
-}
+
+
+
 
 
 $("#row").click(function () {
@@ -90,11 +95,14 @@ function onDelete(item) {
                 console.log(result.data);
                 
                 if (result.data.isResult) {
-                    Swal.fire(
-                        'Deleted!',
-                        'User has been deleted.',
-                        'success'
-                    );
+                    let txtMessageRes = result.data.result.messageEN;
+                    Swal.fire({
+
+                        type: 'success',
+                        title: txtMessageRes,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
 
                     var table = $('#usertable').DataTable();
 
@@ -105,7 +113,13 @@ function onDelete(item) {
 
                 else {
 
-                    Swal.fire({ type: "warning", title: "Error in Deleting" });
+                    let txtMessageRes = result.data.result.messageEN;
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: txtMessageRes,
+
+                    });
                     
                 }
 
@@ -128,48 +142,57 @@ function onDelete(item) {
 }
 
 
-$(document).ready(function () {
-
-    GetAllUser();
-
-    $("body").on("click", ".btn_Search", function (e) {
-        let usroleID = $('#usrole').val();
-        $("#tbl_UserList").empty();
-        if (usroleID == '0') {
-            //$("#usertable tbody").remove();
-            
-            GetAllUser();
-        }
-        else {
-
-            $("#usertable tbody").remove();
-
-            axios.get(all_Userlist + '/GetUsersByRole/' + usroleID, authToken).then(function (result) {
-                console.log(result);
-
-                var rows = result.data.result.map(user => {
-                    const profileURL = UpdatePage();
-                    return `<tr> 
-    <td>${user.username}</td>
-    <td>${user.firstname}</td>
-    <td>${user.lastname}</td>
-    <td>${user.email}</td>
-    <td>${user.roleid}</td>
-    <td>
-      <a href="${profileURL}"><img src="/images/Common UI Assets/Icon-16.png" /></a>
-      <a href="#" class="delete" data-user-id="${user.id}"><img src="/images/Common UI Assets/Icon-16 _Delete.png" /></a>
-    </td>
-  </tr>`;
-                });
-
-                $('#usertable tbody').append(rows).on('click', 'a.delete', function (e) {
-                    onDelete($(this).data('user-id'));
-                });
-            });
-        }
-
+function LoadPaging() {
+    tables=$('#usertable').DataTable({
+        //"paging": true,
+        
+        //"lengthChange": false,
+        "bInfo": false,
+        "iDisplayLength": 5,
+        //
+        //"dom": '<"pull-left"f><"pull-right"l>tip',
+        //orderCellsTop: true,
+        //fixedHeader: true,
+        dom: 'Bfrtip',
+        //buttons: [
+        //    'excelHtml5'
+        //],
+      
     });
 
+    var buttons = new $.fn.dataTable.Buttons(tables, {
+        buttons: [
+            
+            'excelHtml5',
+            
+        ]
+    }).container().appendTo($('#exportButton'));
+}
+
+//'copy', 'csv', 'pdf', 'print'
+
+$(document).ready(function () {
+
+
+    GetAllUser();
+    $(document).on('keyup change', '.txtusename', function () {
+        
+        tables.search('').columns().search('').draw();
+        tables.column(1).search(this.value).draw();
+    });
+
+    $(document).on('keyup change', '.txtRole', function () {
+        tables.search('').columns().search('').draw();
+        tables.column(5).search(this.value).draw();
+    });
+
+   
+    $(".usrole").change(function () {
+       
+        tables.search('').columns().search('').draw();
+        tables.column(5).search($(".usrole option:selected").text()).draw();
+    });
+    
 
     axios.get(all_RoleList + '/GetAll', authToken).then(function (result) {
         //console.log(result);
@@ -387,5 +410,46 @@ function export_table_to_csv(html, filename) {
 //        //alert('Hello world');
 //    });
 
+
+//});
+
+
+
+//Previous btnsertch code 
+//$("body").on("click", ".btn_Search", function (e) {
+//    let usroleID = $('#usrole').val();
+//    $("#tbl_UserList").empty();
+//    if (usroleID == '0') {
+//        //$("#usertable tbody").remove();
+
+//        GetAllUser();
+//    }
+//    else {
+
+//        $("#usertable tbody").remove();
+
+//        axios.get(all_Userlist + '/GetUsersByRole/' + usroleID, authToken).then(function (result) {
+//            console.log(result);
+
+//            var rows = result.data.result.map(user => {
+//                const profileURL = UpdatePage();
+//                return `<tr> 
+//    <td>${user.username}</td>
+//    <td>${user.firstname}</td>
+//    <td>${user.lastname}</td>
+//    <td>${user.email}</td>
+//    <td>${user.roleid}</td>
+//    <td>
+//      <a href="${profileURL}"><img src="/images/Common UI Assets/Icon-16.png" /></a>
+//      <a href="#" class="delete" data-user-id="${user.id}"><img src="/images/Common UI Assets/Icon-16 _Delete.png" /></a>
+//    </td>
+//  </tr>`;
+//            });
+
+//            $('#usertable tbody').append(rows).on('click', 'a.delete', function (e) {
+//                onDelete($(this).data('user-id'));
+//            });
+//        });
+//    }
 
 //});

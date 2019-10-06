@@ -100,8 +100,64 @@ $(document).ready(function () {
         let txtpassword = $('.txtPasswordGenerator').val();
 
 
+        console.log(us_roleid);
 
-        if (txtpassword.includes(robi)) {     /*.toLowerCase()*/
+
+        if (userName == '') {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'UserName Cannot be Blank',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+
+        else if (firstName == '') {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'FirstName Cannot be Blank',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+       
+
+        else if (lastname == '') {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'LastName Cannot be Blank',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+        else if (usemail == '') {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Email Cannot be Blank',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+
+        else if (dobirth == '') {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Should Have  Date of Birth',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+
+        else if (txtpassword == '') {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Should Give Password',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+
+        else if (txtpassword.includes(robi)) {     /*.toLowerCase()*/
             Swal.fire({
                 type: 'error',
                 title: 'Oops...',
@@ -141,6 +197,70 @@ $(document).ready(function () {
                 footer: '<a href>Why do I have this issue?</a>'
             });
         }
+
+        else if (us_roleid == 'Select Role') {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Please Select a Role',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+        else if (us_channel_ID == 'Select Channel') {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Please Select a Channel',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+
+        
+          else if (txtRETAILERMSISDNAIRTEL == '' && txtRETAILERMSISDNROBI == '') {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Both Airtel MSISDN and Robi MSISDN Cannot be NULL',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+        
+        else if (txtRETAILERCODEAIRTEL == '' && txtRETAILERCODEROBI == '') {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Both Airtel Code and Robi Code Cannot be NULL',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+        
+        else if (txtRETAILERCODEAIRTEL == '' && txtRETAILERCODEROBI == '') {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Both Airtel Code and Robi Code Cannot be NULL',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+        //us_address
+         else if (us_address == '') {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'User Address Cannot be NULL',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+
+        else if (us_contact == '') {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Contact Cannot be NULL',
+                footer: '<a href>Why do I have this issue?</a>'
+            });
+        }
+
         else {
             
             let userModel = {
@@ -177,19 +297,22 @@ $(document).ready(function () {
                     console.log(result.data);
 
                     if (result.data.isResult) {
+                        let txtMessageRes = result.data.result.messageEN;
                         Swal.fire({
                             type: 'success',
-                            title: 'Sucessfully Inserted',
+                            title: txtMessageRes,
                             showConfirmButton: false,
                             timer: 1500
                         });
                     }
                     else {
 
+                        console.log(result.data.result.messageEN);
+                        let txtMessageRes = result.data.result.messageEN;
                         Swal.fire({
                             type: 'error',
                             title: 'Oops...',
-                            text: 'Something went wrong!',
+                            text: txtMessageRes,
                             footer: '<a href>Why do I have this issue?</a>'
                         });
                     }

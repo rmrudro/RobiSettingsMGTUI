@@ -36,6 +36,35 @@
         /*background: url('../../wwwroot/images/loader/lg.comet-spinner.gif') !important;*/
     }
 
+    .dataTables_filter {
+        font-size: 14px;
+        float: left !important;
+        visibility: hidden;
+        /*position: absolute;*/
+        /*left: auto;
+        padding-bottom:20px;*/
+    }
+    .dt-buttons {
+        visibility:hidden;
+    }
+    #exportButton .dt-buttons {
+        visibility: visible;
+    }
+    /*.dt-buttons {
+        padding: 1%;
+        text-align: center;
+        
+    }*/
+    .buttons-copy {
+        background-color: #2f3242;
+        cursor: pointer;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        height: 30px;
+        font-size: 14px;
+    }
+
     .btn_Search {
         /*background-image: url('../../wwwroot/images/buttons/search_btn_bg_#2f3242.png');*/
         /*background-image: url('../images/buttons/search_btn_bg_#2f3242.png');*/
@@ -45,11 +74,54 @@
         color: white;
     }
 
+    .buttons-csv {
+        background-color: #2f3242;
+        cursor: pointer;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .buttons-excel {
+        background-color: #2f3242;
+        cursor: pointer;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .buttons-pdf {
+        background-color: #2f3242;
+        cursor: pointer;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        height: 30px;
+        font-size: 14px;
+    }
+
     .btn_Export {
         background-color: #842e62;
         cursor: pointer;
         border: none;
         color: white;
+        border-radius: 5px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .buttons-print {
+        background-color: #842e62;
+        cursor: pointer;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        height: 30px;
+        font-size: 14px;
     }
 
     .btn_btnOperation {
@@ -117,53 +189,83 @@
 <h2 style="padding-top:40px"></h2>
 <div id="load"></div>
 <div class="row" style="padding-top:40px">
-    <div class="col-md-1 col-md-offset-1 dvRobiMedium">
-        UserName
-    </div>
-    <div class="col-md-2">
-        <input type="text" class="form-control txtusename txtboxdesign" id="txtusrname">
-    </div>
-    <div class="col-md-1 dvRobiMedium">
-        Select Role
-    </div>
-    <div class="col-md-2">
-        <select class="form-control usrole txtboxdesign" id="usrole">
-            <option>Choose Role</option>
-        </select>
-    </div>
-    <div class="col-md-1">
+    @*<div class="col-md-1 col-md-offset-1 dvRobiMedium">
+            UserName
+        </div>
+        <div class="col-md-2">
+            <input type="text" class="form-control txtusename txtboxdesign" id="txtusrname">
+        </div>
+        <div class="col-md-1 dvRobiMedium">
+            Select Role
+        </div>
+        <div class="col-md-2">
+            <select class="form-control usrole txtboxdesign" id="usrole">
+                <option>Choose Role</option>
+            </select>
+        </div>
+        <div class="col-md-1">
 
-        <button type="button" class="btn btn-dark btn_Search allbutton btnCommonAll" style="color:white;width:80px">Search</button>
+            <button type="button" class="btn btn-dark btn_Search allbutton btnCommonAll" style="color:white;width:80px">Search</button>
 
-    </div>
-    <div class="col-md-1">
-        <button type="button" class="btn  btn_Export allbutton btnCommonAll" style="color:white;width:80px">Export</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn  btn_Export allbutton btnCommonAll" style="color:white;width:80px">Export</button>
 
-    </div>
-    <div class="col-md-2">
+        </div>
+        <div class="col-md-2">
 
-        <button type="button" class="btn  btn_btnOperation allbutton btnCommonAll" style="color:white;width:90px" hidden>Batch Operation</button>
+            <button type="button" class="btn  btn_btnOperation allbutton btnCommonAll" style="color:white;width:90px" hidden>Batch Operation</button>
 
-    </div>
-    <div class="col-md-1">
+        </div>
+        <div class="col-md-1">
 
-    </div>
+        </div>*@
 
     <div class="col-md-10 col-md-offset-1 nextRow">
         <div class="alldiv">
 
-            <div class="altblhead">
+            <div class="altblhead" style="height:60px;">
                 <h2 class="hdrRobiAxia">
                     User Information
-
-                    <button type="button" onclick="location.href='./UserAdd'" class="btn btn-dark channeladd" style="float:right;color:white;">Add</button>
-
+                    <span style="padding-bottom:5px;">
+                        <button type="button" onclick="location.href='./UserAdd'" class="btn btn-dark channeladd btnCommonAll" style="float:right;color:white;">Add</button>
+                    </span>
                 </h2>
-                
-            </div>
 
+
+            </div>
+            @*<div class="dt-buttons">*@
+                <div class="col-md-1 dvRobiMedium">
+                    UserName
+                </div>
+
+                <div class="col-md-2">
+                    <input type="text" class="form-control txtusename txtboxdesign inputFont" id="txtusrname" placeholder="search by Username">
+                </div>
+                <div class="col-md-1 dvRobiMedium">
+                    Role
+                </div>
+                <div class="col-md-2">
+
+                    @*<input type="text" class="form-control txtRole txtboxdesign inputFont" id="txtRole" placeholder="search by Role">*@
+
+                    <select class="form-control usrole txtboxdesign inputFont" id="usrole">
+                        <option class="inputFont">Choose Role</option>
+                    </select>
+
+
+                </div>
+
+                <div id="exportButton" class="col-md-2">
+
+                </div>
+                
+                <div class="col-md-4">
+
+                </div>
+            @*</div>*@
             <table id="usertable" class="col-md-12 col-xs-12 table tblcustom"
-                    width:100% !important">
+                   width:100% !important">
 
                 <thead id="usthead">
                     <tr>

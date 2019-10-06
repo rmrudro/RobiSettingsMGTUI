@@ -9,7 +9,7 @@
             var newTableData = "";
             for (let i = 0; i < do_NotSimlen; i++) {
 
-                let tableItem = '<tr id="row' + results[i].id + '"><td class="tr_row" style="text-align:center">' + i + '</td>';
+                let tableItem = '<tr id="row' + results[i].id + '"><td class="tr_row tr_rows' + results[i].id +'" style="text-align:center">' + parseInt(i + 1) + '</td>';
 
 
                 //let tableItem = '<tr id="row' + results[i].id + '"><td class="tr_row" style="text-align:center">' + i + '</td>';
@@ -27,7 +27,7 @@
 
         }).catch(function (error) {
             $('#tbl_DoNotSimChange').html("<b>Network Error NO Data Found!</b>").css("text-align", "center");
-            Swal.fire({ type: "error", title: error.message.toUpperCase() })
+            //Swal.fire({ type: "error", title: error.message.toUpperCase() })
         });
     }
 
@@ -38,7 +38,7 @@
             "searching": false,
             "lengthChange": false,
             "bInfo": false,
-            "iDisplayLength": 6,
+            "iDisplayLength": 5,
 
         });
     }
@@ -59,36 +59,45 @@
 
             if (result.data.isResult) {
 
+                let txtMessageRes = result.data.result.messageEN;
                 Swal.fire({
+
                     type: 'success',
-                    title: 'Sucessfully Inserted',
+                    title: txtMessageRes,
                     showConfirmButton: false,
                     timer: 1500
                 });
 
 
-                //let tableItem = `<tr><td class='tr_row' style='text-align:center'>` + i + `</td>`;
-                //tableItem = tableItem + `<td class='tr_row' style='text-align:center'>` + results[i].msisdn + `</td>`;
-                //tableItem = tableItem + `<td class='tr_row' style='text-align:center'>` + results[i].simserialoriccid + `</td>`
-                //tableItem = tableItem + '<td  style="text-align: center"><a  onClick="onDelete(' + results[i].id + ')"><img src="/images/Common UI Assets/Icon-16 _Delete.png" /></a> <a  onClick="onEdit(' + results[i].id + ')"><img src="/images/Common UI Assets/Icon-16.png" /></a> </td> </tr > ';
-                //newTableData += tableItem;
-
-
                 var html = '<tr id="row' + result.data.result.id + '" style="background-color: white;">';
-                html += "<td class='tr_row' style='text-align: center; width: 300px'>0</td>"
+                html += "<td class='tr_row' style='text-align: center; width: 300px'>1</td>"
                 html += '<td class="tr_row" style="text-align: center; text-align: center">' + msisdn + '</td>';
                 html += '<td class="tr_row" style="text-align: center; text-align: center">' + simserialiccID + '</td>';
 
                 html += '<td style="text-align:center;cursor:pointer;"><a onClick="onDelete("' + result.data.result.id + '")"><img src="/images/Common UI Assets/Icon-16 _Delete.png" /></a> <a onClick="onEdit("' + result.data.result.id + '")"><img src="/images/Common UI Assets/Icon-16.png" /></a></td> </tr>';
 
                 $('#tbl_DoNotSimChange').prepend(html);
+                axios.get(do_NotSimChange, authToken).then(function (result) {
+                    var results = result.data.result;
+                    var do_NotSimlen = results.length;
+                    for (let i = 0; i < do_NotSimlen; i++) {
+                        $('.tr_rows' + results[i].id).html(parseInt(i + 2));
+                    }
+                });
+
+                //for (let i = 0; i < do_NotSimlen; i++) {
+
+                //    var  html2 = '<tr id="row' + results[i].id + '"><td class="tr_row" style="text-align:center">' + parseInt(i + 2) + '</td><tr>';
+
+                //}
 
             }
             else {
+                let txtMessageRes = result.data.result.messageEN;
                 Swal.fire({
                     type: 'error',
                     title: 'Oops...',
-                    text: 'Something went wrong!',
+                    text: txtMessageRes,
                     footer: '<a href>Why do I have this issue?</a>'
                 });
             }
@@ -117,11 +126,14 @@
                     console.log(result.data);
 
                     if (result.data.isResult) {
-                        Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                        );
+                        let txtMessageRes = result.data.result.messageEN;
+                        Swal.fire({
+
+                            type: 'success',
+                            title: txtMessageRes,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
 
                         //$('#tblChannalList').DataTable().row('#delete-row-default' + item).remove().draw();
 
@@ -133,7 +145,13 @@
                     }
 
                     else {
-                        Swal.fire({ type: "warning", title: "Error in Deleting" });
+                        let txtMessageRes = result.data.result.messageEN;
+                        Swal.fire({
+                            type: 'error',
+                            title: 'Oops...',
+                            text: txtMessageRes,
+
+                        });
                         //GetAllChannel();
                     }
 

@@ -40,7 +40,7 @@ function GetTransactionReport(fromdate_ep, dateTo_ep) {
 
     }).catch(function (error) {
         $('#tbl_Transeaction').html("<b>Network Error NO Data Found!</b>").css("text-align", "center");
-        Swal.fire({ type: "error", title: error.message.toUpperCase() })
+        //Swal.fire({ type: "error", title: error.message.toUpperCase() })
     });
 }
 

@@ -79,7 +79,7 @@ $(document).ready(function () {
         })
             .catch(function (error) {
                 $('#tblChannalList').html("<b>Network Error NO Data Found!</b>").css("text-align", "center");
-                Swal.fire({ type: "error", title: error.message.toUpperCase() })
+                //Swal.fire({ type: "error", title: error.message.toUpperCase() })
             });
         
 
@@ -128,10 +128,26 @@ $(document).ready(function () {
 
             axios.put(allChannel_api + '/' + item1, channelstatusUpdate, authToken).then(function (result) {
                 console.log(result);
+
                 if (result.data.isResult == true) {
+                    let txtMessageRes = result.data.result.messageEN;
+                    Swal.fire({
 
-                    Swal.fire({ type: "Sucess", title: "Sucessfully Activated" });
+                        type: 'success',
+                        title: txtMessageRes,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
 
+                }
+                else {
+                    let txtMessageRes = result.data.result.messageEN;
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: txtMessageRes,
+
+                    });
                 }
             });
 
@@ -145,8 +161,23 @@ $(document).ready(function () {
             axios.put(allChannel_api + '/' + item1, channelstatusUpdate, authToken).then(function (result) {
                 console.log(result);
                 if (result.data.isResult == true) {
+                    let txtMessageRes = result.data.result.messageEN;
+                    Swal.fire({
 
-                    Swal.fire({ type: "Sucess", title: "Sucessfully DeActivated" });
+                        type: 'success',
+                        title: txtMessageRes,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+                }
+                else {
+                    let txtMessageRes = result.data.result.messageEN;
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: txtMessageRes,
+                    });
 
                 }
             });
@@ -224,7 +255,7 @@ $(document).ready(function () {
 
         //swal.fire("Here's a message!", "It's pretty, isn't it?");
 
-        console.log('row' + item);
+        
 
         Swal.fire({
             title: 'Are you sure?',
@@ -240,11 +271,15 @@ $(document).ready(function () {
                     console.log(result.data);
                     console.log(result.data.result.code);
                     if (result.data.isResult) {
-                        Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                        );
+
+                        let txtMessageRes = result.data.result.messageEN;
+                        Swal.fire({
+
+                            type: 'success',
+                            title: txtMessageRes,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
 
                         //$('#tblChannalList').DataTable().row('#delete-row-default' + item).remove().draw();
 
@@ -258,7 +293,13 @@ $(document).ready(function () {
 
                     else {
 
-                        Swal.fire({ type: "warning", title: "Error in Deleting" });
+                        let txtMessageRes = result.data.result.messageEN;
+                        Swal.fire({
+                            type: 'error',
+                            title: 'Oops...',
+                            text: txtMessageRes,
+
+                        });
                        
                     }
 
@@ -333,9 +374,11 @@ $(document).ready(function () {
             .then(function (result) {
                 console.log(result.data.result.id);
                 if (result.data.isResult) {
+                    let txtMessageRes = result.data.result.messageEN;
                     Swal.fire({
+
                         type: 'success',
-                        title: 'Sucessfully Inserted',
+                        title: txtMessageRes,
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -344,12 +387,7 @@ $(document).ready(function () {
                     html += '<td><label class="switch"><input id="chkEnabled" checked class="chkEnabled" type="checkbox"><span class="slider round"></span></label ></td>';
                     html += '<td class="tr_row" style="text-align: center; text-align: center">Yes</td>';
                     html += '<td class="tr_row" style="text-align: center; text-align: center">No</td>';
-                    //html += 
-                    //<td><label class="switch"><input id="chkEnabled" class="chkEnabled" type="checkbox"><span class="slider round"></span></label ></td>
-                    //html += + '<td style = "display:none;">' + '1' + '</td>';
-                    //html += '<td>' + '1' + '</td>';
-
-                    //tableItem = tableItem + '<td style="text-align: center"><a id="delete-row-default' + result.data.result[i].id + '" class="delete-row-default' + result.data.result[i].id + '" onClick="onDelete(' + result.data.result[i].id + ')"><img src="/images/Common UI Assets/Icon-16 _Delete.png" style="cursor:pointer;" /></a></td></tr>';
+                    
 
                     html += '<td style="text-align: center"><a id="delete-row-default' + result.data.result.id + '" class="delete-row-default' + result.data.result.id + '" onClick="onDelete(' + result.data.result.id + ')"><img src="/images/Common UI Assets/Icon-16 _Delete.png" style="cursor:pointer;" /></a></td></tr>';
 
@@ -359,11 +397,12 @@ $(document).ready(function () {
 
                 }
                 else {
+                    let txtMessageRes = result.data.result.messageEN;
                     Swal.fire({
                         type: 'error',
                         title: 'Oops...',
-                        text: 'Something went wrong!',
-                        footer: '<a href>Why do I have this issue?</a>'
+                        text: txtMessageRes,
+                       
                     });
                 }
             });

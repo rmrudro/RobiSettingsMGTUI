@@ -6,9 +6,26 @@
     axios
         .post(all_RoleList + '/add', RoleMode, authToken)
         .then(function (result) {
+            console.log(result.data);
             if (result.data.isResult) {
-                Swal.fire({ type: "Sucess", title: "Sucessfully Inserted" });
+                let txtMessageRes = result.data.result.messageEN;
+                Swal.fire({
+                    type: 'success',
+                    title: txtMessageRes,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
+            else {
+                let txtMessageRes = result.data.result.messageEN;
+                Swal.fire({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: txtMessageRes,
+                    footer: '<a href>Why do I have this issue?</a>'
+                });
+            }
+
             //location.href = '/UserManagement/UserAdd';
         });
 
@@ -35,12 +52,17 @@ $("body").on("click", ".btnAssignMenu", function (e) {
         .then(function (result) {
 
             if (result.data.isResult) {
+                let txtMessageRes = result.data.result.messageEN;
                 Swal.fire({
+
                     type: 'success',
-                    title: 'Sucessfully Saved',
+                    title: txtMessageRes,
                     showConfirmButton: false,
                     timer: 1500
                 });
+            }
+            else {
+
             }
 
         });

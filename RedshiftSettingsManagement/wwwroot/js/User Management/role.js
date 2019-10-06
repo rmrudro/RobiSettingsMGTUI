@@ -45,7 +45,7 @@ function AllRole() {
        
     }).catch(function (error) {
         $('#tblRoletable').html("<b>Network Error NO Data Found!</b>").css("text-align", "center");
-        Swal.fire({ type: "error", title: error.message.toUpperCase() })
+        //Swal.fire({ type: "error", title: error.message.toUpperCase() })
     });
 }
 
@@ -80,19 +80,22 @@ function onDelete(item) {
             axios.delete(all_RoleList + '/' + item, authToken).then(function (result) {
                 console.log(result.data.isResult);
                 if (result.data.isResult) {
-                    Swal.fire(
-                        'Good job!',
-                        'SucessFully Deleted',
-                        'success'
-                    );
+                    let txtMessageRes = result.data.result.messageEN;
+                    Swal.fire({
+
+                        type: 'success',
+                        title: txtMessageRes,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                    
                 }
                 else {
+                    let txtMessageRes = result.data.result.messageEN;
                     Swal.fire({
                         type: 'error',
                         title: 'Oops...',
-                        text: 'Something went wrong!',
-                        footer: '<a href>Why do I have this issue?</a>'
+                        text: txtMessageRes,
                     });
                    
                 }

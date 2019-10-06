@@ -58,7 +58,7 @@ $(document).ready(function () {
         })
          .catch(function (error) {
              $('#tblAppSettings').html("<b>Network Error NO Data Found!</b>").css("text-align", "center");
-                Swal.fire({ type: "error", title: error.message.toUpperCase() })
+                //Swal.fire({ type: "error", title: error.message.toUpperCase() })
             });
     }
 
@@ -119,29 +119,31 @@ $(document).ready(function () {
         axios
             .put(app_Settings + '/' + id, AppSettingsModel, authToken)
             .then(function (result) {
-                console.log(result.data.isResult);
+                //console.log(result.data.isResult);
 
                 GetAllAppSettings();
 
 
                 if (result.data.isResult) {
+                    let txtMessageRes = result.data.result.messageEN;
                     Swal.fire({
 
                         type: 'success',
-                        title: 'Sucessfully Updated',
+                        title: txtMessageRes,
                         showConfirmButton: false,
                         timer: 1500
                     });
                 }
                 else {
+                    let txtMessageRes = result.data.result.messageEN;
                     Swal.fire({
                         type: 'error',
                         title: 'Oops...',
-                        text: 'Something went wrong!',
-                        footer: '<a href>Why do I have this issue?</a>'
+                        text: txtMessageRes,
+                        
                     });
                 }
-                console.log(AppSettingsModel);
+                //console.log(AppSettingsModel);
 
 
             });

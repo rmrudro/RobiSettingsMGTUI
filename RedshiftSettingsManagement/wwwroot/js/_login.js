@@ -41,14 +41,17 @@ $(document).ready(function () {
             Swal.fire({ type: "info", title: "Password Required." });
             return;
         }
-        let loginModel = { userName: username_, password: password_, deviceType: 0, mac: localStorage.getItem("mac-address"), appVersionCode: "1", USERTYPE:3 };
+        let loginModel = {
+            userName: username_, password: password_, deviceType: 0, mac: "String", appVersionCode: "1", "tCapVersionCode": 0,
+            "imei": "string",
+            "tabletVendor": "string" };
             axios
                 .post(login_api, loginModel, common)
                 .then(function (result) {
                     // console.log(result.data.result.posCode);
                     //console.log(result.data.result);
                     //        if (result.data.isResult) {
-                    console.log(result);
+                    console.log(result.data);
                     const response = result.data.result;
                     
                     if (response == null) {
@@ -75,16 +78,16 @@ $(document).ready(function () {
                     }
                   
             
-        //                        //retailerSubject.next(menuLists);
-        //             
+    
+               
             })
             .catch(function (error) {
                 Swal.fire({ type: "error", title: error.message.toUpperCase() })
             });
 
-        //retailerSubject.next(response.posCode);
+        
         localStorage.setItem("session_id", JSON.stringify(response.sessionToken));
-        //window.location.href = "./Home";
+        
         console.log(localStorage.getItem("session_id"));
 
     });

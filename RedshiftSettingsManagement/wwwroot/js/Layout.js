@@ -1,18 +1,19 @@
 ﻿
 $('document').ready(function () {
     var pageURL = $(location).attr("href");
-    pageURL = pageURL.replace('http://localhost:40160/', '');
+    //pageURL = pageURL.replace('http://localhost/', '');
+    //pageURL = pageURL.replace('http://localhost:40160/', '');
 
-    var controllerName = '';
-    var actionName = '';
-    if (pageURL.includes('/')) {
-        controllerName = pageURL.substr(0, pageURL.indexOf('/'));
-        actionName = pageURL.split('/').pop();
-    }
-    else {
-        controllerName = 'home';
-    }
+    
+    var path = window.location.pathname;
+    
+    var abc = path.split("/");
+    //console.log(abc);
+    
+    var controllerName = abc[1];
+    var actionName = abc[2] || "index";
 
+   
 
     document.getElementById("hvr_home").onclick = function () {
         location.href = "/home";
@@ -346,6 +347,7 @@ $('document').ready(function () {
                 
             }
             else if (actionName == 'AppSettings') {
+                
                 $('.subnav-gsetings').show();
                 $('.btnAppSettings').css("background-color", "white");
                 $('.btnAppSettings').css("color", "black");
@@ -573,6 +575,7 @@ $('document').ready(function () {
 
             }
             else if (controllerName == 'GeneralSettings') {
+
                 subnavGeneral_sett_Show();
                 //$('.subnav-content').hide();
                 $('.subnav-gsetings').show();

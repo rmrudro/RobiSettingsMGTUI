@@ -5,7 +5,7 @@
 function GetAllFTR() {
     axios.get(ftrpackage, authToken).then(function (result) {
         var resultjson = JSON.stringify(result.data.result);
-        console.log(result.data.result);
+        
         var results = result.data.result;
         totalFTR = results.length;
        
@@ -17,7 +17,7 @@ function GetAllFTR() {
 
             for (let i = 0; i < totalFTR; i++) {
 
-                console.log(results[i].id);
+                
                 let tableItem = '<tr id="row' + results[i].id + '"  style="background-color: white;">';
                 tableItem = tableItem + "<td class='tr_row' style='text-align:center'>" + results[i].title + "</td>";
                 tableItem = tableItem + "<td class='tr_row' style='text-align:center'>" + results[i].amount + "</td>";
@@ -41,7 +41,7 @@ function GetAllFTR() {
     })
         .catch(function (error) {
             $('#tblFTRList').html("<b>Network Error NO Data Found!</b>").css("text-align", "center");
-            Swal.fire({ type: "error", title: error.message.toUpperCase() })
+            //Swal.fire({ type: "error", title: error.message.toUpperCase() })
         });
         ;
 }
@@ -57,13 +57,16 @@ $(document).ready(function () {
         axios
             .post(ftrpackage, FTRModel, authToken).then(function (result) {
 
-                console.log(result.data);
-                //    console.log(result);
+                
+                
+                
                 if (result.data.isResult) {
+                    let txtMessageRes = result.data.result.messageEN;
+                    
                     Swal.fire({
-                        position: 'top-end',
+                        
                         type: 'success',
-                        title: 'Your work has been saved',
+                        title: txtMessageRes,
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -85,12 +88,12 @@ $(document).ready(function () {
 
                 }
                 else {
-
+                    let txtMessageRes = result.data.result.messageEN;
                     Swal.fire({
                         type: 'error',
                         title: 'Oops...',
-                        text: 'Something went wrong!',
-                        footer: '<a href>Why do I have this issue?</a>'
+                        text: txtMessageRes,
+                        
                     });
 
                 }
@@ -113,19 +116,26 @@ $(document).ready(function () {
         }).then((result1) => {
             if (result1.value) {
                 axios.delete(ftrpackage + '/' + item, authToken).then(function (result) {
-                    console.log(result.data);
-                    console.log(result.data.result.code);
+                    
                     if (result.data.isResult) {
-                        Swal.fire(
-                            'Deleted!',
-                            'Your Selected FTR has been deleted.',
-                            'success'
-                        )
+                        let txtMessageRes = result.data.result.messageEN;
+                        Swal.fire({
+                            type: 'success',
+                            title: txtMessageRes,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
                         GetAllFTR();
                     }
 
                     else {
-                        Swal.fire({ type: "warning", title: "Error in Deleting" });
+                        let txtMessageRes = result.data.result.messageEN;
+                        Swal.fire({
+                            type: 'error',
+                            title: 'Oops...',
+                            text: txtMessageRes,
+
+                        });
                         GetAllFTR();
                     }
 
@@ -153,13 +163,12 @@ $(document).ready(function () {
         let FTRModel = { title: ftrTitle, amount: ftramount };
         
         axios.put(ftrpackage + '/' + id, FTRModel, authToken).then(function (result) {
-            console.log(result);
+            
             if (result.data.isResult == true) {
-
+                let txtMessageRes = result.data.result.messageEN;
                 Swal.fire({
-
                     type: 'success',
-                    title: 'Sucessfully Updated',
+                    title: txtMessageRes,
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -171,12 +180,11 @@ $(document).ready(function () {
                 $('.ftramount').prop('readonly', false);
             }
             else {
-
+                let txtMessageRes = result.data.result.messageEN;
                 Swal.fire({
                     type: 'error',
                     title: 'Oops...',
-                    text: 'Something went wrong!',
-                    footer: '<a href>Why do I have this issue?</a>'
+                    text: txtMessageRes,
                 });
                 $('.ftrAdd').show();
                 $('.ftrUpdate').hide();

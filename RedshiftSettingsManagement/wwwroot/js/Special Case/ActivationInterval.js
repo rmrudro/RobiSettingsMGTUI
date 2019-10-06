@@ -13,7 +13,7 @@
 
 
 
-                let tableItem = '<tr id="row' + results[i].id + '"><td class="tr_row" style="text-align:center">' + i + '</td>';
+                let tableItem = '<tr id="row' + results[i].id + '"><td class="tr_row tr_rows' + results[i].id +'" style="text-align:center">' + parseInt(i + 1) + '</td>';
 
                 tableItem = tableItem + `<td class='tr_row' style='text-align:center'>` + results[i].idvalue + `</td>`;
                 tableItem = tableItem + '<td  style="text-align: center"><a  onClick="onDelete(' + results[i].id + ')"><img src="/images/Common UI Assets/Icon-16 _Delete.png" style="cursor:pointer;" /></a> <a  onClick="onEdit(' + results[i].id + ')"><img src="/images/Common UI Assets/Icon-16.png" style="cursor:pointer;padding-left:15px;" /></a> </td> </tr > ';
@@ -24,7 +24,7 @@
             LoadPaging();
         }).catch(function (error) {
             $('#tbl_ActivationInterval').html("<b>Network Error NO Data Found!</b>").css("text-align", "center");
-            Swal.fire({ type: "error", title: error.message.toUpperCase() })
+            //Swal.fire({ type: "error", title: error.message.toUpperCase() })
         });
     }
 
@@ -53,10 +53,10 @@
 
 
                 if (result.data.isResult) {
-
+                    let txtMessageRes = result.data.result.messageEN;
                     Swal.fire({
                         type: 'success',
-                        title: 'Sucessfully Inserted',
+                        title: txtMessageRes,
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -64,19 +64,29 @@
                     
 
                     var html = '<tr id="row' + result.data.result.id + '" style="background-color: white;">';
-                    html += "<td class='tr_row' style='text-align: center; width: 300px'>0</td>"
+                    html += "<td class='tr_row' style='text-align: center; width: 300px'>1</td>"
                     html += '<td class="tr_row" style="text-align: center; text-align: center">' + NID + '</td>';
 
                     html += '<td style="text-align:center"><a onClick="onDelete(' + result.data.result.id + ')"><img src="/images/Common UI Assets/Icon-16 _Delete.png" /></a> <a onClick="onEdit(' + result.data.result.id + ')"><img src="/images/Common UI Assets/Icon-16.png" /></a></td> </tr>';
 
                     $('#tbl_ActivationInterval').prepend(html);
+
+                    axios.get(sc_Activation_Interval, authToken).then(function (result) {
+                        var results = result.data.result;
+                        var act_len = results.length;
+                        for (let i = 0; i < act_len; i++) {
+ 
+                            $('.tr_rows' + results[i].id).html(parseInt(i + 2));
+                        }
+                    });
                 }
                 else {
 
+                    let txtMessageRes = result.data.result.messageEN;
                     Swal.fire({
                         type: 'error',
                         title: 'Oops...',
-                        text: 'Something went wrong!',
+                        text: txtMessageRes,
                         footer: '<a href>Why do I have this issue?</a>'
                     });
 
@@ -103,11 +113,14 @@
                     console.log(result.data);
                    
                     if (result.data.isResult) {
-                        Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                        );
+                        let txtMessageRes = result.data.result.messageEN;
+                        Swal.fire({
+
+                            type: 'success',
+                            title: txtMessageRes,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
 
                         //$('#tblChannalList').DataTable().row('#delete-row-default' + item).remove().draw();
 
@@ -119,7 +132,13 @@
                     }
 
                     else {
-                        Swal.fire({ type: "warning", title: "Error in Deleting" });
+                        let txtMessageRes = result.data.result.messageEN;
+                        Swal.fire({
+                            type: 'error',
+                            title: 'Oops...',
+                            text: txtMessageRes,
+
+                        });
                         //GetAllChannel();
                     }
 

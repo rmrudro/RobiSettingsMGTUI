@@ -24,7 +24,7 @@ var userID = JSON.parse(localStorage.getItem("userID"));
 var userName = JSON.parse(localStorage.getItem("username"));
 
 
-console.log(userName);
+
 
 //var baseHost = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
 var baseHost = 'http://10.101.65.109:8000';
@@ -103,15 +103,25 @@ const gettransaction = baseHost + '/api/v1/Activity/GetTransaction';
 $(document).ready(function () {
     
     adjustFooter();
-    getServerMACAddress();
+    //getServerMACAddress();
 
-   
 
-    if (window.location.pathname != "/Login") {
-        
-        isVaildSession();
+    
+
+    if (window.location.pathname == '/' || window.location.pathname == '/Login') {
+        //if (window.location.pathname = '/Login') {
+
+        //}
     }
 
+    //else if (window.location.pathname = '/Login') {
+    //    //alert('Not Login Page');
+
+    //}
+
+    else {
+        isVaildSession();
+    }
 
     $(".btnprofilename").html(userName);
 
@@ -162,19 +172,19 @@ function isVaildSession() {
     }
 }
 
-function getServerMACAddress() {
-    $.ajax({
-        url: "Home/GetServerMac",
-        success: function (mac) {
-            if (mac) {
-                localStorage.setItem("mac-address", mac);
-            } else {
-                localStorage.setItem("mac-address", "null");
-            }
+//function getServerMACAddress() {
+//    $.ajax({
+//        url: "Home/GetServerMac",
+//        success: function (mac) {
+//            if (mac) {
+//                localStorage.setItem("mac-address", mac);
+//            } else {
+//                localStorage.setItem("mac-address", "null");
+//            }
 
-        }
-    });
-}
+//        }
+//    });
+//}
 
 function adjustFooter() {
     //alert($(document).height()+">>>>>>>"+$(window).height());

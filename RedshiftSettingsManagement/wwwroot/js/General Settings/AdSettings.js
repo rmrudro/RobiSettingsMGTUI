@@ -35,7 +35,7 @@
                     newTableData += tableItem;
 
                 }
-                console.log(newTableData);
+                
                 $('#tbl_tby_AddSettings_Empty').hide();
 
                 $('#tbl_tbdy_AdSettings').html(newTableData);
@@ -49,7 +49,7 @@
         })
             .catch(function (error) {
                 $('#tbl_AddSettings').html("<b>Network Error NO Data Found!</b>").css("text-align", "center");
-                Swal.fire({ type: "error", title: error.message.toUpperCase() })
+                //Swal.fire({ type: "error", title: error.message.toUpperCase() })
             });
         
     }
@@ -93,16 +93,33 @@
         }).then((result1) => {
             if (result1.value) {
                 axios.delete(ad_Settings + '/' + item, authToken).then(function (result) {
-                    console.log(result);
-                    //GetAllAddsettings();
-                    return;
+
+                    if (result.data.isResult) {
+                        let txtMessageRes = result.data.result.messageEN;
+                        Swal.fire({
+                            type: 'success',
+                            title: txtMessageRes,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                    else {
+                        let txtMessageRes = result.data.result.messageEN;
+                        Swal.fire({
+                            type: 'error',
+                            title: 'Oops...',
+                            text: txtMessageRes,
+                            
+                        });
+                    }
+                   
                 });
 
-                swalWithBootstrapButtons.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                );
+                //swalWithBootstrapButtons.fire(
+                //    'Deleted!',
+                //    'Your file has been deleted.',
+                //    'success'
+                //);
 
                 var table = $('#tbl_AddSettings').DataTable();
 
@@ -132,9 +149,9 @@
         let txtPromotionaltext = $(".txtpro").val();
         let txtTimeLimit = $(".txtTimeLimit").val();
         let ppic = $('.base64image').val();
-        console.log(ppic);
+        //console.log(ppic);
         let pimage = ppic.split(",").pop();  //ppic.substr(0, ppic.indexOf(','));
-        console.log(pimage);
+        //console.log(pimage);
         //console.log(ppic);
 
         let addSettingsModel = { promotionaltext: txtPromotionaltext, timelimit: txtTimeLimit, promotionalpicture: pimage };
@@ -171,13 +188,13 @@
             axios
                 .post(ad_Settings, addSettingsModel, authToken)
                 .then(function (result) {
-                    console.log(result.data);
+                    
 
                     if (result.data.isResult) {
-
+                        let txtMessageRes = result.data.result.messageEN;
                         Swal.fire({
                             type: 'success',
-                            title: 'Sucessfully Inserted',
+                            title: txtMessageRes,
                             showConfirmButton: false,
                             timer: 1500
                         });
@@ -194,10 +211,11 @@
 
                     }
                     else {
+                        let txtMessageRes = result.data.result.messageEN;
                         Swal.fire({
                             type: 'error',
                             title: 'Oops...',
-                            text: 'Something went wrong!',
+                            text: txtMessageRes,
                             footer: '<a href>Why do I have this issue?</a>'
                         });
                        
