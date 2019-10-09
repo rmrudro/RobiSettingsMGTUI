@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-   
+
 
 
     GetAllOwnershipTransfer();
@@ -10,9 +10,9 @@
             table = document.getElementById('tbl_ownership_TransferList');
             var newTableData = "";
             for (let i = 0; i < act_len; i++) {
-                let tableItem = '<tr id="row' + results[i].id + '"><td class="tr_row tr_rows'+ results[i].id +'" style="text-align:center">' + parseInt(i+1) + '</td>';
+                let tableItem = '<tr id="row' + results[i].id + '"><td class="tr_row tr_rows' + results[i].id + '" style="text-align:center">' + parseInt(i + 1) + '</td>';
                 tableItem = tableItem + `<td class='tr_row' style='text-align:center'>` + results[i].msisdn + `</td>`;
-                tableItem = tableItem + '<td style="text-align:center"><a  onClick="onDelete(' + results[i].id + ')"><img src="/images/Common UI Assets/Icon-16 _Delete.png" style="cursor:pointer" /></a> <a  onClick="onEdit(' + results[i].id + ')"><img src="/images/Common UI Assets/Icon-16.png" style="cursor:pointer;padding-left:15px;" /></a></td> </tr > ';
+                tableItem = tableItem + '<td style="text-align:center"><a  onClick="onDelete(' + results[i].id + ')"><img src="/images/Common UI Assets/Icon-16 _Delete.png" style="cursor:pointer" /></a> <a  onClick="onEdit(' + results[i].id + ',' + results[i].msisdn + ')"><img src="/images/Common UI Assets/Icon-16.png" style="cursor:pointer;padding-left:15px;" /></a></td> </tr > ';
                 newTableData += tableItem;
             }
             $('#tbl_ownership_TransferList').html(newTableData);
@@ -20,12 +20,12 @@
         }).catch(function (error) {
             $('#tbl_Ownership_Transfer').html("<b>Network Error NO Data Found!</b>").css("text-align", "center");
             //Swal.fire({ type: "error", title: error.message.toUpperCase() })
-            });
+        });
 
     }
 
     function LoadPaging() {
-        
+
         $('#tbl_Ownership_Transfer').DataTable({
             "paging": true,
             "searching": false,
@@ -40,7 +40,7 @@
         let txtTranMSISDN = $('.txtOwnTranMSISDN').val();
         //alert(txtTranMSISDN);
         //console.log(txtTranMSISDN);
-        
+
         let ownershipModel = { msisdn: txtTranMSISDN, isactive: 1 };
         axios
             .post(sc_ownership_transfer, ownershipModel, authToken)
@@ -84,12 +84,71 @@
                         type: 'error',
                         title: 'Oops...',
                         text: txtMessageRes,
-                        footer: '<a href>Why do I have this issue?</a>'
+
                     });
 
                 }
             });
     });
+    $("body").on("click", ".btn_own_tran_Update", function (e) {
+        let txtTranMSISDN = $('.txtOwnTranMSISDN').val();
+
+        let ownID = $('.txtownID').val();
+
+        let ownershipModel = { msisdn: txtTranMSISDN, isactive: 1 };
+
+
+        axios
+            .put(sc_ownership_transfer + '/' + ownID, ownershipModel, authToken)
+            .then(function (result) {
+
+                console.log(result);
+                if (result.data.isResult) {
+                    let txtMessageRes = result.data.result.messageEN;
+                    Swal.fire({
+
+                        type: 'success',
+                        title: txtMessageRes,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+
+                    $('.txtOwnTranMSISDN').val('');
+
+                    $('.txtownID').val('');
+
+                    $('.btn_own_tran_Update').hide();
+
+                    $('.btn_own_tran_Add').show();
+
+
+                }
+                else {
+                    let txtMessageRes = result.data.result.messageEN;
+                    Swal.fire({
+
+                        type: 'error',
+                        title: 'Oops...',
+                        text: txtMessageRes,
+
+                    });
+                }
+            });
+    });
+
+    this.onEdit = function (item, msisdn) {
+
+        $('.txtOwnTranMSISDN').val(msisdn);
+
+        $('.txtownID').val(item);
+
+        $('.btn_own_tran_Add').hide();
+
+        $('.btn_own_tran_Update').show();
+
+
+    }
 
     this.onDelete = function (item) {
 

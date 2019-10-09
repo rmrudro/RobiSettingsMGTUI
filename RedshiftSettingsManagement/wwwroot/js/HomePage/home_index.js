@@ -1,8 +1,8 @@
 ﻿$(document).ready(function () {
 
-    var pageURL = $(location).attr("href");
-    pageURL = pageURL.replace('http://localhost:40160/', '');
-    let controllerName = pageURL.substr(0, pageURL.indexOf('/'));
+    //var pageURL = $(location).attr("href");
+    //pageURL = pageURL.replace('http://localhost:40160/', '');
+    //let controllerName = pageURL.substr(0, pageURL.indexOf('/'));
 
     $('.dvhome').css('background-color', 'red');
     $('.imghomeIndex').attr('src', '/images/Shared/HomePageIcon/Home_White.png');

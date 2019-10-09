@@ -11,12 +11,10 @@
             for (let i = 0; i < act_len; i++) {
                 //let tableItem = `<tr ><td class='tr_row'>` + i + `</td>`;
 
-
-
                 let tableItem = '<tr id="row' + results[i].id + '"><td class="tr_row tr_rows' + results[i].id +'" style="text-align:center">' + parseInt(i + 1) + '</td>';
 
                 tableItem = tableItem + `<td class='tr_row' style='text-align:center'>` + results[i].idvalue + `</td>`;
-                tableItem = tableItem + '<td  style="text-align: center"><a  onClick="onDelete(' + results[i].id + ')"><img src="/images/Common UI Assets/Icon-16 _Delete.png" style="cursor:pointer;" /></a> <a  onClick="onEdit(' + results[i].id + ')"><img src="/images/Common UI Assets/Icon-16.png" style="cursor:pointer;padding-left:15px;" /></a> </td> </tr > ';
+                tableItem = tableItem + '<td  style="text-align: center"><a  onClick="onDelete(' + results[i].id + ')"><img src="/images/Common UI Assets/Icon-16 _Delete.png" style="cursor:pointer;" /></a> <a  onClick="onEdit(' + results[i].id + ',' + results[i].idvalue + ')"><img src="/images/Common UI Assets/Icon-16.png" style="cursor:pointer;padding-left:15px;" /></a> </td> </tr > ';
                 newTableData += tableItem;
             }
 
@@ -40,6 +38,60 @@
         });
     }
 
+    this.onEdit = function (id, idValue) {
+
+        $('.txtNID').val(idValue);
+
+        $('.txtActID').val(id);
+
+        $('.btnscActInterv').hide();
+
+        $('.btn_scActInterv_Update').show();
+
+
+    }
+
+    $("body").on("click", ".btn_scActInterv_Update", function (e) {
+        let NID = $('.txtNID').val();
+        let acti_IntervalModel = { idvalue: NID, isactive: 1 };
+        let actId = $('.txtActID').val();
+        axios
+            .put(sc_Activation_Interval + '/' + actId, acti_IntervalModel, authToken)
+            .then(function (result) {
+                if (result.data.isResult) {
+                    let txtMessageRes = result.data.result.messageEN;
+                    Swal.fire({
+                        type: 'success',
+                        title: txtMessageRes,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+                    $('.txtNID').val('');
+
+                    $('.txtActID').val('');
+
+                    $('.btn_scActInterv_Update').hide();
+
+                    $('.btnscActInterv').show();
+
+                    
+
+
+                }
+                else {
+                    let txtMessageRes = result.data.result.messageEN;
+                    Swal.fire({
+
+                        type: 'error',
+                        title: 'Oops...',
+                        text: txtMessageRes,
+
+                    });
+                }
+            });
+
+    });
 
     $("body").on("click", ".btnscActInterv", function (e) {
         //let txtTranMSISDN = $('.txtOwnTranMSISDN').val();

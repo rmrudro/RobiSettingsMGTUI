@@ -19,9 +19,6 @@ $('document').ready(function () {
         location.href = "/home";
     };
 
-
-
-
     function subnavGeneral_sett_Show() {
         $('#imgHome').attr('src', '/images/Shared/Home_White_40.png');
         $("#pchanllenmgt").css("color", "white");
@@ -186,125 +183,125 @@ $('document').ready(function () {
     //console.log(actionName);
     //console.log(controllerName);
     //I have Do The Task
-    if (controllerName == '') {
-        //General Settings
-        $('.hvr_home').hover(function () {
-            $('#imgHome').attr('src', '/images/Shared/Home_40_Red.png');
-            $("#pHome").css("color", "red");
-            $(this).css('background-color', 'white');
-        }, function () {
+    //if (controllerName == '') {
+    //    //General Settings
+    //    $('.hvr_home').hover(function () {
+    //        $('#imgHome').attr('src', '/images/Shared/Home_40_Red.png');
+    //        $("#pHome").css("color", "red");
+    //        $(this).css('background-color', 'white');
+    //    }, function () {
 
-            $('#imgHome').attr('src', '/images/Shared/Home_White_40.png');
-            $("#pHome").css("color", "white");
-            $(this).css('background-color', '#ed1c24');
+    //        $('#imgHome').attr('src', '/images/Shared/Home_White_40.png');
+    //        $("#pHome").css("color", "white");
+    //        $(this).css('background-color', '#ed1c24');
 
-        });
-
-
-        $('.hvr_general_settings').hover(function () {
-
-            $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_General_Management_Red.png');
-            $("#pgeneralsettings").css("color", "red");
-            $(this).css('background-color', 'white');
-
-        }, function () {
-
-            $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_general_Settings_White.png');
-            $("#pgeneralsettings").css("color", "white");
-            $(this).css('background-color', '#ed1c24');
-
-        });
-
-        //channel Mgt
-        $('.hvr_channel_mgt').hover(function () {
-            $('#imgchannelmgt').attr('src', '/images/Shared/Icon_channel_mgt_Red-60.png');
-            $("#pchanllenmgt").css("color", "red");
-            $(this).css('background-color', 'white');
-
-        }, function () {
+    //    });
 
 
-            $('#imgchannelmgt').attr('src', '/images/Shared/Icon-60_chanel_mgt_White.png');
-            $("#pchanllenmgt").css("color", "white");
-            $(this).css('background-color', '#ed1c24');
+    //    $('.hvr_general_settings').hover(function () {
+
+    //        $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_General_Management_Red.png');
+    //        $("#pgeneralsettings").css("color", "red");
+    //        $(this).css('background-color', 'white');
+
+    //    }, function () {
+
+    //        $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_general_Settings_White.png');
+    //        $("#pgeneralsettings").css("color", "white");
+    //        $(this).css('background-color', '#ed1c24');
+
+    //    });
+
+    //    //channel Mgt
+    //    $('.hvr_channel_mgt').hover(function () {
+    //        $('#imgchannelmgt').attr('src', '/images/Shared/Icon_channel_mgt_Red-60.png');
+    //        $("#pchanllenmgt").css("color", "red");
+    //        $(this).css('background-color', 'white');
+
+    //    }, function () {
 
 
-        });
-
-        //Feature MGT
-
-        $('.hvr_feature_mgt').hover(function () {
-            $('#imgfeaturemgt').attr('src', '/images/Shared/Feature_mgt_Red_Icon-60.png');
-            $("#pfeaturemgt").css("color", "red");
-            $(this).css('background-color', 'white');
-
-        }, function () {
+    //        $('#imgchannelmgt').attr('src', '/images/Shared/Icon-60_chanel_mgt_White.png');
+    //        $("#pchanllenmgt").css("color", "white");
+    //        $(this).css('background-color', '#ed1c24');
 
 
-            $('#imgfeaturemgt').attr('src', '/images/Shared/Icon-60_Feature_mgt_White.png');
-            $("#pfeaturemgt").css("color", "white");
-            $(this).css('background-color', '#ed1c24');
+    //    });
 
-        });
+    //    //Feature MGT
 
-        //user mgt
+    //    $('.hvr_feature_mgt').hover(function () {
+    //        $('#imgfeaturemgt').attr('src', '/images/Shared/Feature_mgt_Red_Icon-60.png');
+    //        $("#pfeaturemgt").css("color", "red");
+    //        $(this).css('background-color', 'white');
 
-        $('.hvr_User_mgt').hover(function () {
-
-            $('#imgUserMgt').attr('src', '/images/Shared/Icon_User_Mgt_Red-60.png');
-            $("#puserMgt").css("color", "red");
-            $(this).css('background-color', 'white');
-
-        }, function () {
+    //    }, function () {
 
 
-            $('#imgUserMgt').attr('src', '/images/Shared/Icon-60_user_mgt_white.png');
-            $("#puserMgt").css("color", "white");
-            $(this).css('background-color', '#ed1c24');
+    //        $('#imgfeaturemgt').attr('src', '/images/Shared/Icon-60_Feature_mgt_White.png');
+    //        $("#pfeaturemgt").css("color", "white");
+    //        $(this).css('background-color', '#ed1c24');
 
-        });
+    //    });
 
-        //Error Handeling
+    //    //user mgt
 
-        $('.hvr_Err_Hndle').hover(function () {
+    //    $('.hvr_User_mgt').hover(function () {
 
-            $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_Red-60.png');
-            $("#pErrHndle").css("color", "red");
-            $(this).css('background-color', 'white');
+    //        $('#imgUserMgt').attr('src', '/images/Shared/Icon_User_Mgt_Red-60.png');
+    //        $("#puserMgt").css("color", "red");
+    //        $(this).css('background-color', 'white');
 
-        }, function () {
-
-
-
-            $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_White-60.png');
-            $("#pErrHndle").css("color", "white");
-            $(this).css('background-color', '#ed1c24');
+    //    }, function () {
 
 
-        });
+    //        $('#imgUserMgt').attr('src', '/images/Shared/Icon-60_user_mgt_white.png');
+    //        $("#puserMgt").css("color", "white");
+    //        $(this).css('background-color', '#ed1c24');
+
+    //    });
+
+    //    //Error Handeling
+
+    //    $('.hvr_Err_Hndle').hover(function () {
+
+    //        $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_Red-60.png');
+    //        $("#pErrHndle").css("color", "red");
+    //        $(this).css('background-color', 'white');
+
+    //    }, function () {
 
 
-        $('.hvr_Reports').hover(function () {
 
-            $('#img_Reports').attr('src', '/images/Shared/Reports_Red_Icon-60.png');
-            $("#pReports").css("color", "red");
-            $(this).css('background-color', 'white');
-
-
-        }, function () {
+    //        $('#img_Err_Hndle').attr('src', '/images/Shared/Icon_Err_Hndle_White-60.png');
+    //        $("#pErrHndle").css("color", "white");
+    //        $(this).css('background-color', '#ed1c24');
 
 
-            $('#img_Reports').attr('src', '/images/Shared/Reports_White_Icon-60.png');
-            $("#pReports").css("color", "white");
-            $(this).css('background-color', '#ed1c24');
+    //    });
 
 
-        });
+    //    $('.hvr_Reports').hover(function () {
+
+    //        $('#img_Reports').attr('src', '/images/Shared/Reports_Red_Icon-60.png');
+    //        $("#pReports").css("color", "red");
+    //        $(this).css('background-color', 'white');
 
 
-    }
+    //    }, function () {
 
-    else {
+
+    //        $('#img_Reports').attr('src', '/images/Shared/Reports_White_Icon-60.png');
+    //        $("#pReports").css("color", "white");
+    //        $(this).css('background-color', '#ed1c24');
+
+
+    //    });
+
+
+    //}
+
+    //else {
 
         if (controllerName == 'home') {
 
@@ -313,20 +310,33 @@ $('document').ready(function () {
             $('.hvr_home').css('background-color', 'white');
 
 
+            
+            $('.hvr_general_settings').hover(function () {
+
+                $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_General_Management_Red.png');
+                $("#pgeneralsettings").css("color", "red");
+                $(this).css('background-color', 'white');
+
+            }, function () {
+
+                $('#imgGeneralSettings').attr('src', '/images/Shared/Icon-60_general_Settings_White.png');
+                $("#pgeneralsettings").css("color", "white");
+                $(this).css('background-color', '#ed1c24');
+
+                });
+
+
             $('.hvr_Reports').hover(function () {
 
                 $('#img_Reports').attr('src', '/images/Shared/Reports_Red_Icon-60.png');
                 $("#pReports").css("color", "red");
                 $(this).css('background-color', 'white');
 
-
             }, function () {
-
 
                 $('#img_Reports').attr('src', '/images/Shared/Reports_White_Icon-60.png');
                 $("#pReports").css("color", "white");
                 $(this).css('background-color', '#ed1c24');
-
 
             });
 
@@ -371,6 +381,7 @@ $('document').ready(function () {
                 $('.btnFTR').css("color", "black");
             }
         }
+
         else if (controllerName == 'ChannelManagement') {
             $('#imgchannelmgt').attr('src', '/images/Shared/Icon_channel_mgt_Red-60.png');
             $("#pchanllenmgt").css("color", "red");
@@ -815,8 +826,8 @@ $('document').ready(function () {
         });
 
 
-    }
-    let value = 1;
+    //}
+    //let value = 1;
 
 
 });

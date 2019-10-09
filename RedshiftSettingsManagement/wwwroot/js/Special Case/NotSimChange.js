@@ -11,11 +11,9 @@
 
                 let tableItem = '<tr id="row' + results[i].id + '"><td class="tr_row tr_rows' + results[i].id +'" style="text-align:center">' + parseInt(i + 1) + '</td>';
 
-
-                //let tableItem = '<tr id="row' + results[i].id + '"><td class="tr_row" style="text-align:center">' + i + '</td>';
                 tableItem = tableItem + `<td class='tr_row' style='text-align:center'>` + results[i].msisdn + `</td>`;
                 tableItem = tableItem + `<td class='tr_row' style='text-align:center'>` + results[i].simserialoriccid+`</td>`
-                tableItem = tableItem + '<td  style="text-align:center;cursor:pointer;"><a  onClick="onDelete(\'' + results[i].id +  '\')"><img src="/images/Common UI Assets/Icon-16 _Delete.png" /></a> <a  onClick="onEdit("' + results[i].id + '")"><img src="/images/Common UI Assets/Icon-16.png" /></a> </td> </tr > ';
+                tableItem = tableItem + '<td  style="text-align:center;cursor:pointer;"><a  onClick="onDelete(\'' + results[i].id + '\')"><img src="/images/Common UI Assets/Icon-16 _Delete.png" /></a> <a  onClick="onEdit(\'' + results[i].id + '\'","' + results[i].msisdn + '","' + results[i].simserialoriccid + '")"><img src="/images/Common UI Assets/Icon-16.png" /></a> </td> </tr > ';
                 newTableData += tableItem;
 
                 
@@ -31,6 +29,17 @@
         });
     }
 
+    this.onEdit = function (id, msisdn, simserialoriccid) {
+
+        $('.txtMSISDN').val(msisdn);
+
+
+        $('.txtsimSerialID').val(simserialoriccid);
+
+        $('.txtNotSimChangeID').val(id);
+
+    }
+
     function LoadPaging() {
 
         $('#tbl_DoNotSimChange').DataTable({
@@ -42,6 +51,8 @@
 
         });
     }
+
+    
 
     $("body").on("click", ".btnSave", function (e) {
 
